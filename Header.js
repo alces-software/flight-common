@@ -1,14 +1,14 @@
 import React from 'react';
 import {Component, PropTypes} from 'react';
 import { Nav, Navbar, NavDropdown, MenuItem } from 'react-bootstrap';
-import { Link } from 'redux-tiny-router';
+import { Link } from 'react-router';
 
 import { ButtonLink } from './ButtonLink';
 
 class Header extends Component {
   render() {
     return (
-      <Navbar brand={<Link path="/">Alces Flight</Link>} inverse collapse fixedTop >
+      <Navbar brand={<Link to="/">Alces Flight</Link>} inverse collapse fixedTop>
         <Nav right>
           { this.props.account ? this.accountNav() : this.annoymousNav() }
         </Nav>
@@ -29,7 +29,7 @@ class Header extends Component {
   annoymousNav() {
     return (
       <form className="navbar-form" role="search">
-        <ButtonLink path="/sign-in" bsStyle="success" type="submit">Sign in</ButtonLink>
+        <ButtonLink to="/sign-in" bsStyle="success" type="submit">Sign in</ButtonLink>
       </form>
     )
   }
