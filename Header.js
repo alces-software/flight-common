@@ -1,11 +1,10 @@
 import React from 'react';
-import {Component, PropTypes} from 'react';
 import { Nav, Navbar, NavDropdown, MenuItem } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 import { ButtonLink } from './ButtonLink';
 
-class Header extends Component {
+class Header extends React.Component {
   render() {
     return (
       <Navbar brand={<Link to="/">Alces Flight</Link>} inverse collapse fixedTop>
