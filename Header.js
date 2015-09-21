@@ -1,5 +1,7 @@
 import React from 'react';
-import { Nav, Navbar, NavDropdown, MenuItem } from 'react-bootstrap';
+import {
+  ButtonToolbar, Nav, Navbar, NavDropdown, MenuItem 
+} from 'react-bootstrap';
 import { Link } from 'react-router';
 
 import { ButtonLink } from './ButtonLink';
@@ -27,9 +29,14 @@ class Header extends React.Component {
 
   annoymousNav() {
     return (
-      <form className="navbar-form" role="search">
-        <ButtonLink to="/sign-in" bsStyle="success" type="submit">Sign in</ButtonLink>
-      </form>
+      <div>
+        <form className="navbar-form" role="search">
+          <ButtonToolbar>
+            <ButtonLink to="/sign-up" bsStyle="success" type="submit">Sign up</ButtonLink>
+            <ButtonLink to="/sign-in" bsStyle="success" type="submit">Sign in</ButtonLink>
+          </ButtonToolbar>
+        </form>
+      </div>
     )
   }
 }
