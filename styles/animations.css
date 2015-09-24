@@ -1,9 +1,13 @@
 .pageContainer {
-  position: absolute;
+    padding-bottom: 60px;
+}
+
+.page {
   width: 100%;
 }
 
 .fade-in-out-enter {
+  position: absolute;
   opacity: 0.01;
   transition: opacity .3s ease-in;
 }
@@ -13,6 +17,7 @@
 }
 
 .fade-in-out-leave {
+  position: absolute;
   opacity: 1;
   transition: opacity .3s ease-in;
 }
