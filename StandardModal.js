@@ -3,11 +3,11 @@ import { Button, Modal } from 'react-bootstrap';
 
 class StandardModal extends React.Component {
   render() {
-    const { title, children, show, onHide } = this.props;
+    const { bsSize, title, children, show, onHide } = this.props;
 
     return (
       <div>
-        <Modal show={show} onHide={onHide}>
+        <Modal show={show} onHide={onHide} bsSize={bsSize}>
           <Modal.Header closeButton>
             <Modal.Title>{title}</Modal.Title>
           </Modal.Header>
