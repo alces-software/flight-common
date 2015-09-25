@@ -5,10 +5,9 @@ require('../styles/glyphicon-spin.css');
 
 class StatefulButton extends React.Component {
   render() {
-    const { submitting } = this.props;
-    const disabled = submitting;
+    const { disabled, submitting } = this.props;
 
-    return <Button bsStyle="success" {...this.props} disabled={disabled}>
+    return <Button bsStyle="success" {...this.props} disabled={disabled || submitting}>
       {this.renderContent(submitting)}
     </Button>
   }
