@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 
-require('../styles/glyphicon-spin.css');
+require('styles/glyphicon-spin.css');
 
 class StatefulButton extends React.Component {
   render() {
