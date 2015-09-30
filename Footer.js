@@ -1,10 +1,8 @@
 import React from 'react';
-import {Component, PropTypes} from 'react';
-import { Button, Input, Nav, Navbar, NavItem } from 'react-bootstrap';
 
-require('../styles/footer.css');
+require('styles/footer.css');
 
-class Footer extends Component {
+class Footer extends React.Component {
   render() {
     return (
         <footer>
@@ -15,8 +13,5 @@ class Footer extends Component {
     )
   }
 }
-
-Footer.propTypes = {
-};
 
 export default Footer;
