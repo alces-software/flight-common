@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button, Glyphicon } from 'react-bootstrap';
-
-require('styles/glyphicon-spin.css');
+import { Button } from 'react-bootstrap';
+import {default as Icon} from 'react-fontawesome';
 
 class StatefulButton extends React.Component {
   render() {
@@ -16,13 +15,11 @@ class StatefulButton extends React.Component {
     let content;
     if (submitting) {
       const text = this.props.submittingText || "Submitting...";
-      content = <span>{text}&nbsp;
-        <Glyphicon glyph='refresh' className="glyphicon-spin"/>
-      </span>
+      content = <span>{text}&nbsp;<Icon name='spinner' spin/></span>
     } else {
       content = this.props.children;
     }
-    let icon = this.props.icon ? <Glyphicon glyph={this.props.icon}/> : '';
+    let icon = this.props.icon ? <Icon name={this.props.icon}/> : '';
     return <span>{icon}&nbsp;{content}</span>;
   }
 }
