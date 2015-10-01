@@ -4,6 +4,13 @@
     position: relative;
     left: -1rem;
     display: inline-block;
+
+    .fa {
+        vertical-align: middle;
+        display: inline-block;
+
+        // top: 3px;
+    }
 }
 
 .error-check--good {
@@ -15,8 +22,4 @@
 }
 
 .error-check--checking {
-}
-
-.error-check .glyphicon {
-    top: 3px;
 }
