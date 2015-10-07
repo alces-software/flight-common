@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  ButtonToolbar, Nav, Navbar, NavDropdown, MenuItem 
+  ButtonToolbar, Nav, Navbar, NavBrand, NavDropdown, MenuItem 
 } from 'react-bootstrap';
 import { Link } from 'react-router';
 
@@ -9,7 +9,8 @@ import { ButtonLink } from './ButtonLink';
 class Header extends React.Component {
   render() {
     return (
-      <Navbar brand={<Link to="/">Alces Flight</Link>} inverse collapse fixedTop>
+      <Navbar inverse collapse fixedTop>
+        <NavBrand><Link to="/">Alces Flight</Link></NavBrand>
         <Nav right>
           { this.props.account ? this.accountNav() : this.annoymousNav() }
         </Nav>
