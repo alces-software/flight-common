@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  ButtonToolbar, Navbar, NavDropdown, MenuItem 
+  ButtonToolbar, Nav, Navbar, NavDropdown, MenuItem
 } from 'react-bootstrap';
 import { Link } from 'react-router';
 
@@ -10,9 +10,9 @@ class Header extends React.Component {
   render() {
     return (
       <Navbar brand={<Link to="/">Alces Flight</Link>} inverse fixedTop>
-        <ul className="nav navbar-nav navbar-right">
-        { this.props.account ? this.accountNav() : this.annoymousNav() }
-      </ul>
+        <Nav right>
+          { this.props.account ? this.accountNav() : this.annoymousNav() }
+        </Nav>
       </Navbar> 
     )
   }
