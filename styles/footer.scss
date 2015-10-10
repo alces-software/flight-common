@@ -1,0 +1,35 @@
+/* *************************************
+ *
+ *   Sticky Footer
+ *
+ * *************************************/
+
+@import "./core/settings";
+@import "./core/helpers";
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    position: relative;
+    min-height: 100%;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $l-footer-height;
+    background: $c-primary-background;
+    font-family: $c-plain-fontFamily;
+    font-weight: bold;
+    font-size: rem($c-footer-fontSize);
+    // line-height: rem($l-footer-height);
+    text-align: center;
+    color: $c-fg-color--light;
+    z-index: $l-footer-zIndex;
+}
+
+footer p {
+  margin: 8px 0;
+}

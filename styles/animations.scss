@@ -1,5 +1,7 @@
+@import "./core/settings";
+
 .pageContainer {
-    padding-bottom: 60px;
+    padding-bottom: $l-footer-height;
 }
 
 .page {
