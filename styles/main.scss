@@ -28,4 +28,8 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 
 @import "./contrib/boilerplate/helpers";
 
+/* Core application styles */
+@import "./flight";
+@import "./nav/flightNav";
+
 @import "./animations";
