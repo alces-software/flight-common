@@ -12,6 +12,9 @@ class Footer extends React.Component {
             <span>
               <Link to="/terms">Terms of Service</Link>
             </span>
+            <span>
+              <Link to="/privacy">Privacy Policy</Link>
+            </span>
           </div>
         </footer>
     )
