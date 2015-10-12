@@ -10,7 +10,7 @@ import { ButtonLink, NavItemLink } from './Links';
 class Header extends React.Component {
   render() {
     return (
-      <Navbar brand={<Link to="/">Alces Flight</Link>} inverse fixedTop>
+      <Navbar brand={<Link to="/">Alces Flight</Link>} className="flightNav" fixedTop>
         <Nav>
           <NavItemLink to="/start">
             <Icon name="home"/> Start
