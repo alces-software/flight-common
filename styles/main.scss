@@ -32,4 +32,11 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 @import "./flight";
 @import "./nav/flightNav";
 
+/* XXX Consider whether these should be required by their components. They
+ * need access to the SASS context (helpers, basic settings, bootstrap
+ * settings, others?) to be compiled.
+ */
+@import "./footer";
+@import "./homePage";
+
 @import "./animations";
