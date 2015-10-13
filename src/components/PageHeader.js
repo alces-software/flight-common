@@ -7,7 +7,7 @@ class PageHeader extends React.Component {
     const { header, subheader } = this.props;
 
     return (
-        <Jumbotron>
+        <Jumbotron className="pageHeader">
           <div className="container">
             <h1>{header} <small>{subheader}</small></h1>
             {this.wrappedChildren()}
