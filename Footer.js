@@ -4,18 +4,25 @@ import { Link } from 'react-router';
 class Footer extends React.Component {
   render() {
     return (
-        <footer>
-          <div className="container footer-text">
-            <span className="text-muted">Alces Flight &copy; 2015 Alces Software Ltd</span>
-            <span>
-              <Link to="/terms">Terms of Service</Link>
-            </span>
-            <span>
-              <Link to="/privacy">Privacy Policy</Link>
-            </span>
-          </div>
-        </footer>
+      <footer>
+        <div className="container footer-text">
+          Alces Flight <span className="flightFooter-copyright">&copy;</span> 2015&nbsp;
+          <a className="flightFooter-us" href="http://www.alces-software.com">
+            Alces&nbsp;Software&nbsp;Ltd
+          </a>
+          {this.separatorBar()}
+          <Link to="/privacy" className="flightFooter-link">Privacy Policy</Link>
+          {this.separatorBar()}
+          <Link to="/terms" className="flightFooter-link">Terms of Service</Link>
+        </div>
+      </footer>
     )
+  }
+
+  separatorBar() {
+    return (
+      <span className="flightFooter-bar" />
+    );
   }
 }
 
