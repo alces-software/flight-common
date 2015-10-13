@@ -5,16 +5,14 @@ class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <div className="container footer-text">
-          Alces Flight <span className="flightFooter-copyright">&copy;</span> 2015&nbsp;
-          <a className="flightFooter-us" href="http://www.alces-software.com">
-            Alces&nbsp;Software&nbsp;Ltd
-          </a>
-          {this.separatorBar()}
-          <Link to="/privacy" className="flightFooter-link">Privacy Policy</Link>
-          {this.separatorBar()}
-          <Link to="/terms" className="flightFooter-link">Terms of Service</Link>
-        </div>
+        Alces Flight <span className="flightFooter-copyright">&copy;</span> 2015&nbsp;
+        <a className="flightFooter-us" href="http://www.alces-software.com">
+          Alces&nbsp;Software&nbsp;Ltd
+        </a>
+        {this.separatorBar()}
+        <Link to="/privacy" className="flightFooter-link">Privacy Policy</Link>
+        {this.separatorBar()}
+        <Link to="/terms" className="flightFooter-link">Terms of Service</Link>
       </footer>
     )
   }
