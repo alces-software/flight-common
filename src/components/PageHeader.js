@@ -4,29 +4,33 @@ import { Jumbotron } from 'react-bootstrap';
 
 class PageHeader extends React.Component {
   render() {
-    const { header, subheader, children } = this.props;
+    const { header, subheader } = this.props;
 
     return (
         <Jumbotron>
           <div className="container">
             <h1>{header} <small>{subheader}</small></h1>
-            <p>{children}</p>
+            {this.wrappedChildren()}
           </div>
         </Jumbotron>
     )
   }
+
+  wrappedChildren() {
+    const { children } = this.props;
+
+    if (React.isValidElement(children)) {
+      return children;
+    } else {
+      return <p>{children}</p>;
+    }
+  }
 }
 
 PageHeader.propTypes = {
-  header: React.PropTypes.oneOfType([
-    React.PropTypes.element,
-    React.PropTypes.string,
-  ]).isRequired,
-
-  subheader: React.PropTypes.oneOfType([
-    React.PropTypes.element,
-    React.PropTypes.string,
-  ]),
+  header: React.PropTypes.node.isRequired,
+  subheader: React.PropTypes.node,
+  children: React.PropTypes.node.isRequired,
 };
 
 export default PageHeader;
