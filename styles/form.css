@@ -1,3 +1,7 @@
 .form-group .help-block {
     width: 66%;
 }
+
+.input-label {
+    margin-left: 5px;
+}
