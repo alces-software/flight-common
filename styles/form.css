@@ -5,3 +5,12 @@
 .input-label {
     margin-left: 5px;
 }
+
+.pagedForm.pagedForm-form {
+    margin-bottom: 0;
+    position: relative;
+}
+
+.pagedForm.pagedForm-panel {
+    width: 100%;
+}
