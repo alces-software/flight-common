@@ -13,6 +13,7 @@
 $popover-border-color: rgba(0,0,0,.2) !default;
 $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 @import "bootstrap/bootstrap";
+@import "font-awesome/font-awesome";
 
 /* ----- Helpers ----- */
 @import "./core/helpers";
