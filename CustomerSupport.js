@@ -1,9 +1,18 @@
 import React from 'react';
 
-export default class CustomerSupport extends React.Component {
+export class CustomerSupportLink extends React.Component {
   render() {
     return (
       <a href='mailto: support@alces-software.com'>Alces Customer Support</a>
     );
+  }
+}
+
+export class ContactCustomerSupport extends React.Component {
+  render() {
+    return (
+      <span>If this error continues to occur please contact
+        the <CustomerSupportLink/> team.</span>
+    )
   }
 }
