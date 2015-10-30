@@ -30,7 +30,7 @@ class PageHeader extends React.Component {
 PageHeader.propTypes = {
   header: React.PropTypes.node.isRequired,
   subheader: React.PropTypes.node,
-  children: React.PropTypes.node.isRequired,
+  children: React.PropTypes.node.isRequired
 };
 
 export default PageHeader;
