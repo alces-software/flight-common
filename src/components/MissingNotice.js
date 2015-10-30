@@ -30,5 +30,5 @@ export default class MissingNotice extends React.Component {
 
 MissingNotice.propTypes = {
   title: React.PropTypes.node.isRequired,
-  children: React.PropTypes.node.isRequired,
+  children: React.PropTypes.node.isRequired
 };
