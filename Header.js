@@ -51,7 +51,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   account: React.PropTypes.object,
-  doSignOut: React.PropTypes.func.isRequired,
+  doSignOut: React.PropTypes.func.isRequired
 };
 
 export default Header;
