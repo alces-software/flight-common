@@ -1,21 +1,47 @@
 import * as types from './actionTypes';
 
 const initialState = {
-  // A possible error message to show in a modal.
-  error: undefined,
-  // A possible informational message to show in a modal.
-  message: undefined,
+  // A FIFO of messages to show in a modal dialog.
+  modalMessages: [],
   showingModal: false
+}
+
+function addModalMessage(messageType) {
+  return (state, action) => {
+    const newMessage = {
+      ...action.payload,
+      messageType: messageType,
+    };
+    return {
+      ...state,
+      modalMessages: [ ...state.modalMessages, newMessage ],
+      showingModal: true
+    };
+  }
+}
+
+const addError = addModalMessage("error");
+const addInformational = addModalMessage("info");
+
+function closeModal(state) {
+  const newMessages = [...state.modalMessages];
+  newMessages.shift();
+
+  return {
+    ...state,
+    modalMessages: newMessages,
+    showingModal: newMessages.length > 0
+  }
 }
 
 export default function reducer(state=initialState, action) {
   switch (action.type) {
-    case types.ADD_ERROR:
-      return { ...state, error: action.payload, showingModal: true };
-    case types.ADD_MESSAGE:
-      return { ...state, message: action.payload, showingModal: true };
+    case types.ADD_ERROR_MODAL:
+      return addError(state, action);
+    case types.ADD_INFO_MODAL:
+      return addInformational(state, action);
     case types.CLOSE_MODAL:
-      return { ...state, showingModal: false }
+      return closeModal(state);
     default:
       return state;
   }

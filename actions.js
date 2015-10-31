@@ -1,8 +1,8 @@
 import * as types from './actionTypes';
 
-export function addError(action, response) {
+export function displayErrorModal(action, response) {
   return {
-    type: types.ADD_ERROR,
+    type: types.ADD_ERROR_MODAL,
     payload: { action: action, response: response }
   }
 }
@@ -13,9 +13,9 @@ export function closeModal() {
   }
 }
 
-export function displayModal(message) {
+export function displayInfoModal(message) {
   return {
-    type: types.ADD_MESSAGE,
+    type: types.ADD_INFO_MODAL,
     payload: message
   }
 }

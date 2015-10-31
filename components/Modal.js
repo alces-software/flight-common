@@ -5,14 +5,12 @@ import generateErrorMessage from 'notification/errorMessageGeneration';
 
 export default class Modal extends React.Component {
   render() {
-    let message;
+    let message = this.props.message;
 
-    if (this.props.error) {
-      message = generateErrorMessage(this.props.error);
-    } else if (this.props.message) {
-      message = this.props.message;
-    } else {
+    if (message === undefined) {
       message = {title: undefined, content: undefined};
+    } else if (message.messageType === "error") {
+      message = generateErrorMessage(message);
     }
 
     return (
