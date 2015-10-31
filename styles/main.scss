@@ -40,6 +40,7 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 
 /* UI components */
 @import "./flightPanel";
+@import "./form";
 
 /* XXX Consider whether these should be required by their components. They
  * need access to the SASS context (helpers, basic settings, bootstrap
