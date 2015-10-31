@@ -1,14 +1,22 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, styleMaps } from 'react-bootstrap';
 import {default as Icon} from 'react-fontawesome';
+
+styleMaps.addStyle("sideEffect");
 
 class StatefulButton extends React.Component {
   render() {
     const { disabled, submitting } = this.props;
 
-    return <Button bsStyle="success" {...this.props} disabled={disabled || submitting}>
-      {this.renderContent(submitting)}
-    </Button>
+    return (
+      <Button
+        bsStyle="success"
+        {...this.props}
+        disabled={disabled || submitting}
+        >
+        {this.renderContent(submitting)}
+      </Button>
+    )
   }
 
   renderContent(submitting) {
