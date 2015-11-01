@@ -8,14 +8,14 @@ import * as registrationActionTypes from 'registration/actionTypes';
 
 import Console from "utils/console";
 
-import ErrorMessageGeneratorsMap from "./ErrorMessageGeneratorsMap";
-import ErrorMessageGenerator from "./ErrorMessageGenerator";
+import MessageGeneratorsMap from "./MessageGeneratorsMap";
+import MessageGenerator from "./MessageGenerator";
 
 import {ContactCustomerSupport} from 'components/CustomerSupport';
 
-const generatorsMap = new ErrorMessageGeneratorsMap();
+const generatorsMap = new MessageGeneratorsMap();
 
-const unexpectedErrorMessageGenerator = new ErrorMessageGenerator(
+const unexpectedErrorMessageGenerator = new MessageGenerator(
   'Unexpected error',
   <div>
     An unexpected error occurred while attempting to complete your
@@ -27,7 +27,7 @@ const unexpectedErrorMessageGenerator = new ErrorMessageGenerator(
 // Add default error message generators to the generators map.
 //
 function setupDefaultErrorMessageGenerators() {
-  const serverUnavailableErrorMessageGenerator = new ErrorMessageGenerator(
+  const serverUnavailableErrorMessageGenerator = new MessageGenerator(
     'Unable to communicate with server',
     <div>
       Flight was unable to complete your action as it was unable to
@@ -36,17 +36,17 @@ function setupDefaultErrorMessageGenerators() {
     </div>
   );
 
-  const unauthorizedErrorMessageGenerator = new ErrorMessageGenerator(
+  const unauthorizedErrorMessageGenerator = new MessageGenerator(
     'Unauthorized',
     'You are not authorized to perform this action.'
   );
 
-  const unprocessableEntityErrorMessageGenerator = new ErrorMessageGenerator(
+  const unprocessableEntityErrorMessageGenerator = new MessageGenerator(
     'Action failed',
     `It was not possible to complete the action. ${correctErrorsText()}`
   );
 
-  const serverErrorMessageGenerator = new ErrorMessageGenerator(
+  const serverErrorMessageGenerator = new MessageGenerator(
     'Unexpected error',
     <div>
       The Flight web server errored while attempting to complete your
@@ -55,10 +55,10 @@ function setupDefaultErrorMessageGenerators() {
   );
 
   generatorsMap.
-    addGeneratorForStatus(0,   serverUnavailableErrorMessageGenerator).
-    addGeneratorForStatus(401, unauthorizedErrorMessageGenerator).
-    addGeneratorForStatus(422, unprocessableEntityErrorMessageGenerator).
-    addGeneratorForStatus(500, serverErrorMessageGenerator).
+    addGeneratorForCode(0,   serverUnavailableErrorMessageGenerator).
+    addGeneratorForCode(401, unauthorizedErrorMessageGenerator).
+    addGeneratorForCode(422, unprocessableEntityErrorMessageGenerator).
+    addGeneratorForCode(500, serverErrorMessageGenerator).
     addUnexpectedGenerator(unexpectedErrorMessageGenerator);
 }
 
@@ -71,13 +71,13 @@ function setupDefaultErrorMessageGenerators() {
 //
 function addActionTypeCustomizations() {
   generatorsMap.
-    customizeErrorMessage(
+    customizeMessage(
       "unexpected",
       clusterActionTypes.START_FROM_TEMPLATE,
       {title: "Unable to launch cluster"}
     ).
 
-    customizeErrorMessage(
+    customizeMessage(
       "unexpected",
       authActionTypes.RETRIEVE_SESSION,
       {
@@ -89,7 +89,7 @@ function addActionTypeCustomizations() {
       }
     ).
 
-    customizeErrorMessage(
+    customizeMessage(
       401,
       authActionTypes.SIGN_IN,
       {
@@ -98,7 +98,7 @@ function addActionTypeCustomizations() {
       }
     ).
 
-    customizeErrorMessage(
+    customizeMessage(
       422,
       registrationActionTypes.REGISTER,
       {
@@ -109,18 +109,19 @@ function addActionTypeCustomizations() {
       }
     ).
 
-    customizeErrorMessage(
+    customizeMessage(
       422,
       clusterComponentActionTypes.CREATE,
       {
         title: 'Cluster component creation failed',
         content: <div>
-          It was not possible to create your cluster component. {correctErrorsText()}
+          It was not possible to create your cluster component.
+          {correctErrorsText()}
         </div>
       }
     ).
 
-    customizeErrorMessage(
+    customizeMessage(
       422,
       environmentActionTypes.CREATE,
       {
@@ -155,9 +156,9 @@ export default function generateErrorMessage(rawError) {
   const error = parseError(rawError);
 
   let message;
-  let messageGenerator = generatorsMap.getGeneratorForStatus(error.status);
+  let messageGenerator = generatorsMap.getGeneratorForCode(error.status);
   if (messageGenerator !== undefined) {
-    message = messageGenerator.generateMessage(error);
+    message = messageGenerator.generateMessage(error, error.actionType);
   }
 
   if (message && message.title && message.content) {
@@ -165,7 +166,8 @@ export default function generateErrorMessage(rawError) {
   }
   else {
     Console.warn("No or invalid message defined for error:", rawError);
-    return unexpectedErrorMessageGenerator.generateMessage(error);
+    return unexpectedErrorMessageGenerator.
+      generateMessage(error, error.actionType);
   }
 }
 
@@ -174,7 +176,6 @@ export default function generateErrorMessage(rawError) {
 function parseError(rawError) {
   return {
     status: rawError.response.status,
-    statusText: rawError.response.statusText,
     actionType: rawError.action.type
   }
 }
