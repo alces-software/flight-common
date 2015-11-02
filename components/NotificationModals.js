@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-import Modal from './Modal';
+import Modal from './NotificationModal';
 
 //
 // Wrapper around NotificationModal to enable smooth transitions when we are

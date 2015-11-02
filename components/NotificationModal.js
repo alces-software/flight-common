@@ -1,7 +1,7 @@
 import React from 'react';
 
 import StandardModal from 'components/StandardModal';
-import generateErrorMessage from 'notification/errorMessageGeneration';
+import {generateErrorMessage} from 'notification/messageGeneration';
 
 export default class NotificationModal extends React.Component {
   render() {
