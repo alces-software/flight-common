@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 import StandardModal from 'components/StandardModal';
-import {generateErrorMessage} from 'notification/messageGeneration';
+import {
+  generateErrorMessage, generateInformationMessage
+} from 'notification/messageGeneration';
 
 export default class NotificationModal extends React.Component {
   render() {
@@ -11,6 +13,8 @@ export default class NotificationModal extends React.Component {
       message = {title: undefined, content: undefined, messageId: "undefined"};
     } else if (message.messageType === "error") {
       message = generateErrorMessage(message);
+    } else {
+      message = generateInformationMessage(message);
     }
 
     return (
@@ -23,4 +27,13 @@ export default class NotificationModal extends React.Component {
       </StandardModal>
     )
   }
+}
+
+const messageShape = {
+  title: PropTypes.string,
+  content: PropTypes.string
+};
+
+NotificationModal.propTypes = {
+  message: PropTypes.shape(messageShape).isRequired
 }

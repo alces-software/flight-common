@@ -51,8 +51,27 @@ export function generateErrorMessage(rawError) {
 // created in the payload of the addError action.
 function parseError(rawError) {
   return {
-    status: rawError.response.status,
-    actionType: rawError.action.type
+    status: rawError.messagePayload.response.status,
+    actionType: rawError.messagePayload.action.type
   }
 }
 
+
+export const infoGeneratorsMap = new MessageGeneratorsMap();
+
+export function generateInformationMessage(message) {
+  const messageCode = message.messagePayload;
+  let generatedMessage;
+  let messageGenerator = infoGeneratorsMap.getGeneratorForCode(messageCode);
+  if (messageGenerator !== undefined) {
+    generatedMessage = messageGenerator.generateMessage(messageCode);
+  }
+
+  if (generatedMessage && generatedMessage.title && generatedMessage.content) {
+    return generatedMessage;
+  }
+  else {
+    Console.warn("No or invalid message defined for:", message);
+    return {title: undefined, message: undefined};
+  }
+}

@@ -19,7 +19,7 @@ const initialState = {
 function addModalMessage(messageType) {
   return (state, action) => {
     const newMessage = {
-      ...action.payload,
+      messagePayload: action.payload,
       messageType: messageType,
       messageId: nextMessageId()
     };
