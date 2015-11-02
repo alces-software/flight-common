@@ -3,12 +3,12 @@ import React from 'react';
 import StandardModal from 'components/StandardModal';
 import generateErrorMessage from 'notification/errorMessageGeneration';
 
-export default class Modal extends React.Component {
+export default class NotificationModal extends React.Component {
   render() {
     let message = this.props.message;
 
     if (message === undefined) {
-      message = {title: undefined, content: undefined};
+      message = {title: undefined, content: undefined, messageId: "undefined"};
     } else if (message.messageType === "error") {
       message = generateErrorMessage(message);
     }

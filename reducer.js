@@ -1,9 +1,19 @@
 import * as types from './actionTypes';
 
+let messageId = 0;
+function nextMessageId() {
+  messageId = messageId + 1;
+  return messageId;
+}
+
 const initialState = {
   // A FIFO of messages to show in a modal dialog.
   modalMessages: [],
-  showingModal: false
+  // The modal currently being shown
+  currentModal: undefined,
+  // The modal that is being animated out.
+  exitingModal: undefined,
+  showingCurrentModal: false
 }
 
 function addModalMessage(messageType) {
@@ -11,11 +21,19 @@ function addModalMessage(messageType) {
     const newMessage = {
       ...action.payload,
       messageType: messageType,
+      messageId: nextMessageId()
     };
+
+    let currentModal = state.currentModal;
+    if (currentModal === undefined) {
+      currentModal = newMessage;
+    }
+
     return {
       ...state,
       modalMessages: [ ...state.modalMessages, newMessage ],
-      showingModal: true
+      currentModal: currentModal,
+      showingCurrentModal: true
     };
   }
 }
@@ -27,10 +45,15 @@ function closeModal(state) {
   const newMessages = [...state.modalMessages];
   newMessages.shift();
 
+  const exitingModal = state.currentModal;
+  const currentModal = newMessages[0];
+
   return {
     ...state,
     modalMessages: newMessages,
-    showingModal: newMessages.length > 0
+    currentModal: currentModal,
+    exitingModal: exitingModal,
+    showingCurrentModal: newMessages.length > 0
   }
 }
 
