@@ -33,7 +33,13 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 
 /* Core application styles */
 @import "./flight";
+@import './flightHeaders';
+
+/* Navigation */
 @import "./nav/flightNav";
+
+/* UI components */
+@import "./flightPanel";
 
 /* XXX Consider whether these should be required by their components. They
  * need access to the SASS context (helpers, basic settings, bootstrap
