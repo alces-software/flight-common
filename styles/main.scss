@@ -34,6 +34,7 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 /* Core application styles */
 @import "./flight";
 @import './flightHeaders';
+@import './flightTasks';
 
 /* Navigation */
 @import "./nav/flightNav";
@@ -49,5 +50,6 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 @import "./pageHeader";
 @import "./footer";
 @import "./homePage";
+@import "./connectPage";
 
 @import "./animations";
