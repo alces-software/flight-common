@@ -13,19 +13,34 @@ class Header extends React.Component {
       <Navbar brand={<Link to="/">Alces Flight</Link>} className="flightNav" fixedTop toggleNavKey={0}>
         <CollapsibleNav eventKey={0}>
           <Nav navbar>
-            <NavItemLink to="/start">
-              <Icon name="home"/> Start
-            </NavItemLink>
+            { this.props.account ? this.accountLeftNav() : this.annoymousLeftNav() }
           </Nav>
           <Nav right navbar>
-            { this.props.account ? this.accountNav() : this.annoymousNav() }
+            { this.props.account ? this.accountRightNav() : this.annoymousRightNav() }
           </Nav>
         </CollapsibleNav>
       </Navbar> 
     )
   }
 
-  accountNav() {
+  accountLeftNav() {
+    const {environments} = this.props;
+    if (environments.length > 0) {
+      return (
+        <NavItemLink to="/start">
+          <Icon name="home"/> Start
+        </NavItemLink>
+      );
+    } else {
+      return (
+        <NavItemLink to="/connect">
+          <Icon name="bolt"/> Connect
+        </NavItemLink>
+      )
+    }
+  }
+
+  accountRightNav() {
     const { account, doSignOut } = this.props;
 
     return (
@@ -35,7 +50,11 @@ class Header extends React.Component {
     )
   }
 
-  annoymousNav() {
+  annoymousLeftNav() {
+    return null;
+  }
+
+  annoymousRightNav() {
     return (
       <div>
         <form className="navbar-form" role="search">
