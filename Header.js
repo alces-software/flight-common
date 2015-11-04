@@ -23,8 +23,8 @@ class Header extends React.Component {
   }
 
   accountLeftNav() {
-    const {environments} = this.props;
-    if (environments.length > 0) {
+    const {hasEnvironments} = this.props;
+    if (hasEnvironments) {
       return (
         <NavItemLink to="/start">
           <Icon name="home"/> Start
@@ -84,6 +84,7 @@ class Header extends React.Component {
 Header.propTypes = {
   account: PropTypes.object,
   doSignOut: PropTypes.func.isRequired,
+  hasEnvironments: PropTypes.bool.isRequired,
   invitations: PropTypes.array.isRequired
 };
 
