@@ -40,12 +40,12 @@ class Header extends React.Component {
   }
 
   accountRightNav() {
-    const { account, doSignOut, invitations } = this.props;
+    const { account, doSignOut, pendingInvitations } = this.props;
 
     return (
       <Nav right navbar>
         <InvitationsNavCounter
-          invitations={invitations}
+          invitations={pendingInvitations}
           onAcceptInvitation={this.props.onAcceptInvitation}
         />
         <NavDropdown
@@ -84,7 +84,7 @@ Header.propTypes = {
   account: PropTypes.object,
   doSignOut: PropTypes.func.isRequired,
   hasEnvironments: PropTypes.bool.isRequired,
-  invitations: PropTypes.array.isRequired
+  pendingInvitations: PropTypes.array.isRequired
 };
 
 export default Header;
