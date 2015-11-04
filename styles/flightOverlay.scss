@@ -1,0 +1,53 @@
+/*=============================================================================
+ * Copyright (C) 2013-2015 Stephen F. Norledge and Alces Software Ltd.
+ *
+ * This file is part of Alces Flight.
+ *
+ * All rights reserved, see LICENSE.txt.
+ *===========================================================================*/
+/* *************************************
+ *
+ *   flightOverlay
+ *   -> Styles for overlays.
+ *
+ * *************************************/
+
+$overlay-border-color: $c-primary-color--dark;
+$arrow-size: 11px;
+
+.flightOverlay {
+    &.popover {
+        max-width: 25rem;
+        z-index: 1030;
+    }
+
+    .popover-title {
+        @extend %c-h5;
+        @extend %c-header;
+        font-weight: bold;
+        background: $c-primary-color;
+        text-align: left;
+        color: white;
+        border-bottom: rem(1px) solid $overlay-border-color;
+        border-radius: 0;
+        padding: rem(10px) rem(20px);
+    }
+
+    &.popover.bottom > .arrow {
+        border-bottom: rem($arrow-size - 2px) solid $overlay-border-color;
+    }
+    &.popover.bottom > .arrow:after {
+        border-bottom-color: $c-primary-color;
+    }
+
+    background: $c-bg-color--lighter;
+    box-shadow: 0 rem(2px) rem(10px) rgba(0,0,0,0.5);
+    border: rem(3px) solid $overlay-border-color;
+    color: white;
+    border-radius: rem(5px);
+    padding: 0;
+
+    .flightOverlay-body {
+        color: $c-sec2-color--muted;
+    }
+}
