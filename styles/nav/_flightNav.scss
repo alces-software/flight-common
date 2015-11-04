@@ -6,3 +6,79 @@
     margin-bottom: 0;
     border-width: 0 0 1px;
 }
+
+.flightNav-account-menu {
+    margin-left: rem(5px);
+}
+
+.flightNav-invitations {
+    float: right;
+    z-index: 1040;
+    color: $c-fg-color--light;
+    margin-right: rem(16px);
+
+    &:hover {
+        color: $c-fg-color--lighter;
+    }
+    @media (min-width: $screen-sm) {
+        margin-right: 0;
+        position: relative;
+        right: rem(-5px);
+        float: left;
+    }
+    .navbar-nav > & > a {
+        padding: 0;
+        padding-right: rem(2px);
+        .navbar-default &:hover, .navbar-default &:focus {
+            color: inherit;
+            background-color: inherit;
+        }
+    }
+}
+
+
+.flightNav-control {
+    font-size: rem(22px);
+    display: inline-block;
+    text-align: center;
+    line-height: rem($l-nav-height - 5px);
+    margin-top: rem(3px);
+    border-radius: rem(5px);
+    margin-left: rem(5px);
+    @media (min-width: $screen-sm) {
+        position: relative;
+    }
+    &.flightNav-control--withIcon {
+        background-color: $c-primary-color--dark;
+        &:hover {
+            background-color: lighten($c-primary-color--dark,10%);
+        }
+        box-shadow: 0 0 5px 0 #000;
+        padding: rem(5px);
+        line-height: 1.6;
+        margin-top: rem(7px);
+        .fa {
+            margin-right: rem(5px);
+        }
+    }
+}
+
+.flightNav-control-counters {
+    @extend %transition-bezier-rapid;
+    @extend %transition--opacity;
+    cursor: pointer;
+    position: relative;
+    &--inactive {
+        opacity: 0.5;
+        transition-delay: 1s;
+    }
+   .flight-counter {
+       line-height: rem(15px);
+       padding: rem(5px);
+       min-width: rem(26px);
+       &.flight-counter--zero {
+           background-color: transparentize($c-bg-color--light, 0.7);
+           color: $c-fg-color--lighter;
+       }
+   }
+}
