@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 import {default as Icon} from 'react-fontawesome';
 
 import { ButtonLink, NavItemLink } from './Links';
-import NavCounter from './NavCounter';
+import InvitationsNavCounter from './nav/InvitationsNavCounter';
 
 class Header extends React.Component {
   render() {
@@ -44,10 +44,9 @@ class Header extends React.Component {
 
     return (
       <Nav right navbar>
-        <NavCounter
-          countNumber={invitations.length}
-          iconName="share"
-          name="invitations"
+        <InvitationsNavCounter
+          invitations={invitations}
+          onAcceptInvitation={this.props.onAcceptInvitation}
         />
         <NavDropdown
           className="flightNav-account-menu"
