@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {
   ButtonToolbar, CollapsibleNav, Nav, Navbar, NavDropdown, MenuItem
 } from 'react-bootstrap';
@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 import {default as Icon} from 'react-fontawesome';
 
 import { ButtonLink, NavItemLink } from './Links';
+import NavCounter from './NavCounter';
 
 class Header extends React.Component {
   render() {
@@ -15,9 +16,7 @@ class Header extends React.Component {
           <Nav navbar>
             { this.props.account ? this.accountLeftNav() : this.annoymousLeftNav() }
           </Nav>
-          <Nav right navbar>
-            { this.props.account ? this.accountRightNav() : this.annoymousRightNav() }
-          </Nav>
+          { this.props.account ? this.accountRightNav() : this.annoymousRightNav() }
         </CollapsibleNav>
       </Navbar> 
     )
@@ -41,12 +40,24 @@ class Header extends React.Component {
   }
 
   accountRightNav() {
-    const { account, doSignOut } = this.props;
+    const { account, doSignOut, invitations } = this.props;
 
     return (
-      <NavDropdown eventKey={1} title={account.name} id="account-menu-dropdown">
-        <MenuItem eventKey='1' onSelect={doSignOut}>Sign out</MenuItem>
-      </NavDropdown>
+      <Nav right navbar>
+        <NavCounter
+          countNumber={invitations.length}
+          iconName="share"
+          name="invitations"
+        />
+        <NavDropdown
+          className="flightNav-account-menu"
+          eventKey={1}
+          id="account-menu"
+          title={account.name}
+          >
+          <MenuItem eventKey='1' onSelect={doSignOut}>Sign out</MenuItem>
+        </NavDropdown>
+      </Nav>
     )
   }
 
@@ -56,21 +67,24 @@ class Header extends React.Component {
 
   annoymousRightNav() {
     return (
-      <div>
-        <form className="navbar-form" role="search">
-          <ButtonToolbar>
-            <ButtonLink to="/sign-up" bsStyle="success" type="submit">Sign up</ButtonLink>
-            <ButtonLink to="/sign-in" bsStyle="success" type="submit">Sign in</ButtonLink>
-          </ButtonToolbar>
-        </form>
-      </div>
+      <Nav right navbar>
+        <div>
+          <form className="navbar-form" role="search">
+            <ButtonToolbar>
+              <ButtonLink to="/sign-up" bsStyle="success" type="submit">Sign up</ButtonLink>
+              <ButtonLink to="/sign-in" bsStyle="success" type="submit">Sign in</ButtonLink>
+            </ButtonToolbar>
+          </form>
+        </div>
+      </Nav>
     )
   }
 }
 
 Header.propTypes = {
-  account: React.PropTypes.object,
-  doSignOut: React.PropTypes.func.isRequired
+  account: PropTypes.object,
+  doSignOut: PropTypes.func.isRequired,
+  invitations: PropTypes.array.isRequired
 };
 
 export default Header;
