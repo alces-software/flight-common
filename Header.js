@@ -7,6 +7,7 @@ import {default as Icon} from 'react-fontawesome';
 
 import { ButtonLink, NavItemLink } from './Links';
 import InvitationsNavCounter from './nav/InvitationsNavCounter';
+import ClustersNavCounter from './nav/ClustersNavCounter';
 
 class Header extends React.Component {
   render() {
@@ -40,10 +41,13 @@ class Header extends React.Component {
   }
 
   accountRightNav() {
-    const { account, doSignOut, pendingInvitations } = this.props;
+    const { account, clusters, doSignOut, pendingInvitations } = this.props;
 
     return (
       <Nav right navbar>
+        <ClustersNavCounter
+          clusters={clusters}
+        />
         <InvitationsNavCounter
           invitations={pendingInvitations}
           onAcceptInvitation={this.props.onAcceptInvitation}
@@ -82,6 +86,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   account: PropTypes.object,
+  clusters: PropTypes.array.isRequired,
   doSignOut: PropTypes.func.isRequired,
   hasEnvironments: PropTypes.bool.isRequired,
   pendingInvitations: PropTypes.array.isRequired
