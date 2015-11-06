@@ -37,8 +37,12 @@ export default class NavCounter extends React.Component {
 
   renderBadge(counter) {
     const badgeClassNames = classNames(
-      "badge-primary", "flight-counter",
-      {"flight-counter--zero": counter.count < 1}
+      "flight-counter",
+      {
+        [`badge-${counter.style}`]: counter.style !== undefined,
+        "badge-primary": counter.style === undefined, 
+        "flight-counter--zero": counter.count < 1
+      }
     );
     return (
       <Badge className={badgeClassNames}>
