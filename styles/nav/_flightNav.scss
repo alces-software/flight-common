@@ -75,6 +75,7 @@
    .flight-counter {
        line-height: rem(15px);
        padding: rem(5px);
+       margin-left: rem(3px);
        min-width: rem(26px);
        &.flight-counter--zero {
            background-color: transparentize($c-bg-color--light, 0.7);
