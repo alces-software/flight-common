@@ -33,6 +33,10 @@ $arrow-size: 11px;
         padding: rem(10px) rem(20px);
     }
 
+    .popover-content {
+        padding: 0;
+    }
+
     &.popover.bottom > .arrow {
         border-bottom: rem($arrow-size - 2px) solid $overlay-border-color;
     }
@@ -46,8 +50,90 @@ $arrow-size: 11px;
     color: white;
     border-radius: rem(5px);
     padding: 0;
+}
 
-    .flightOverlay-body {
-        color: $c-sec2-color--muted;
+.flightOverlay-entry {
+    @include make-row();
+    margin: rem(10px);
+    border: 1px solid #999;
+    box-shadow: 0 2px 3px #999;
+    background: #eee;
+    position: relative;
+    cursor: pointer;
+    color: $c-sec2-color--muted;
+}
+
+.flightOverlay-entry-icon {
+    @include make-xs-column(2);
+    background-color: $text-muted;
+    color: white;
+    font-size: 250%;
+    height: rem(62px);
+    padding: 0;
+    text-align: center;
+
+    .fa {
+        line-height: 1.5;
+        font-weight: bold;
     }
+
+}
+
+
+.flightOverlay-entry-content {
+    @include make-xs-column(10);
+    position: static;
+    padding: rem(5px) rem(10px);
+}
+
+.flightOverlay-entry-title {
+    @extend %c-h6;
+    @extend %c-header;
+    font-size: rem(14px);
+    line-height: 1.4;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.flightOverlay-entry-body {
+    font-size: rem(13px);
+    line-height: 1.3;
+    font-family: $c-copy-fontFamily;
+}
+
+.flightOverlay-entry-timestamp {
+    @extend .notification-body-timestamp;
+    float: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: rem(2px) rem(5px);
+}
+
+.notification-body-timestamp {
+    color: $text-muted;
+    float: right;
+    font-size: $font-size-small - 2px;
+    font-weight: bold;
+    padding: rem(5px);
+    border-top-left-radius: rem(5px);
+    background: rgba(127,127,127,0.2);
+}
+
+.flight-notYet {
+    background-color: $c-bg-color--lighter;
+    color: $text-muted;
+}
+
+%flight-notYet--secondary {
+    padding: 0;
+}
+
+.flightOverlay .flight-notYet {
+    P {
+        @extend %portal-notYet--secondary;
+    }
+    background-color: transparent;
+    margin: rem(10px);
+    padding: 0;
 }
