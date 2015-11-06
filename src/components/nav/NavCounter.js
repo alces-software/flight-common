@@ -2,21 +2,18 @@ import React, {PropTypes} from 'react';
 import { Badge, NavItem, OverlayTrigger } from 'react-bootstrap';
 import {default as Icon} from 'react-fontawesome';
 import classNames from 'classnames';
+import _ from 'lodash';
 
 export default class NavCounter extends React.Component {
   render() {
-    const {count} = this.props;
+    const {counters} = this.props;
     const navItemClassNames = classNames(
       "flightNav-counter",
       `flightNav-counter-${this.props.name}`
     );
     const countersClassNames = classNames(
       "flightNav-control-counters",
-      {"flightNav-control-counters--inactive": count < 1}
-    );
-    const badgeClassNames = classNames(
-      "badge-primary", "flight-counter",
-      {"flight-counter--zero": count < 1}
+      {"flightNav-control-counters--inactive": _.all(counters, c => c < 1)}
     );
 
     return (
@@ -30,13 +27,23 @@ export default class NavCounter extends React.Component {
           <span className="flightNav-control flightNav-control--withIcon">
             <span className={countersClassNames}>
               <Icon name={this.props.iconName}/>
-              <Badge className={badgeClassNames}>
-                {count}
-              </Badge>
+              {counters.map(counter => this.renderBadge(counter))}
             </span>
           </span>
         </OverlayTrigger>
       </NavItem>
+    );
+  }
+
+  renderBadge(counter) {
+    const badgeClassNames = classNames(
+      "badge-primary", "flight-counter",
+      {"flight-counter--zero": counter.count < 1}
+    );
+    return (
+      <Badge className={badgeClassNames}>
+        {counter.count}
+      </Badge>
     );
   }
 }
@@ -44,6 +51,6 @@ export default class NavCounter extends React.Component {
 NavCounter.propTypes = {
   name: PropTypes.string.isRequired,
   iconName: PropTypes.string.isRequired,
-  count: PropTypes.number.isRequired,
+  counters: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   overlay: PropTypes.node.isRequired
 };
