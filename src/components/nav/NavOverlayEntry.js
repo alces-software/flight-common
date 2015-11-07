@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {default as Icon} from 'react-fontawesome';
 import moment from 'moment';
+import TimeAgo from 'react-timeago';
 
 export default class NavOverlayEntry extends React.Component {
   render() {
@@ -19,11 +20,15 @@ export default class NavOverlayEntry extends React.Component {
             {children}
           </div>
           <div className="flightOverlay-entry-timestamp">
-            {moment(timestamp).fromNow()}
+            <TimeAgo date={timestamp} formatter={this.formatTimestamp}/>
           </div>
         </div>
       </div>
     );
+  }
+
+  formatTimestamp(value, unit, suffix, date) {
+    return moment(date).fromNow();
   }
 }
 
