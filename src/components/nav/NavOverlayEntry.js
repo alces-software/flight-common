@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {default as Icon} from 'react-fontawesome';
 import moment from 'moment';
 import TimeAgo from 'react-timeago';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 export default class NavOverlayEntry extends React.Component {
   render() {
@@ -20,7 +21,9 @@ export default class NavOverlayEntry extends React.Component {
             {children}
           </div>
           <div className="flightOverlay-entry-timestamp">
-            <TimeAgo date={timestamp} formatter={this.formatTimestamp}/>
+            <OverlayTrigger overlay={<Tooltip>{moment(timestamp).calendar()}</Tooltip>} placement="bottom">
+              <TimeAgo date={timestamp} formatter={this.formatTimestamp}/>
+            </OverlayTrigger>
           </div>
         </div>
       </div>
