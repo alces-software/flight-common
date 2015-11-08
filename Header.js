@@ -12,7 +12,7 @@ import ClustersNavCounter from './nav/ClustersNavCounter';
 class Header extends React.Component {
   render() {
     return (
-      <Navbar brand={<Link to="/">Alces Flight</Link>} className="flightNav" fixedTop toggleNavKey={0}>
+      <Navbar brand={<Link to="/">Alces Flight</Link>} className="flightNav" fluid fixedTop toggleNavKey={0}>
         <CollapsibleNav eventKey={0}>
           <Nav navbar>
             { this.props.account ? this.accountLeftNav() : this.annoymousLeftNav() }
