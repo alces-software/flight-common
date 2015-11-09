@@ -1,6 +1,7 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 
+import WrappedWithPara from 'components/WrappedWithPara';
 
 class PageHeader extends React.Component {
   render() {
@@ -10,27 +11,17 @@ class PageHeader extends React.Component {
         <Jumbotron className="pageHeader">
           <div className="container">
             <h1>{header} <small>{subheader}</small></h1>
-            {this.wrappedChildren()}
+            {this.props.children && <WrappedWithPara>{this.props.children}</WrappedWithPara>}
           </div>
         </Jumbotron>
     )
-  }
-
-  wrappedChildren() {
-    const { children } = this.props;
-
-    if (React.isValidElement(children)) {
-      return children;
-    } else {
-      return <p>{children}</p>;
-    }
   }
 }
 
 PageHeader.propTypes = {
   header: React.PropTypes.node.isRequired,
   subheader: React.PropTypes.node,
-  children: React.PropTypes.node.isRequired
+  children: React.PropTypes.node
 };
 
 export default PageHeader;
