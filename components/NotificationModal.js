@@ -35,5 +35,5 @@ const messageShape = {
 };
 
 NotificationModal.propTypes = {
-  message: PropTypes.shape(messageShape).isRequired
+  message: PropTypes.shape(messageShape)
 }
