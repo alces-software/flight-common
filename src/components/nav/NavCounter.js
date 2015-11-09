@@ -13,7 +13,9 @@ export default class NavCounter extends React.Component {
     );
     const countersClassNames = classNames(
       "flightNav-control-counters",
-      {"flightNav-control-counters--inactive": _.all(counters, c => c < 1)}
+      {"flightNav-control-counters--inactive": _.all(
+        counters, c => c.count < 1
+      )}
     );
 
     return (
