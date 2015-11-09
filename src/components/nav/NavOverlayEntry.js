@@ -21,7 +21,10 @@ export default class NavOverlayEntry extends React.Component {
             {children}
           </div>
           <div className="flightOverlay-entry-timestamp">
-            <OverlayTrigger overlay={<Tooltip>{moment(timestamp).calendar()}</Tooltip>} placement="bottom">
+            <OverlayTrigger
+              overlay={<Tooltip id="timestamp">{moment(timestamp).calendar()}</Tooltip>}
+              placement="bottom"
+              >
               <TimeAgo date={timestamp} formatter={this.formatTimestamp}/>
             </OverlayTrigger>
           </div>

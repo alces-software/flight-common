@@ -27,7 +27,7 @@ export default class NavCounter extends React.Component {
           <span className="flightNav-control flightNav-control--withIcon">
             <span className={countersClassNames}>
               <Icon name={this.props.iconName}/>
-              {counters.map(counter => this.renderBadge(counter))}
+              {counters.map((counter, idx) => this.renderBadge(counter, idx))}
             </span>
           </span>
         </OverlayTrigger>
@@ -35,7 +35,7 @@ export default class NavCounter extends React.Component {
     );
   }
 
-  renderBadge(counter) {
+  renderBadge(counter, idx) {
     const badgeClassNames = classNames(
       "flight-counter",
       {
@@ -45,16 +45,23 @@ export default class NavCounter extends React.Component {
       }
     );
     return (
-      <Badge className={badgeClassNames}>
+      <Badge className={badgeClassNames} key={idx}>
         {counter.count}
       </Badge>
     );
   }
 }
 
+const counterShape = {
+  count: PropTypes.number.isRequired,
+  style: PropTypes.string
+}
+
 NavCounter.propTypes = {
   name: PropTypes.string.isRequired,
   iconName: PropTypes.string.isRequired,
-  counters: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  counters: PropTypes.arrayOf(
+    PropTypes.shape(counterShape).isRequired
+  ).isRequired,
   overlay: PropTypes.node.isRequired
 };
