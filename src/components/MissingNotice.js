@@ -1,6 +1,8 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 
+import WrappedWithPara from 'components/WrappedWithPara';
+
 require("styles/missingNotice.scss");
 
 export default class MissingNotice extends React.Component {
@@ -11,20 +13,10 @@ export default class MissingNotice extends React.Component {
       <Jumbotron className="missingNotice">
         <h2 className="missingNotice-title">{title}</h2>
         <div className="missingNotice-body">
-          {this.wrappedChildren()}
+          <WrappedWithPara>{this.props.children}</WrappedWithPara>
         </div>
       </Jumbotron>
     );
-  }
-
-  wrappedChildren() {
-    const { children } = this.props;
-
-    if (React.isValidElement(children)) {
-      return children;
-    } else {
-      return <p>{children}</p>;
-    }
   }
 }
 
