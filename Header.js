@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {
-  ButtonToolbar, CollapsibleNav, Nav, Navbar, NavDropdown, MenuItem
+  ButtonToolbar, CollapsibleNav, Nav, NavBrand, Navbar, NavDropdown, MenuItem
 } from 'react-bootstrap';
 import { Link } from 'react-router';
 import {default as Icon} from 'react-fontawesome';
@@ -12,7 +12,8 @@ import ClustersNavCounter from './nav/ClustersNavCounter';
 class Header extends React.Component {
   render() {
     return (
-      <Navbar brand={<Link to="/">Alces Flight</Link>} className="flightNav" fluid fixedTop toggleNavKey={0}>
+      <Navbar className="flightNav" fluid fixedTop toggleNavKey={0}>
+        <NavBrand><Link to="/">Alces Flight</Link></NavBrand>
         <CollapsibleNav eventKey={0}>
           <Nav navbar>
             { this.props.account ? this.accountLeftNav() : this.annoymousLeftNav() }
