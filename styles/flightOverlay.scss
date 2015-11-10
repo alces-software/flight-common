@@ -18,7 +18,9 @@ $arrow-size: 11px;
 .flightOverlay {
     &.popover {
         max-width: 25rem;
+        width: 25rem;
         z-index: 1030;
+        margin-top: 22px;
     }
 
     .popover-title {
