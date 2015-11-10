@@ -48,10 +48,12 @@ class Header extends React.Component {
       <Nav right navbar>
         <ClustersNavCounter
           clusters={clusters}
+          overlayContainer={this}
         />
         <InvitationsNavCounter
           invitations={pendingInvitations}
           onAcceptInvitation={this.props.onAcceptInvitation}
+          overlayContainer={this}
         />
         <NavDropdown
           className="flightNav-account-menu"
