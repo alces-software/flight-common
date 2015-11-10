@@ -22,6 +22,7 @@ export default class NavCounter extends React.Component {
       <NavItem className={navItemClassNames}>
         <OverlayTrigger
           overlay={this.props.overlay}
+          container={this.props.overlayContainer}
           placement="bottom"
           rootClose
           trigger="click"
