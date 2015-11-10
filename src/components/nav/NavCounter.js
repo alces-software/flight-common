@@ -1,10 +1,24 @@
 import React, {PropTypes} from 'react';
-import { Badge, NavItem, OverlayTrigger } from 'react-bootstrap';
+import ReactDOM from 'react-dom';
+import { Badge, NavItem } from 'react-bootstrap';
 import {default as Icon} from 'react-fontawesome';
 import classNames from 'classnames';
 import _ from 'lodash';
 
 export default class NavCounter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {show: false};
+  }
+
+  handleHideOverlay() {
+    this.setState({show: false});
+  }
+
+  handleToggleOverlay() {
+    this.setState({show: !this.state.show});
+  }
+
   render() {
     const {counters} = this.props;
     const navItemClassNames = classNames(
@@ -18,22 +32,25 @@ export default class NavCounter extends React.Component {
       )}
     );
 
+    const overlay = React.cloneElement(this.props.overlay, {
+      container: this.props.overlayContainer,
+      onHide: this.handleHideOverlay.bind(this),
+      show: this.state.show,
+      target: () => ReactDOM.findDOMNode(this)
+    });
+
     return (
-      <NavItem className={navItemClassNames}>
-        <OverlayTrigger
-          overlay={this.props.overlay}
-          container={this.props.overlayContainer}
-          placement="bottom"
-          rootClose
-          trigger="click"
-          >
-          <span className="flightNav-control flightNav-control--withIcon">
-            <span className={countersClassNames}>
-              <Icon name={this.props.iconName}/>
-              {counters.map((counter, idx) => this.renderBadge(counter, idx))}
-            </span>
+      <NavItem
+        className={navItemClassNames}
+        onClick={this.handleToggleOverlay.bind(this)}
+        >
+        <span className="flightNav-control flightNav-control--withIcon">
+          <span className={countersClassNames}>
+            <Icon name={this.props.iconName}/>
+            {counters.map((counter, idx) => this.renderBadge(counter, idx))}
           </span>
-        </OverlayTrigger>
+        </span>
+        {overlay}
       </NavItem>
     );
   }
@@ -66,5 +83,6 @@ NavCounter.propTypes = {
   counters: PropTypes.arrayOf(
     PropTypes.shape(counterShape).isRequired
   ).isRequired,
-  overlay: PropTypes.node.isRequired
+  overlay: PropTypes.node.isRequired,
+  overlayContainer: PropTypes.element.isRequired
 };
