@@ -20,7 +20,7 @@ $arrow-size: 11px;
         max-width: 25rem;
         width: 25rem;
         z-index: 1030;
-        margin-top: 22px;
+        margin-top: 16px;
     }
 
     .popover-title {
@@ -33,6 +33,22 @@ $arrow-size: 11px;
         border-bottom: rem(1px) solid $overlay-border-color;
         border-radius: 0;
         padding: rem(10px) rem(20px);
+    }
+
+    .flightOverlay-action {
+        position: absolute;
+        top: rem(10px);
+        font-size: 80%;
+        color: $c-primary-color--light;
+        cursor: pointer;
+        &:hover {
+            color: $c-primary-color--lighter;
+        }
+    }
+
+    .flightOverlay-action-close {
+        top: rem(8px);
+        right: rem(10px);
     }
 
     .popover-content {
