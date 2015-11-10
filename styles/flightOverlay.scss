@@ -46,6 +46,10 @@ $arrow-size: 11px;
         border-bottom-color: $c-primary-color;
     }
 
+    &.fade.in {
+        opacity: 0.95;
+    }
+
     background: $c-bg-color--lighter;
     box-shadow: 0 rem(2px) rem(10px) rgba(0,0,0,0.5);
     border: rem(3px) solid $overlay-border-color;
