@@ -7,15 +7,15 @@
  *===========================================================================*/
 /* *************************************
  *
- *   flightOverlay
- *   -> Styles for overlays.
+ *   flight-navOverlay
+ *   -> Styles for overlays shown from the nav bar.
  *
  * *************************************/
 
 $overlay-border-color: $c-primary-color--dark;
 $arrow-size: 11px;
 
-.flightOverlay {
+.flight-navOverlay {
     &.popover {
         max-width: 25rem;
         width: 25rem;
@@ -35,7 +35,7 @@ $arrow-size: 11px;
         padding: rem(10px) rem(20px);
     }
 
-    .flightOverlay-action {
+    .flight-navOverlay-action {
         position: absolute;
         top: rem(10px);
         font-size: 80%;
@@ -46,7 +46,7 @@ $arrow-size: 11px;
         }
     }
 
-    .flightOverlay-action-close {
+    .flight-navOverlay-action-close {
         top: rem(8px);
         right: rem(10px);
     }
@@ -74,7 +74,7 @@ $arrow-size: 11px;
     padding: 0;
 }
 
-.flightOverlay-entry {
+.flight-navOverlay-entry {
     @include make-row();
     margin: rem(10px);
     border: 1px solid #999;
@@ -85,7 +85,7 @@ $arrow-size: 11px;
     color: $c-sec2-color--muted;
 }
 
-.flightOverlay-entry-icon {
+.flight-navOverlay-entry-icon {
     @include make-xs-column(2);
     background-color: $text-muted;
     color: white;
@@ -101,13 +101,13 @@ $arrow-size: 11px;
 }
 
 
-.flightOverlay-entry-content {
+.flight-navOverlay-entry-content {
     @include make-xs-column(10);
     position: static;
     padding: rem(5px) rem(10px);
 }
 
-.flightOverlay-entry-title {
+.flight-navOverlay-entry-title {
     @extend %c-h6;
     @extend %c-header;
     font-size: rem(14px);
@@ -116,13 +116,13 @@ $arrow-size: 11px;
     position: relative;
 }
 
-.flightOverlay-entry-body {
+.flight-navOverlay-entry-body {
     font-size: rem(13px);
     line-height: 1.3;
     font-family: $c-copy-fontFamily;
 }
 
-.flightOverlay-entry-timestamp {
+.flight-navOverlay-entry-timestamp {
     color: $text-muted;
     font-size: $font-size-small - 2px;
     font-weight: bold;
@@ -134,12 +134,12 @@ $arrow-size: 11px;
     bottom: 0;
     padding: rem(2px) rem(5px);
 
-    .flightOverlay-entry-invitation & {
+    .flight-navOverlay-entry-invitation & {
         right: 50px;
     }
 }
 
-.flightOverlay-entry-control {
+.flight-navOverlay-entry-control {
     position: absolute;
     bottom: 0;
     border-left: 1px solid rgba(127,127,127,0.5);
@@ -159,10 +159,10 @@ $arrow-size: 11px;
     }
 }
 
-.flightOverlay-entry-control-decline {
+.flight-navOverlay-entry-control-decline {
     right: 0;
 }
-.flightOverlay-entry-control-accept {
+.flight-navOverlay-entry-control-accept {
     right: 25px;
 }
 
@@ -176,7 +176,7 @@ $arrow-size: 11px;
     padding: 0;
 }
 
-.flightOverlay .flight-notYet {
+.flight-navOverlay .flight-notYet {
     P {
         @extend %portal-notYet--secondary;
     }
