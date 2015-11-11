@@ -144,7 +144,7 @@ $arrow-size: 11px;
     bottom: 0;
     border-left: 1px solid rgba(127,127,127,0.5);
     color: $text-muted;
-    padding: 3px 5px 0px 5px;
+    padding: 3px 5px 3px 5px;
     cursor: pointer;
     background: rgba(127,127,127,0.2);
     &:hover {
@@ -153,7 +153,7 @@ $arrow-size: 11px;
     .fa {
         margin: 0;
         width: 15px;
-        height: 18px;
+        height: 15px;
         text-align: center;
         vertical-align: text-bottom;
     }
