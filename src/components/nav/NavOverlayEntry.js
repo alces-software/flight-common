@@ -12,27 +12,27 @@ export default class NavOverlayEntry extends React.Component {
       actions, children, className, iconClasses, iconName, timestamp, title 
     } = this.props;
     const classes = classNames(
-      "flightOverlay-entry",
-      {[`flightOverlay-entry-${className}`]: className}
+      "flight-navOverlay-entry",
+      {[`flight-navOverlay-entry-${className}`]: className}
     );
 
     return (
       <div className={classes}>
-        <div className="flightOverlay-entry-icon">
+        <div className="flight-navOverlay-entry-icon">
           <Icon name={iconName} className={iconClasses}/>
         </div>
-        <div className="flightOverlay-entry-content">
-          <div className="flightOverlay-entry-title">
+        <div className="flight-navOverlay-entry-content">
+          <div className="flight-navOverlay-entry-title">
             {title}
           </div>
-          <div className="flightOverlay-entry-body">
+          <div className="flight-navOverlay-entry-body">
             {children}
           </div>
           <OverlayTrigger
             overlay={<Tooltip id="timestamp">{moment(timestamp).calendar()}</Tooltip>}
             placement="bottom"
             >
-            <div className="flightOverlay-entry-timestamp">
+            <div className="flight-navOverlay-entry-timestamp">
               <TimeAgo date={timestamp} formatter={this.formatTimestamp}/>
             </div>
           </OverlayTrigger>
@@ -44,8 +44,8 @@ export default class NavOverlayEntry extends React.Component {
 
   renderControl(action, key) {
     const classes = classNames(
-      "flightOverlay-entry-control",
-      {[`flightOverlay-entry-control-${action.className}`]: action.className}
+      "flight-navOverlay-entry-control",
+      {[`flight-navOverlay-entry-control-${action.className}`]: action.className}
     );
     return (
       <OverlayTrigger

@@ -5,17 +5,17 @@ import classNames from 'classnames';
 
 export default class NavOverlay extends React.Component {
   render() {
-    const title = <div className="flightOverlay-title">
+    const title = <div className="flight-navOverlay-title">
       {this.props.title}
       <Icon
-        className="flightOverlay-action flightOverlay-action-close"
+        className="flight-navOverlay-action flight-navOverlay-action-close"
         name="close"
         onClick={this.props.onHide}
       />
     </div>
 
     const classes = classNames(
-      "flightOverlay",
+      "flight-navOverlay",
       this.props.className
     );
 
