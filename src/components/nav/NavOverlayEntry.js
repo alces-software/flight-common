@@ -1,9 +1,10 @@
 import React, {PropTypes} from 'react';
-import {default as Icon} from 'react-fontawesome';
 import moment from 'moment';
 import TimeAgo from 'react-timeago';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import classNames from 'classnames';
+
+import Icon from 'components/Icon';
 
 export default class NavOverlayEntry extends React.Component {
   render() {
