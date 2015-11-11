@@ -123,23 +123,49 @@ $arrow-size: 11px;
 }
 
 .flightOverlay-entry-timestamp {
-    @extend .notification-body-timestamp;
+    color: $text-muted;
+    font-size: $font-size-small - 2px;
+    font-weight: bold;
+    border-top-left-radius: rem(5px);
+    background: rgba(127,127,127,0.2);
     float: none;
     position: absolute;
     right: 0;
     bottom: 0;
     padding: rem(2px) rem(5px);
+
+    .flightOverlay-entry-invitation & {
+        right: 50px;
+    }
 }
 
-.notification-body-timestamp {
+.flightOverlay-entry-control {
+    position: absolute;
+    bottom: 0;
+    border-left: 1px solid rgba(127,127,127,0.5);
     color: $text-muted;
-    float: right;
-    font-size: $font-size-small - 2px;
-    font-weight: bold;
-    padding: rem(5px);
-    border-top-left-radius: rem(5px);
+    padding: 3px 5px 0px 5px;
+    cursor: pointer;
     background: rgba(127,127,127,0.2);
+    &:hover {
+        color: $c-primary-color;
+    }
+    .fa {
+        margin: 0;
+        width: 15px;
+        height: 18px;
+        text-align: center;
+        vertical-align: text-bottom;
+    }
 }
+
+.flightOverlay-entry-control-decline {
+    right: 0;
+}
+.flightOverlay-entry-control-accept {
+    right: 25px;
+}
+
 
 .flight-notYet {
     background-color: $c-bg-color--lighter;
