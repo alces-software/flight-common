@@ -27,14 +27,14 @@ export default class NavOverlayEntry extends React.Component {
           <div className="flightOverlay-entry-body">
             {children}
           </div>
-          <div className="flightOverlay-entry-timestamp">
-            <OverlayTrigger
-              overlay={<Tooltip id="timestamp">{moment(timestamp).calendar()}</Tooltip>}
-              placement="bottom"
-              >
+          <OverlayTrigger
+            overlay={<Tooltip id="timestamp">{moment(timestamp).calendar()}</Tooltip>}
+            placement="bottom"
+            >
+            <div className="flightOverlay-entry-timestamp">
               <TimeAgo date={timestamp} formatter={this.formatTimestamp}/>
-            </OverlayTrigger>
-          </div>
+            </div>
+          </OverlayTrigger>
           {actions ? actions.map((action, idx) => this.renderControl(action, idx)) : null}
         </div>
       </div>
@@ -47,15 +47,16 @@ export default class NavOverlayEntry extends React.Component {
       {[`flightOverlay-entry-control-${action.className}`]: action.className}
     );
     return (
-      <div className={classes} key={key}>
-        <OverlayTrigger
-          overlay={action.tooltip}
-          placement="bottom"
-          container={this.props.overlayContainer}
-          >
+      <OverlayTrigger
+        overlay={action.tooltip}
+        placement="bottom"
+        container={this.props.overlayContainer}
+        key={key}
+        >
+        <div className={classes}>
           <Icon name={action.iconName} onClick={action.onClick}/>
-        </OverlayTrigger>
-      </div>
+        </div>
+      </OverlayTrigger>
     );
   }
 
