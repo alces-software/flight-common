@@ -55,3 +55,7 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 @import "./connectPage";
 
 @import "./animations";
+
+
+/* Styles for our various modules */
+@import "~modules/cluster/components/styles";
