@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import { Panel } from 'react-bootstrap';
+import classNames from 'classnames';
 
 export default class FlightPanel extends React.Component {
   render() {
@@ -7,8 +8,16 @@ export default class FlightPanel extends React.Component {
       {this.props.header}
     </span>;
 
+    const classes = classNames(
+      "flightPanel",
+      {
+        [`flightPanel--${this.props.width}`]: this.props.width,
+        [this.props.className]: this.props.className
+      },
+    );
+
     return (
-      <div className={this.wrapperClassNames()}>
+      <div className={classes}>
         <Panel header={header}>
           {this.props.children}
         </Panel>
