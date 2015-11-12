@@ -9,7 +9,7 @@ import Icon from 'components/Icon';
 export default class NavOverlayEntry extends React.Component {
   render() {
     const {
-      actions, children, className, iconClasses, iconName, timestamp, title 
+      actions, children, className, iconName, timestamp, title 
     } = this.props;
     const classes = classNames(
       "flight-navOverlay-entry",
@@ -19,7 +19,7 @@ export default class NavOverlayEntry extends React.Component {
     return (
       <div className={classes}>
         <div className="flight-navOverlay-entry-icon">
-          <Icon name={iconName} className={iconClasses}/>
+          <Icon name={iconName}/>
         </div>
         <div className="flight-navOverlay-entry-content">
           <div className="flight-navOverlay-entry-title">
@@ -75,7 +75,6 @@ const actionShape = {
 
 NavOverlayEntry.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.shape(actionShape).isRequired),
-  iconClasses: PropTypes.string,
   iconName: PropTypes.string.isRequired,
   timestamp: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
