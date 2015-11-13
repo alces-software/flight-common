@@ -25,6 +25,9 @@
             vertical-align: middle;
         }
     }
+    &.flightPanel-header--small .panel-title {
+        @extend %c-h4;
+    }
 
     & .panel-body {
         // XXX Portal has this set for panel bodies somehow. Figure out how and
@@ -32,7 +35,7 @@
         background-color: whitesmoke;
     }
 
-    &.flightPanel--medium {
+    &.flightPanel-width--medium {
         @extend .col-sm-offset-1;
         @extend .col-sm-10;
         @extend .col-md-offset-2;
@@ -41,7 +44,7 @@
         padding-right: 0;
     }
 
-    &.flightPanel--wide {
+    &.flightPanel-width--wide {
         @extend .col-sm-offset-1;
         @extend .col-sm-10;
         @extend .col-md-offset-1;
