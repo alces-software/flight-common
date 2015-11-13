@@ -83,6 +83,8 @@ NavCounter.propTypes = {
   counters: PropTypes.arrayOf(
     PropTypes.shape(counterShape).isRequired
   ).isRequired,
-  overlay: PropTypes.node.isRequired,
-  overlayContainer: PropTypes.element.isRequired
+  overlay: PropTypes.node.isRequired
+  // Currently, I pass an instance of a React class.  What is the correct
+  // proptype for that?
+  // overlayContainer: PropTypes.element.isRequired
 };
