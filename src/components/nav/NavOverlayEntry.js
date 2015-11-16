@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import moment from 'moment';
 import TimeAgo from 'react-timeago';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import {Link} from 'react-router';
 import classNames from 'classnames';
 
 import Icon from 'components/Icon';
@@ -9,7 +10,7 @@ import Icon from 'components/Icon';
 export default class NavOverlayEntry extends React.Component {
   render() {
     const {
-      actions, children, className, iconName, timestamp, title 
+      actions, children, className, iconName, linkTarget, timestamp, title 
     } = this.props;
     const classes = classNames(
       "flight-navOverlay-entry",
@@ -18,26 +19,28 @@ export default class NavOverlayEntry extends React.Component {
 
     return (
       <div className={classes}>
-        <div className="flight-navOverlay-entry-icon">
-          <Icon name={iconName}/>
-        </div>
-        <div className="flight-navOverlay-entry-content">
-          <div className="flight-navOverlay-entry-title">
-            {title}
+        <Link to={linkTarget}>
+          <div className="flight-navOverlay-entry-icon">
+            <Icon name={iconName}/>
           </div>
-          <div className="flight-navOverlay-entry-body">
-            {children}
-          </div>
-          <OverlayTrigger
-            overlay={<Tooltip id="timestamp">{moment(timestamp).calendar()}</Tooltip>}
-            placement="bottom"
-            >
-            <div className="flight-navOverlay-entry-timestamp">
-              <TimeAgo date={timestamp} formatter={this.formatTimestamp}/>
+          <div className="flight-navOverlay-entry-content">
+            <div className="flight-navOverlay-entry-title">
+              {title}
             </div>
-          </OverlayTrigger>
-          {actions ? actions.map((action, idx) => this.renderControl(action, idx)) : null}
-        </div>
+            <div className="flight-navOverlay-entry-body">
+              {children}
+            </div>
+            <OverlayTrigger
+              overlay={<Tooltip id="timestamp">{moment(timestamp).calendar()}</Tooltip>}
+              placement="bottom"
+              >
+              <div className="flight-navOverlay-entry-timestamp">
+                <TimeAgo date={timestamp} formatter={this.formatTimestamp}/>
+              </div>
+            </OverlayTrigger>
+            {actions ? actions.map((action, idx) => this.renderControl(action, idx)) : null}
+          </div>
+        </Link>
       </div>
     );
   }
