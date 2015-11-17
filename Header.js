@@ -15,9 +15,7 @@ class Header extends React.Component {
       <Navbar className="flightNav" fluid fixedTop toggleNavKey={0}>
         <NavBrand><Link to="/">Alces Flight</Link></NavBrand>
         <CollapsibleNav eventKey={0}>
-          <Nav navbar>
-            { this.props.account ? this.accountLeftNav() : this.annoymousLeftNav() }
-          </Nav>
+          { this.props.account ? this.accountLeftNav() : this.annoymousLeftNav() }
           { this.props.account ? this.accountRightNav() : this.annoymousRightNav() }
         </CollapsibleNav>
       </Navbar> 
@@ -28,15 +26,31 @@ class Header extends React.Component {
     const {hasEnvironments} = this.props;
     if (hasEnvironments) {
       return (
-        <NavItemLink to="/start">
-          <Icon name="home"/> Start
-        </NavItemLink>
+        <Nav navbar>
+          <NavItemLink to="/start"><Icon name="home"/> Start</NavItemLink>
+          <NavDropdown
+            title={<span><Icon name="server"/> Clusters</span>}
+            >
+            <NavItemLink to="/clusters/launch"><Icon name="rocket"/> Launch a cluster</NavItemLink>
+            <NavItemLink to="/clusters"><Icon name="server"/> Access your clusters</NavItemLink>
+          </NavDropdown>
+          <NavDropdown
+            title={<span><Icon name="bank"/> Environments</span>}
+            >
+            <NavItemLink to="/environments/new"><Icon name="plus-square"/> Define an environment</NavItemLink>
+            <NavItemLink to="/environments/share"><Icon name="share-alt-square"/> Share an environment</NavItemLink>
+            <NavItemLink to="/components/new"><Icon name="plus-square"/> Define a component</NavItemLink>
+            <NavItemLink to="/environments"><Icon name="plus-square"/> Manage your environments</NavItemLink>
+          </NavDropdown>
+        </Nav>
       );
     } else {
       return (
-        <NavItemLink to="/connect">
-          <Icon name="bolt"/> Connect
-        </NavItemLink>
+        <Nav navbar>
+          <NavItemLink to="/connect">
+            <Icon name="bolt"/> Connect
+          </NavItemLink>
+        </Nav>
       )
     }
   }
