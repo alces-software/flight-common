@@ -122,11 +122,9 @@ $arrow-size: 11px;
     font-family: $c-copy-fontFamily;
 }
 
-.flight-navOverlay-entry-timestamp {
-    color: $text-muted;
+.flight-navOverlay-entry-timestamp .flight-livestamp {
     font-size: $font-size-small - 2px;
-    font-weight: bold;
-    border-top-left-radius: rem(5px);
+    border-radius: rem(5px) 0 0 0;
     background: rgba(127,127,127,0.2);
     float: none;
     position: absolute;
