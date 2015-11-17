@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react';
 import moment from 'moment';
-import TimeAgo from 'react-timeago';
-import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap';
 import {Link} from 'react-router';
 import classNames from 'classnames';
 
 import Icon from 'components/Icon';
+import TimeAgo from 'components/TimeAgo';
 
 export default class NavOverlayEntry extends React.Component {
   render() {
@@ -30,14 +30,9 @@ export default class NavOverlayEntry extends React.Component {
             <div className="flight-navOverlay-entry-body">
               {children}
             </div>
-            <OverlayTrigger
-              overlay={<Tooltip id="timestamp">{moment(timestamp).calendar()}</Tooltip>}
-              placement="bottom"
-              >
-              <div className="flight-navOverlay-entry-timestamp">
-                <TimeAgo date={timestamp} formatter={this.formatTimestamp}/>
-              </div>
-            </OverlayTrigger>
+            <div className="flight-navOverlay-entry-timestamp">
+              <TimeAgo date={timestamp} tooltipFormat="calendar"/>
+            </div>
             {actions ? actions.map((action, idx) => this.renderControl(action, idx)) : null}
           </div>
         </Link>
