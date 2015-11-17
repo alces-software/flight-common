@@ -1,9 +1,9 @@
 .pageHeader {
-    margin: 15px;
+    margin: rem(15px);
 }
 
 .pageHeader.pageHeader-small {
-    margin-bottom: 0;
+    margin-bottom: rem(15px);
     padding-top: 0;
     padding-bottom: 0;
 }
