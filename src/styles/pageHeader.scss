@@ -1,9 +1,15 @@
 .pageHeader {
     margin: rem(15px);
+    P {
+        font-size: 16px;
+    }
 }
 
 .pageHeader.pageHeader-small {
     margin-bottom: rem(15px);
     padding-top: 0;
     padding-bottom: 0;
+    H1 {
+        @extend %c-h1;
+    }
 }
