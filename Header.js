@@ -28,8 +28,8 @@ class Header extends React.Component {
     if (this.props.sessionLoaded) {
       return (
         <div>
-          { this.props.account ? this.accountLeftNav() : this.annoymousLeftNav() }
-          { this.props.account ? this.accountRightNav() : this.annoymousRightNav() }
+          { this.props.account ? this.accountLeftNav() : this.anonymousLeftNav() }
+          { this.props.account ? this.accountRightNav() : this.anonymousRightNav() }
         </div>
       )
     }
@@ -98,11 +98,11 @@ class Header extends React.Component {
     )
   }
 
-  annoymousLeftNav() {
+  anonymousLeftNav() {
     return null;
   }
 
-  annoymousRightNav() {
+  anonymousRightNav() {
     return (
       <Nav right navbar>
         <div>
