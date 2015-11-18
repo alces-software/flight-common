@@ -53,3 +53,44 @@
 .animation-slowSpin {
     animation: spin 4s infinite linear;
 }
+
+
+.flight-counter {
+    position: relative;
+    overflow-y: hidden;
+}
+
+.flight-nav-counter-animate-increment-enter,
+.flight-nav-counter-animate-decrement-enter {
+    position: absolute;
+    right: 0;
+    left: 0;
+    transition: 1s linear all;
+}
+.flight-nav-counter-animate-increment-enter {
+    top: 20px;
+}
+.flight-nav-counter-animate-decrement-enter {
+    top: -20px;
+}
+
+
+.flight-nav-counter-animate-increment-leave,
+.flight-nav-counter-animate-decrement-leave {
+    position: relative;
+    top: 0;
+    transition: 1s linear all;
+}
+
+.flight-nav-counter-animate-increment-enter.flight-nav-counter-animate-increment-enter-active,
+.flight-nav-counter-animate-decrement-enter.flight-nav-counter-animate-decrement-enter-active {
+    top: 0px;
+}
+
+.flight-nav-counter-animate-increment-leave.flight-nav-counter-animate-increment-leave-active {
+    top: -20px;
+}
+
+.flight-nav-counter-animate-decrement-leave.flight-nav-counter-animate-decrement-leave-active {
+    top: 20px;
+}
