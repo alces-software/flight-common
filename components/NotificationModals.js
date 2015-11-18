@@ -22,14 +22,14 @@ export default class NotificationModals extends React.Component {
 
     return (
       <div>
-        /* The current modal to display. */
+        {/* The current modal to display. */}
         <Modal
           show={this.props.showingModal}
           onHide={this.props.onCloseNotification}
           message={this.props.currentModal}
           key={currentModalId}
         />
-        /* The modal that has just been closed. */
+        {/* The modal that has just been closed. */}
         <Modal
           show={false}
           onHide={() => {}}
