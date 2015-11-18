@@ -1,9 +1,11 @@
 import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
-import { Badge, NavItem } from 'react-bootstrap';
+import { NavItem } from 'react-bootstrap';
 import {default as Icon} from 'react-fontawesome';
 import classNames from 'classnames';
 import _ from 'lodash';
+
+import NavCounterBadge from './NavCounterBadge';
 
 export default class NavCounter extends React.Component {
   constructor(props) {
@@ -56,18 +58,8 @@ export default class NavCounter extends React.Component {
   }
 
   renderBadge(counter, idx) {
-    const badgeClassNames = classNames(
-      "flight-counter",
-      {
-        [`badge-${counter.style}`]: counter.style !== undefined,
-        "badge-primary": counter.style === undefined, 
-        "flight-counter--zero": counter.count < 1
-      }
-    );
     return (
-      <Badge className={badgeClassNames} key={idx}>
-        {counter.count}
-      </Badge>
+      <NavCounterBadge {...counter} key={idx}/>
     );
   }
 }
