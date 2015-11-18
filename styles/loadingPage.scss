@@ -1,4 +1,4 @@
-.portalLoadIndicator {
+.loading-indicator {
     @extend .container;
     padding-left: 25%;
     padding-right: 25%;
@@ -9,15 +9,7 @@
     }
 }
 
-.portalLoadIndicator-container {
-    @extend .progress;
-    @extend .progress-striped;
-    @extend .active;
+.loading-indicator-progress-bar {
     background-color: $progress-bar-bg;
-}
-
-.portalLoadIndicator-indicator {
-    @extend .progress-bar;
     transition-duration: 0.1s;
 }
-
