@@ -1,13 +1,20 @@
 import React from 'react';
+import {ProgressBar} from 'react-bootstrap';
 
 export default class LoadingPage extends React.Component {
   render() {
     return (
-      <div className="portalLoadIndicator">
-        <p>One moment please &mdash; <em>Alces&nbsp;Portal</em>&nbsp;is&nbsp;starting&nbsp;up.</p>
-        <div className="portalLoadIndicator-container">
-          <div className="portalLoadIndicator-indicator" style={{width: '100%'}}></div>
-        </div>
+      <div className="loading-indicator">
+        <p>
+          One moment please &mdash; <em>Alces&nbsp;Flight</em>&nbsp;is&nbsp;starting&nbsp;up.
+        </p>
+        <ProgressBar
+          active
+          bsStyle="info"
+          className="loading-indicator-progress-bar"
+          now={100}
+          striped
+        />
       </div>
     )
   }
