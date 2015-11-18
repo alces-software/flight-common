@@ -15,11 +15,27 @@ class Header extends React.Component {
       <Navbar className="flightNav" fluid fixedTop toggleNavKey={0}>
         <NavBrand><Link to="/">Alces Flight</Link></NavBrand>
         <CollapsibleNav eventKey={0}>
+          {this.navbar()}
+        </CollapsibleNav>
+      </Navbar>
+    )
+  }
+
+  navbar() {
+    // Wait until session has loaded before displaying anything in nav bar, to
+    // avoid flashing incorrect buttons and giving the impression user can
+    // interact with these.
+    if (this.props.sessionLoaded) {
+      return (
+        <div>
           { this.props.account ? this.accountLeftNav() : this.annoymousLeftNav() }
           { this.props.account ? this.accountRightNav() : this.annoymousRightNav() }
-        </CollapsibleNav>
-      </Navbar> 
-    )
+        </div>
+      )
+    }
+    else {
+      return null;
+    }
   }
 
   accountLeftNav() {
@@ -107,7 +123,8 @@ Header.propTypes = {
   clusters: PropTypes.array.isRequired,
   doSignOut: PropTypes.func.isRequired,
   hasEnvironments: PropTypes.bool.isRequired,
-  pendingInvitations: PropTypes.array.isRequired
+  pendingInvitations: PropTypes.array.isRequired,
+  sessionLoaded: PropTypes.bool.isRequired
 };
 
 export default Header;
