@@ -3,10 +3,13 @@ import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
 
 const iconNameToFontAwesomeProps = {
+  /* Invitation icons */
   "acceptInvitation":    {name: "check"},
   "acceptingInvitation": {name: "spinner", spin: true},
   "declineInvitation":   {name: "times"},
   "decliningInvitation": {name: "spinner", spin: true},
+
+  /* Cluster icons */
   "clusterPending":      {name: "hourglass-o", className: "animation-spinStopSpin"},
   "clusterRunning":      {name: "cog", className: "animation-slowSpin"},
   "clusterFailed":       {name: "exclamation-circle"}
