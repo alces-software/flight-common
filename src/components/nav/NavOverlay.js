@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react';
 import { Overlay, Popover } from 'react-bootstrap';
-import {default as Icon} from 'react-fontawesome';
 import classNames from 'classnames';
+
+import Icon from 'components/Icon';
 
 export default class NavOverlay extends React.Component {
   render() {

@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import { NavItem } from 'react-bootstrap';
-import {default as Icon} from 'react-fontawesome';
 import classNames from 'classnames';
 import _ from 'lodash';
 
+import Icon from 'components/Icon';
 import NavCounterBadge from './NavCounterBadge';
 
 export default class NavCounter extends React.Component {
