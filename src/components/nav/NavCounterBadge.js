@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import ReactDOM from 'react-dom';
 import { Badge } from 'react-bootstrap';
 import classNames from 'classnames';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -10,7 +11,6 @@ export default class NavCounterBadge extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: false,
       isIncrementing: undefined,
       isDecrementing: undefined
     };
@@ -32,10 +32,22 @@ export default class NavCounterBadge extends React.Component {
       isDecrementing = false;
     }
     this.setState({
-      ...this.state,
       isIncrementing,
       isDecrementing
     });
+  }
+
+  componentWillUpdate() {
+    if (this.isChanging()) {
+      const node = ReactDOM.findDOMNode(this);
+      node.classList.add("flight-NavCounterBadge-animate-flash-enter");
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.isChanging()) {
+      this.timeout = setTimeout(this.addActiveClass.bind(this), TICK);
+    }
   }
 
   componentWillUnmount() {
@@ -45,48 +57,34 @@ export default class NavCounterBadge extends React.Component {
   }
 
   addActiveClass() {
-    this.timeout = null;
-    this.setState({
-      isActive: true,
-      isIncrementing: false,
-      isDecrementing: false
-    })
+    const node = ReactDOM.findDOMNode(this);
+    node.classList.add("flight-NavCounterBadge-animate-flash-enter-active");
+    this.timeout = setTimeout(
+      this.removeClasses.bind(this),
+      flashAnimationDuration
+    );
   }
 
   removeClasses() {
+    const node = ReactDOM.findDOMNode(this);
+    node.classList.remove(
+      "flight-NavCounterBadge-animate-flash-enter",
+      "flight-NavCounterBadge-animate-flash-enter-active"
+    );
     this.timeout = null;
-    this.setState({
-      isActive: false,
-      isIncrementing: false,
-      isDecrementing: false
-    })
   }
 
   render() {
     const {count, style} = this.props;
-    const {isActive, isIncrementing, isDecrementing} = this.state;
-    const isChanging = isIncrementing || isDecrementing;
 
     const badgeClassNames = classNames(
       "flight-NavCounterBadge",
       {
         [`badge-${style}`]: style !== undefined,
         "badge-primary": style === undefined, 
-        "flight-NavCounterBadge--zero": count < 1,
-        "flight-NavCounterBadge-animate-flash-enter": isChanging || isActive,
-        "flight-NavCounterBadge-animate-flash-enter-active": isActive
+        "flight-NavCounterBadge--zero": count < 1
       }
     );
-
-    if (isChanging && !this.timeout) {
-      this.timeout = setTimeout(this.addActiveClass.bind(this), TICK);
-    }
-    if (isActive && !this.timeout) {
-      this.timeout = setTimeout(
-        this.removeClasses.bind(this),
-        flashAnimationDuration
-      );
-    }
 
     return (
       <Badge className={badgeClassNames}>
@@ -99,6 +97,11 @@ export default class NavCounterBadge extends React.Component {
         </ReactCSSTransitionGroup>
       </Badge>
     );
+  }
+
+  isChanging() {
+    const {isIncrementing, isDecrementing} = this.state;
+    return isIncrementing || isDecrementing;
   }
 
   transitionName() {
