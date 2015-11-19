@@ -1,4 +1,4 @@
-.flightNav {
+.flight-Navbar {
     background: $c-primary-background;
     border: rem(1px) solid $c-primary-color;
     border-bottom-color: $c-sec2-color--muted;
@@ -7,11 +7,11 @@
     border-width: 0 0 1px;
 }
 
-.flightNav-account-menu {
+.flight-Navbar-account-menu {
     margin-left: rem(5px);
 }
 
-.flightNav-counter {
+.flight-NavCounter {
     float: right;
     z-index: 1040;
     color: $c-fg-color--light;
@@ -37,7 +37,7 @@
 }
 
 
-.flightNav-control {
+.flight-NavCounter-control {
     font-size: rem(22px);
     display: inline-block;
     text-align: center;
@@ -48,7 +48,7 @@
     @media (min-width: $screen-sm) {
         position: relative;
     }
-    &.flightNav-control--withIcon {
+    &.flight-NavCounter-control--withIcon {
         background-color: $c-primary-color--dark;
         &:hover {
             background-color: lighten($c-primary-color--dark,10%);
@@ -63,7 +63,7 @@
     }
 }
 
-.flightNav-control-counters {
+.flight-NavCounter-control-counters {
     @extend %transition-bezier-rapid;
     @extend %transition--opacity;
     cursor: pointer;
