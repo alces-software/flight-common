@@ -37,6 +37,12 @@ export default class NavCounterBadge extends React.Component {
     });
   }
 
+  componentWillMount() {
+    if (this.props.count > 0) {
+      this.startFlashSequence()
+    }
+  }
+
   componentWillUpdate() {
     if (this.isChanging()) {
       const node = ReactDOM.findDOMNode(this);
@@ -46,7 +52,7 @@ export default class NavCounterBadge extends React.Component {
 
   componentDidUpdate() {
     if (this.isChanging()) {
-      this.timeout = setTimeout(this.addActiveClass.bind(this), TICK);
+      this.startFlashSequence()
     }
   }
 
@@ -54,6 +60,10 @@ export default class NavCounterBadge extends React.Component {
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
+  }
+
+  startFlashSequence() {
+    this.timeout = setTimeout(this.addActiveClass.bind(this), TICK);
   }
 
   addActiveClass() {
