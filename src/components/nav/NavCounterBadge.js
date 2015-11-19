@@ -3,10 +3,14 @@ import { Badge } from 'react-bootstrap';
 import classNames from 'classnames';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+const TICK = 17;
+const flashAnimationDuration = 750 * 3;
+
 export default class NavCounterBadge extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isActive: false,
       isIncrementing: undefined,
       isDecrementing: undefined
     };
@@ -28,22 +32,61 @@ export default class NavCounterBadge extends React.Component {
       isDecrementing = false;
     }
     this.setState({
+      ...this.state,
       isIncrementing,
       isDecrementing
     });
   }
 
+  componentWillUnmount() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+  }
+
+  addActiveClass() {
+    this.timeout = null;
+    this.setState({
+      isActive: true,
+      isIncrementing: false,
+      isDecrementing: false
+    })
+  }
+
+  removeClasses() {
+    this.timeout = null;
+    this.setState({
+      isActive: false,
+      isIncrementing: false,
+      isDecrementing: false
+    })
+  }
+
   render() {
     const {count, style} = this.props;
+    const {isActive, isIncrementing, isDecrementing} = this.state;
+    const isChanging = isIncrementing || isDecrementing;
 
     const badgeClassNames = classNames(
       "flight-counter",
       {
         [`badge-${style}`]: style !== undefined,
         "badge-primary": style === undefined, 
-        "flight-counter--zero": count < 1
+        "flight-counter--zero": count < 1,
+        "flight-nav-counter-animate-flash-enter": isChanging || isActive,
+        "flight-nav-counter-animate-flash-enter-active": isActive
       }
     );
+
+    if (isChanging && !this.timeout) {
+      this.timeout = setTimeout(this.addActiveClass.bind(this), TICK);
+    }
+    if (isActive && !this.timeout) {
+      this.timeout = setTimeout(
+        this.removeClasses.bind(this),
+        flashAnimationDuration
+      );
+    }
 
     return (
       <Badge className={badgeClassNames}>
