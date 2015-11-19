@@ -24,12 +24,12 @@ export default class NavCounter extends React.Component {
   render() {
     const {counters} = this.props;
     const navItemClassNames = classNames(
-      "flightNav-counter",
-      `flightNav-counter-${this.props.name}`
+      "flight-NavCounter",
+      `flight-NavCounter-${this.props.name}`
     );
     const countersClassNames = classNames(
-      "flightNav-control-counters",
-      {"flightNav-control-counters--inactive": _.all(
+      "flight-NavCounter-control-counters",
+      {"flight-NavCounter-control-counters--inactive": _.all(
         counters, c => c.count < 1
       )}
     );
@@ -46,7 +46,7 @@ export default class NavCounter extends React.Component {
         className={navItemClassNames}
         onClick={this.handleToggleOverlay.bind(this)}
         >
-        <span className="flightNav-control flightNav-control--withIcon">
+        <span className="flight-NavCounter-control flight-NavCounter-control--withIcon">
           <span className={countersClassNames}>
             <Icon name={this.props.iconName}/>
             {counters.map((counter, idx) => this.renderBadge(counter, idx))}
