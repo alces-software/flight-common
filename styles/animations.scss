@@ -94,3 +94,19 @@
 .flight-nav-counter-animate-decrement-leave.flight-nav-counter-animate-decrement-leave-active {
     top: 20px;
 }
+
+
+
+// -------
+@keyframes portal-counter-flash {
+    0%   { box-shadow: none; }
+    50%  { box-shadow: 0 0 2px 2px #fbf8b2; }
+    100% { box-shadow: none; }
+}
+.flight-nav-counter-animate-flash-enter {
+}
+
+.flight-nav-counter-animate-flash-enter-active {
+  animation: portal-counter-flash 0.75s ease-out;
+  animation-iteration-count: 3;
+}
