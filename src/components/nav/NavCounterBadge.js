@@ -68,13 +68,13 @@ export default class NavCounterBadge extends React.Component {
     const isChanging = isIncrementing || isDecrementing;
 
     const badgeClassNames = classNames(
-      "flight-counter",
+      "flight-NavCounterBadge",
       {
         [`badge-${style}`]: style !== undefined,
         "badge-primary": style === undefined, 
-        "flight-counter--zero": count < 1,
-        "flight-nav-counter-animate-flash-enter": isChanging || isActive,
-        "flight-nav-counter-animate-flash-enter-active": isActive
+        "flight-NavCounterBadge--zero": count < 1,
+        "flight-NavCounterBadge-animate-flash-enter": isChanging || isActive,
+        "flight-NavCounterBadge-animate-flash-enter-active": isActive
       }
     );
 
@@ -103,9 +103,9 @@ export default class NavCounterBadge extends React.Component {
 
   transitionName() {
     if (this.state.isIncrementing) {
-      return "flight-nav-counter-animate-increment";
+      return "flight-NavCounterBadge-animate-increment";
     } else if (this.state.isDecrementing) {
-      return "flight-nav-counter-animate-decrement";
+      return "flight-NavCounterBadge-animate-decrement";
     } else {
       return "";
     }
