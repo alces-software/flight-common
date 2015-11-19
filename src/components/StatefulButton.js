@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, styleMaps } from 'react-bootstrap';
-import {default as Icon} from 'react-fontawesome';
+
+import Icon from 'components/Icon';
 
 styleMaps.addStyle("sideEffect");
 
