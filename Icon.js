@@ -4,23 +4,23 @@ import classNames from 'classnames';
 
 const iconNameToFontAwesomeProps = {
   /* Invitation icons */
-  "acceptInvitation":    {name: "check"},
-  "acceptingInvitation": {name: "spinner", spin: true},
-  "declineInvitation":   {name: "times"},
-  "decliningInvitation": {name: "spinner", spin: true},
+  "invitation-accept":    {name: "check"},
+  "invitation-accepting": {name: "spinner", spin: true},
+  "invitation-decline":   {name: "times"},
+  "invitation-declining": {name: "spinner", spin: true},
 
   /* Cluster icons */
-  "clusters":         {name: "server"},
-  "clusterPending":   {name: "hourglass-o", className: "animation-spinStopSpin"},
-  "clusterRunning":   {name: "cog", className: "animation-slowSpin"},
-  "clusterFailed":    {name: "exclamation-circle"},
-  "clusterSshAccess": {name: "terminal"},
-  "clusterReference": {name: "sun-o"},
-  "cluster-launch":   {name: "rocket"},
+  "clusters":           {name: "server"},
+  "cluster-pending":    {name: "hourglass-o", className: "animation-spinStopSpin"},
+  "cluster-running":    {name: "cog", className: "animation-slowSpin"},
+  "cluster-failed":     {name: "exclamation-circle"},
+  "cluster-ssh-access": {name: "terminal"},
+  "cluster-reference":  {name: "sun-o"},
+  "cluster-launch":     {name: "rocket"},
 
   /* Environment icons */
   "environments":       {name: "bank"},
-  "environmentTarget":  {name: "bullseye"},
+  "environment-target": {name: "bullseye"},
   "environment-join":   {name: "share-square"},
   "environment-create": {name: "plus-square"},
   "environment-share":  {name: "share-alt-square"},
