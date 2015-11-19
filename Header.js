@@ -3,8 +3,8 @@ import {
   ButtonToolbar, CollapsibleNav, Nav, NavBrand, Navbar, NavDropdown, MenuItem
 } from 'react-bootstrap';
 import { Link } from 'react-router';
-import {default as Icon} from 'react-fontawesome';
 
+import Icon from 'components/Icon';
 import { ButtonLink, NavItemLink } from './Links';
 import InvitationsNavCounter from './nav/InvitationsNavCounter';
 import ClustersNavCounter from './nav/ClustersNavCounter';
@@ -45,18 +45,18 @@ class Header extends React.Component {
         <Nav navbar>
           <NavItemLink to="/start"><Icon name="home"/> Start</NavItemLink>
           <NavDropdown
-            title={<span><Icon name="server"/> Clusters</span>}
+            title={<span><Icon name="clusters"/> Clusters</span>}
             >
-            <NavItemLink to="/clusters/launch"><Icon name="rocket"/> Launch a cluster</NavItemLink>
-            <NavItemLink to="/clusters"><Icon name="server"/> Access your clusters</NavItemLink>
+            <NavItemLink to="/clusters/launch"><Icon name="cluster-launch"/> Launch a cluster</NavItemLink>
+            <NavItemLink to="/clusters"><Icon name="clusters"/> Access your clusters</NavItemLink>
           </NavDropdown>
           <NavDropdown
-            title={<span><Icon name="bank"/> Environments</span>}
+            title={<span><Icon name="environments"/> Environments</span>}
             >
-            <NavItemLink to="/environments/new"><Icon name="plus-square"/> Define an environment</NavItemLink>
-            <NavItemLink to="/environments/share"><Icon name="share-alt-square"/> Share an environment</NavItemLink>
-            <NavItemLink to="/components/new"><Icon name="plus-square"/> Define a component</NavItemLink>
-            <NavItemLink to="/environments"><Icon name="plus-square"/> Manage your environments</NavItemLink>
+            <NavItemLink to="/environments/new"><Icon name="environment-create"/> Define an environment</NavItemLink>
+            <NavItemLink to="/environments/share"><Icon name="environment-share"/> Share an environment</NavItemLink>
+            <NavItemLink to="/components/new"><Icon name="component-create"/> Define a component</NavItemLink>
+            <NavItemLink to="/environments"><Icon name="environments"/> Manage your environments</NavItemLink>
           </NavDropdown>
         </Nav>
       );
@@ -64,7 +64,7 @@ class Header extends React.Component {
       return (
         <Nav navbar>
           <NavItemLink to="/connect">
-            <Icon name="bolt"/> Connect
+            <Icon name="connect"/> Connect
           </NavItemLink>
         </Nav>
       )
