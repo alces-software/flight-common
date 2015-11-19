@@ -4,9 +4,13 @@ import {pushState} from 'redux-router';
 
 // Inspired by https://github.com/joshgeller/react-redux-jwt-auth-example.
 // TODO comment how this works.
-export function authorize(Component) {
+export function authorize(authorizationFunction) {
 
     class AuthorizedComponent extends React.Component {
+        authorized() {
+            return authorizationFunction(this.props);
+        }
+
         componentWillMount() {
             this.checkAuth();
         }
@@ -16,7 +20,7 @@ export function authorize(Component) {
         }
 
         checkAuth() {
-            if (!this.props.account) {
+            if (!this.authorized()) {
                 this.props.dispatch(pushState(null, `/sign-in`));
 
                 // TODO: below from above example, adapt for our use.
@@ -26,27 +30,16 @@ export function authorize(Component) {
         }
 
         render() {
-            // If a Component is given, wrap that as the component we are
-            // checking permissions for; otherwise use this component's
-            // children.
-            let wrappedComponent;
-            if (Component) {
-                wrappedComponent = <Component {...this.props}/>;
-            }
-            else {
-                wrappedComponent = this.props.children;
-            }
-
             return (
                 <div>
-                    { this.props.account ? wrappedComponent : null }
+                    { this.authorized() ? this.props.children : null }
                 </div>
             )
         }
     }
 
     const mapStateToProps = (state) => ({
-      account: state.auth.account
+      auth: state.auth
     });
 
     return connect(mapStateToProps)(AuthorizedComponent);
