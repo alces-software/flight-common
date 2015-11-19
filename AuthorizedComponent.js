@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {pushState} from 'redux-router';
+import {redirectTo} from 'actions/router';
 
 // Inspired by https://github.com/joshgeller/react-redux-jwt-auth-example.
 // TODO comment how this works.
@@ -12,16 +12,16 @@ export function authorize(authorizationFunction) {
         }
 
         componentWillMount() {
-            this.checkAuth();
+            this.redirectIfUnauthorized();
         }
 
         componentWillReceiveProps() {
-            this.checkAuth();
+            this.redirectIfUnauthorized();
         }
 
-        checkAuth() {
+        redirectIfUnauthorized() {
             if (!this.authorized()) {
-                this.props.dispatch(pushState(null, `/sign-in`));
+                this.props.dispatch(redirectTo(`/sign-in`));
 
                 // TODO: below from above example, adapt for our use.
                 // let redirectAfterLogin = this.props.location.pathname;
