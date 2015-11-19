@@ -12,7 +12,7 @@ import ClustersNavCounter from './nav/ClustersNavCounter';
 class Header extends React.Component {
   render() {
     return (
-      <Navbar className="flightNav" fluid fixedTop toggleNavKey={0}>
+      <Navbar className="flight-Navbar" fluid fixedTop toggleNavKey={0}>
         <NavBrand><Link to="/">Alces Flight</Link></NavBrand>
         <CollapsibleNav eventKey={0}>
           {this.navbar()}
@@ -87,7 +87,7 @@ class Header extends React.Component {
           overlayContainer={this}
         />
         <NavDropdown
-          className="flightNav-account-menu"
+          className="flight-Navbar-account-menu"
           eventKey={1}
           id="account-menu"
           title={account.name}
