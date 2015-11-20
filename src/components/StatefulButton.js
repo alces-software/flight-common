@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, styleMaps } from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
+import bootstrapUtils from 'react-bootstrap/lib/utils/bootstrapUtils';
 
 import Icon from 'components/Icon';
 
-styleMaps.addStyle("sideEffect");
+bootstrapUtils.addStyle(Button, ["sideEffect"]);
 
 class StatefulButton extends React.Component {
   render() {
