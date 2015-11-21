@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {
-  ButtonToolbar, CollapsibleNav, Nav, NavBrand, Navbar, NavDropdown, MenuItem
+  ButtonToolbar, Nav, Navbar, NavDropdown, MenuItem
 } from 'react-bootstrap';
 import { Link } from 'react-router';
 
@@ -12,11 +12,14 @@ import ClustersNavCounter from './nav/ClustersNavCounter';
 class Header extends React.Component {
   render() {
     return (
-      <Navbar className="flight-Navbar" fluid fixedTop toggleNavKey={0}>
-        <NavBrand><Link to="/">Alces Flight</Link></NavBrand>
-        <CollapsibleNav eventKey={0}>
+      <Navbar className="flight-Navbar" fluid fixedTop>
+        <Navbar.Header>
+          <Navbar.Brand><Link to="/">Alces Flight</Link></Navbar.Brand>
+          <Navbar.Toggle/>
+        </Navbar.Header>
+        <Navbar.Collapse eventKey={0}>
           {this.navbar()}
-        </CollapsibleNav>
+        </Navbar.Collapse>
       </Navbar>
     )
   }
@@ -42,7 +45,7 @@ class Header extends React.Component {
     const {hasEnvironments} = this.props;
     if (hasEnvironments) {
       return (
-        <Nav navbar>
+        <Nav>
           <NavItemLink to="/start"><Icon name="home"/> Start</NavItemLink>
           <NavDropdown
             title={<span><Icon name="clusters"/> Clusters</span>}
@@ -62,7 +65,7 @@ class Header extends React.Component {
       );
     } else {
       return (
-        <Nav navbar>
+        <Nav>
           <NavItemLink to="/connect">
             <Icon name="connect"/> Connect
           </NavItemLink>
@@ -75,7 +78,7 @@ class Header extends React.Component {
     const { account, clusters, doSignOut, pendingInvitations } = this.props;
 
     return (
-      <Nav right navbar>
+      <Nav pullRight>
         <ClustersNavCounter
           clusters={clusters}
           overlayContainer={this}
@@ -104,16 +107,12 @@ class Header extends React.Component {
 
   anonymousRightNav() {
     return (
-      <Nav right navbar>
-        <div>
-          <form className="navbar-form" role="search">
-            <ButtonToolbar>
-              <ButtonLink to="/sign-up" bsStyle="success" type="submit">Sign up</ButtonLink>
-              <ButtonLink to="/sign-in" bsStyle="success" type="submit">Sign in</ButtonLink>
-            </ButtonToolbar>
-          </form>
-        </div>
-      </Nav>
+      <Navbar.Form pullRight>
+        <ButtonToolbar>
+          <ButtonLink to="/sign-up" bsStyle="success" type="submit">Sign up</ButtonLink>
+          <ButtonLink to="/sign-in" bsStyle="success" type="submit">Sign in</ButtonLink>
+        </ButtonToolbar>
+      </Navbar.Form>
     )
   }
 }
