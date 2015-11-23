@@ -11,6 +11,7 @@ const iconNameToFontAwesomeProps = {
 
   /* Cluster icons */
   "clusters":           {name: "server"},
+  "cluster":            {name: "server"},
   "cluster-pending":    {name: "hourglass-o", className: "animation-spinStopSpin"},
   "cluster-running":    {name: "cog", className: "animation-slowSpin"},
   "cluster-failed":     {name: "exclamation-circle"},
@@ -29,7 +30,8 @@ const iconNameToFontAwesomeProps = {
   "component-create": {name: "plus-square"},
 
   /* Miscalleneous icons */
-  "connect": {name: "bolt"}
+  "arrow-go": {name: "arrow-right"},
+  "connect":  {name: "bolt"}
 }
 
 const faPropsForIconName = (iconName) => {
