@@ -7,6 +7,13 @@
     border-width: 0 0 1px;
 }
 
+.flight-Navbar-brand {
+    background: url('~images/stamp50.png') no-repeat;
+    height: rem($l-nav-height);
+    width: rem(38px);
+    text-indent: -9999px;
+}
+
 .flight-Navbar-account-menu {
     margin-left: rem(5px);
 }
