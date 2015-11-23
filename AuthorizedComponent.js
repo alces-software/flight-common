@@ -2,7 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 // Inspired by https://github.com/joshgeller/react-redux-jwt-auth-example.
-// TODO comment how this works.
+//
+// Creates an AuthorizedComponent, which denies access to its children based on
+// the success or failure of the given authorizationFunction; when this fails
+// the authorizationFailedHandler will be bound to the component and executed.
 export function authorize(authorizationFunction, authorizationFailedHandler) {
 
   class AuthorizedComponent extends React.Component {
@@ -21,10 +24,6 @@ export function authorize(authorizationFunction, authorizationFailedHandler) {
     handleIfUnauthorized() {
       if (!this.authorized()) {
         authorizationFailedHandler.bind(this)();
-
-        // TODO: below from above example, adapt for our use.
-        // let redirectAfterLogin = this.props.location.pathname;
-        // this.props.dispatch(pushState(null, `/login?next=${redirectAfterLogin}`));
       }
     }
 
