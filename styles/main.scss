@@ -30,6 +30,8 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 /* ----- Layout ----- */
 @import "./core/layout";
 
+@import "./core/icons";
+
 @import "./contrib/boilerplate/helpers";
 
 /* Core application styles */
