@@ -14,7 +14,7 @@ class Header extends React.Component {
     return (
       <Navbar className="flight-Navbar" fluid fixedTop>
         <Navbar.Header>
-          <Navbar.Brand><Link to="/">Alces Flight</Link></Navbar.Brand>
+          <Navbar.Brand className="flight-Navbar-brand"><Link to="/">Alces Flight</Link></Navbar.Brand>
           <Navbar.Toggle/>
         </Navbar.Header>
         <Navbar.Collapse eventKey={0}>
