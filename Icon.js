@@ -21,6 +21,7 @@ const iconNameToFontAwesomeProps = {
 
   /* Environment icons */
   "environments":       {name: "bank"},
+  "environment":        {name: "bank"},
   "environment-target": {name: "bullseye"},
   "environment-join":   {name: "share-square"},
   "environment-create": {name: "plus-square"},
