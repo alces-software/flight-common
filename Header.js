@@ -95,7 +95,8 @@ class Header extends React.Component {
           id="account-menu"
           title={account.name}
           >
-          <MenuItem eventKey='1' onSelect={doSignOut}>Sign out</MenuItem>
+          <NavItemLink to="/account/edit"><Icon name="user"/> Edit account</NavItemLink>
+          <MenuItem eventKey='1' onSelect={doSignOut}><Icon name="sign-out"/> Sign out</MenuItem>
         </NavDropdown>
       </Nav>
     )
