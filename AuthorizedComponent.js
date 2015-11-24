@@ -17,8 +17,10 @@ export function authorize(authorizationFunction, authorizationFailedHandler) {
       this.handleIfUnauthorized();
     }
 
-    componentWillReceiveProps() {
-      this.handleIfUnauthorized();
+    componentWillReceiveProps(nextProps) {
+      if (this.props.auth !== nextProps.auth) {
+        this.handleIfUnauthorized();
+      }
     }
 
     handleIfUnauthorized() {
