@@ -28,6 +28,7 @@ const iconNameToFontAwesomeProps = {
   "environment-share":  {name: "share-alt-square"},
 
   /* Component icons */
+  "component": {name: "puzzle-piece"},
   "component-create": {name: "plus-square"},
 
   /* Miscalleneous icons */
