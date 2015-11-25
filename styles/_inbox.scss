@@ -1,0 +1,20 @@
+/*=============================================================================
+ * Copyright (C) 2015 Stephen F. Norledge and Alces Software Ltd.
+ *
+ * This file is part of Alces Flight.
+ *
+ * All rights reserved, see LICENSE.txt.
+ *===========================================================================*/
+/* *************************************
+ *
+ *   inbox
+ *   -> styles looking for a home.
+ *
+ * *************************************/
+
+DL.dl-horizontal.dl-horizontal--wide > DT {
+    width: 250px;
+}
+DL.dl-horizontal.dl-horizontal--wide > DD {
+    margin-left: 270px;
+}

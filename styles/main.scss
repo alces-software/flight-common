@@ -1,3 +1,10 @@
+/*=============================================================================
+ * Copyright (C) 2015 Stephen F. Norledge and Alces Software Ltd.
+ *
+ * This file is part of Alces Flight.
+ *
+ * All rights reserved, see LICENSE.txt.
+ *===========================================================================*/
 @import "./core/fonts";
 
 /* ----- Reset ----- */
@@ -46,7 +53,9 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 @import "./callout";
 @import "./nav/overlay";
 @import "./flightPanel";
+@import "./flightTable";
 @import "./form";
+@import "./inbox";
 
 /* XXX Consider whether these should be required by their components. They
  * need access to the SASS context (helpers, basic settings, bootstrap
