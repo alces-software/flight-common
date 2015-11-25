@@ -74,3 +74,11 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 
 /* Styles for our various modules */
 @import "~modules/cluster/components/styles";
+
+
+DL.dl-horizontal.dl-horizontal--wide > DT {
+    width: 250px;
+}
+DL.dl-horizontal.dl-horizontal--wide > DD {
+    margin-left: 270px;
+}
