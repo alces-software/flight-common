@@ -1,7 +1,22 @@
 .pageHeader {
     margin: rem(15px);
+    position: relative;
     P {
         font-size: 16px;
+    }
+
+    .pageHeader-actions {
+        @media (min-width: $screen-sm) {
+            position: absolute;
+            bottom: rem(20px);
+            right: rem(32px);
+        }
+    }
+    .pageHeader-actions-button {
+        float: right;
+        .fa {
+            margin-right: rem(5px);
+        }
     }
 }
 
