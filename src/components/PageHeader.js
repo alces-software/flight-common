@@ -1,27 +1,35 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
 
 import WrappedWithPara from 'components/WrappedWithPara';
 
 class PageHeader extends React.Component {
   render() {
-    const { header, size, subheader } = this.props;
+    const { button, header, size, subheader } = this.props;
+
     const jumbotronClasses = classNames("pageHeader", {
       [`pageHeader-${size}`]: size
     });
-    const containerClasses = classNames({
-      "container": !(this.props.size === "small"),
-      "container-fluid": this.props.size === "small"
-    });
+    const fluid = size === "small";
 
     return (
-        <Jumbotron className={jumbotronClasses}>
-          <div className={containerClasses}>
-            <h1>{header} <small>{subheader}</small></h1>
-            {this.props.children && <WrappedWithPara>{this.props.children}</WrappedWithPara>}
-          </div>
-        </Jumbotron>
+      <Jumbotron className={jumbotronClasses}>
+        <Grid fluid={fluid}>
+          <Row>
+            <Col md={8}>
+              <div className="pageHeader-body">
+                <h1>{header} <small>{subheader}</small></h1>
+                {this.props.children && <WrappedWithPara>{this.props.children}</WrappedWithPara>}
+              </div>
+            </Col>
+            <Col md={4} className="pageHeader-actions">
+              {button && <div className="pageHeader-actions-button">{button}</div>}
+            </Col>
+          </Row>
+        </Grid>
+      </Jumbotron>
     )
   }
 }
@@ -29,7 +37,8 @@ class PageHeader extends React.Component {
 PageHeader.propTypes = {
   header: React.PropTypes.node.isRequired,
   subheader: React.PropTypes.node,
-  children: React.PropTypes.node
+  children: React.PropTypes.node,
+  button: React.PropTypes.element
 };
 
 export default PageHeader;
