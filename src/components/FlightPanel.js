@@ -1,13 +1,10 @@
 import React, {PropTypes} from 'react';
 import { Panel } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
 
 export default class FlightPanel extends React.Component {
   render() {
-    const header = <span className="flightPanel-title">
-      {this.props.header}
-    </span>;
-
     const classes = classNames(
       "flightPanel",
       {
@@ -19,10 +16,29 @@ export default class FlightPanel extends React.Component {
 
     return (
       <div className={classes}>
-        <Panel header={header}>
+        <Panel header={this.renderHeader()}>
           {this.props.children}
         </Panel>
       </div>
+    );
+  }
+
+  renderHeader() {
+    const {header, headerButton} = this.props;
+
+    return (
+      <Grid fluid>
+        <Row>
+          <Col md={8} sm={9} xs={10} className="flightPanel-header-text">
+            {header}
+          </Col>
+          <Col md={4} sm={3} xs={2} className="flightPanel-header-actions">
+            <div className="flightPanel-header-actions-button">
+              {headerButton}
+            </div>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 

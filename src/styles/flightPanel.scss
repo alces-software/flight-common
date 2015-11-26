@@ -9,6 +9,10 @@
 
     & .panel-heading {
         @extend .flight-pageHeader;
+
+        .flightPanel-header-actions-button {
+            float: right;
+        }
     }
 
     & .panel-title {
