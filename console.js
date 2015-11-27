@@ -15,10 +15,14 @@ const consoleMethods = [
 
 class Console {
   constructor() {
-    if (__DEVELOPMENT__) {
+    if (__DEVELOPMENT__ || __TEST__) {
       /* eslint-disable no-console */
       consoleMethods.forEach(cm => {
-        this[cm] = console[cm].bind(console);
+        if (console[cm]) {
+          this[cm] = console[cm].bind(console);
+        } else {
+          this[cm] = function() {};
+        }
       });
       /* eslint-enable no-console */
     } else {
