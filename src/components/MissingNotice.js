@@ -3,7 +3,9 @@ import { Jumbotron } from 'react-bootstrap';
 
 import WrappedWithPara from 'components/WrappedWithPara';
 
+if (!__TEST__){
 require("styles/missingNotice.scss");
+}
 
 export default class MissingNotice extends React.Component {
   render() {
