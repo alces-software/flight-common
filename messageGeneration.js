@@ -7,7 +7,7 @@ import {
 } from "./errorMessageCustomization";
 
 
-const errorGeneratorsMap = new MessageGeneratorsMap();
+export const errorGeneratorsMap = new MessageGeneratorsMap();
 
 setupDefaultErrorMessageGenerators(errorGeneratorsMap);
 addActionTypeCustomizations(errorGeneratorsMap);
