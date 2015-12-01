@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-class StandardModal extends React.Component {
+export default class StandardModal extends React.Component {
   render() {
     const { bsSize, title, children, show, onHide } = this.props;
 
@@ -13,6 +13,7 @@ class StandardModal extends React.Component {
           </Modal.Header>
           <Modal.Body>{children}</Modal.Body>
           <Modal.Footer>
+            {this.props.buttons}
             <Button onClick={onHide}>Close</Button>
           </Modal.Footer>
         </Modal>
@@ -20,5 +21,3 @@ class StandardModal extends React.Component {
     )
   }
 }
-
-export default StandardModal
