@@ -32,6 +32,8 @@ export default class MessageGeneratorsMap {
         generator.registerTitle(overrideCode, customizationValue);
       } else if (customizationType === "content") {
         generator.registerContent(overrideCode, customizationValue);
+      } else if (customizationType === "actions") {
+        generator.registerActions(overrideCode, customizationValue);
       } else {
         throw `Unsupported customization type ${customizationType}`;
       }

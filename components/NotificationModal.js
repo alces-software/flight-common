@@ -22,6 +22,7 @@ export default class NotificationModal extends React.Component {
         title={message.title}
         onHide={this.props.onHide}
         show={this.props.show}
+        buttons={message.actions}
         >
         {message.content}
       </StandardModal>
