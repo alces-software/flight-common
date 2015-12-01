@@ -29,12 +29,12 @@ export function generateErrorMessage(rawError) {
     return undefined;
   }
 
-  const error = parseError(rawError);
+  const {status, actionType, payload} = parseError(rawError);
 
   let message;
-  let messageGenerator = errorGeneratorsMap.getGeneratorForCode(error.status);
+  let messageGenerator = errorGeneratorsMap.getGeneratorForCode(status);
   if (messageGenerator !== undefined) {
-    message = messageGenerator.generateMessage(error, error.actionType);
+    message = messageGenerator.generateMessage(payload, actionType);
   }
 
   if (message && message.title && message.content) {
@@ -43,7 +43,7 @@ export function generateErrorMessage(rawError) {
   else {
     Console.warn("No or invalid message defined for error:", rawError);
     return unexpectedErrorMessageGenerator.
-      generateMessage(error, error.actionType);
+      generateMessage(payload, actionType);
   }
 }
 
@@ -52,7 +52,8 @@ export function generateErrorMessage(rawError) {
 function parseError(rawError) {
   return {
     status: rawError.messagePayload.response.status,
-    actionType: rawError.messagePayload.action.type
+    actionType: rawError.messagePayload.action.type,
+    payload: rawError.messagePayload
   }
 }
 
@@ -64,7 +65,7 @@ export function generateInformationMessage(message) {
   let generatedMessage;
   let messageGenerator = infoGeneratorsMap.getGeneratorForCode(messageCode);
   if (messageGenerator !== undefined) {
-    generatedMessage = messageGenerator.generateMessage(messageCode);
+    generatedMessage = messageGenerator.generateMessage();
   }
 
   if (generatedMessage && generatedMessage.title && generatedMessage.content) {
