@@ -4,6 +4,7 @@ import { Button, Modal } from 'react-bootstrap';
 export default class StandardModal extends React.Component {
   render() {
     const { bsSize, title, children, show, onHide } = this.props;
+    const closeButtonText = this.props.closeButtonText || 'Close';
 
     return (
       <div>
@@ -14,7 +15,7 @@ export default class StandardModal extends React.Component {
           <Modal.Body>{children}</Modal.Body>
           <Modal.Footer>
             {this.props.buttons}
-            <Button onClick={onHide}>Close</Button>
+            <Button onClick={onHide}>{closeButtonText}</Button>
           </Modal.Footer>
         </Modal>
       </div>
