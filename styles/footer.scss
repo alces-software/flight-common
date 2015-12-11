@@ -1,22 +1,18 @@
+/*=============================================================================
+ * Copyright (C) 2015 Stephen F. Norledge and Alces Software Ltd.
+ *
+ * This file is part of Alces Flight.
+ *
+ * All rights reserved, see LICENSE.txt.
+ *===========================================================================*/
 /* *************************************
  *
- *   Sticky Footer
+ *   footer
+ *   -> Styles for the footer
  *
  * *************************************/
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-body {
-    position: relative;
-    min-height: 100%;
-}
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: $l-footer-height;
+    @extend %stickyFooter-footer;
     background: $c-primary-background;
 
     font-family: $c-plain-fontFamily;
@@ -26,6 +22,12 @@ footer {
     text-align: center;
     color: $c-fg-color--light;
     z-index: $l-footer-zIndex;
+}
+
+footer.footer--animate {
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
 .flightFooter-us {

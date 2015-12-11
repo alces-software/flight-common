@@ -1,4 +1,5 @@
-body {
+.flight {
+    @extend %stickyFooter-wrapper;
     background-image: url('~images/debut_light.png');
     background-repeat: repeat;
 }

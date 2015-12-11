@@ -1,8 +1,6 @@
-@import "./core/settings";
-
 .pageContainer {
+    @extend %stickyFooter-wrapper-main;
     padding-top: $navbar-height;
-    padding-bottom: $l-footer-height;
 }
 
 .page {

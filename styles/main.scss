@@ -41,6 +41,8 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 
 @import "./contrib/boilerplate/helpers";
 
+@import 'stickyFooter';
+
 /* Core application styles */
 @import "./flight";
 @import './flightHeaders';
