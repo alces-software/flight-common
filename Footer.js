@@ -13,6 +13,8 @@ class Footer extends React.Component {
         <Link to="/privacy" className="flightFooter-link">Privacy Policy</Link>
         {this.separatorBar()}
         <Link to="/terms" className="flightFooter-link">Terms of Service</Link>
+        {this.separatorBar()}
+        <Link to="/security" className="flightFooter-link">Security</Link>
       </footer>
     )
   }
