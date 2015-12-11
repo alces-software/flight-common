@@ -1,5 +1,9 @@
 .pageContainer {
+    /* We're both a stickyFooter-wrapper-main for the main page transitionsand
+     * also a stickyFooter-wrapper for transitions on paged forms.
+     */
     @extend %stickyFooter-wrapper-main;
+    @extend %stickyFooter-wrapper;
     padding-top: $navbar-height;
 }
 
