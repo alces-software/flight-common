@@ -31,7 +31,7 @@ const iconNameToFontAwesomeProps = {
   "component": {name: "puzzle-piece"},
   "component-create": {name: "plus-square"},
 
-  /* Miscalleneous icons */
+  /* Miscellaneous icons */
   "arrow-go": {name: "arrow-right"},
   "connect":  {name: "bolt"}
 }
