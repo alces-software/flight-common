@@ -18,3 +18,13 @@ DL.dl-horizontal.dl-horizontal--wide > DT {
 DL.dl-horizontal.dl-horizontal--wide > DD {
     margin-left: 270px;
 }
+
+// Show envelope icon next to mailto links.
+a[href^="mailto:"]:after {
+    font-family: FontAwesome;
+    content: $fa-var-envelope-o;
+    margin-left: rem(5px);
+    font-size: 80%;
+    display: inline-block;
+    text-indent: 0;
+}
