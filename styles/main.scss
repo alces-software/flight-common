@@ -54,8 +54,10 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 /* UI components */
 @import "./callout";
 @import "./nav/overlay";
+@import "./flightHelpPopover";
 @import "./flightPanel";
 @import "./flightTable";
+@import "./flightToast";
 @import "./form";
 @import "./inbox";
 
