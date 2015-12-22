@@ -45,6 +45,7 @@ export default class Icon extends React.Component {
   render() {
     const faProps = faPropsForIconName(this.props.name);
     const classes = classNames(
+      "flight-icon",
       `flight-icon-${this.props.name}`,
       {
         [faProps.className]: faProps.className,
