@@ -53,7 +53,10 @@ export default class FlightPanel extends React.Component {
 }
 
 FlightPanel.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   header: PropTypes.node.isRequired,
+  headerButton: PropTypes.node,
   headerSize: PropTypes.oneOf(["small"]),
   width: PropTypes.oneOf(["medium", "wide"])
 }
