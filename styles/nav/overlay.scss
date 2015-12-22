@@ -94,7 +94,7 @@ $arrow-size: 11px;
     padding: 0;
     text-align: center;
 
-    .fa {
+    .flight-icon {
         line-height: 1.5;
     }
 
@@ -148,7 +148,7 @@ $arrow-size: 11px;
     &:hover {
         color: $c-primary-color;
     }
-    .fa {
+    .flight-icon {
         margin: 0;
         width: 15px;
         height: 15px;
