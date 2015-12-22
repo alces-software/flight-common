@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
 
@@ -59,3 +59,9 @@ export default class Icon extends React.Component {
     )
   }
 }
+
+Icon.propTypes = {
+  ...FontAwesome.propTypes,
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string
+};
