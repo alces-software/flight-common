@@ -8,6 +8,7 @@ const iconNameToFontAwesomeProps = {
   "invitation-accepting": {name: "spinner", spin: true},
   "invitation-decline":   {name: "times"},
   "invitation-declining": {name: "spinner", spin: true},
+  "invitation-pending":   {name: "hourglass-o", className: "animation-spinStopSpin"},
 
   /* Cluster icons */
   "clusters":           {name: "server"},
