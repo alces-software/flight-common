@@ -59,6 +59,7 @@ class Header extends React.Component {
             <NavItemLink to="/environments/new"><Icon name="environment-create"/> Define an environment</NavItemLink>
             <NavItemLink to="/environments/share"><Icon name="environment-share"/> Share an environment</NavItemLink>
             <NavItemLink to="/components/new"><Icon name="component-create"/> Define a component</NavItemLink>
+            <NavItemLink to="/invitations"><Icon name="environment-join"/> View invitations</NavItemLink>
             <NavItemLink to="/environments"><Icon name="environments"/> Manage your environments</NavItemLink>
           </NavDropdown>
         </Nav>
