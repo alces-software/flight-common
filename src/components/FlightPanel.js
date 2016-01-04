@@ -11,7 +11,7 @@ export default class FlightPanel extends React.Component {
       {
         [`flightPanel-width--${this.props.width}`]: this.props.width,
         [`flightPanel-header--${this.props.headerSize}`]: this.props.headerSize
-      },
+      }
     );
 
     return (
