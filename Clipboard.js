@@ -55,12 +55,6 @@ export class CopyToClipboardButton extends React.Component {
 
 
 export class CopyToClipboard extends React.Component {
-  propTypes: {
-    text: React.PropTypes.string.isRequired,
-    children: React.PropTypes.element.isRequired,
-    onCopy: React.PropTypes.func
-  }
-
   constructor(props) {
     super(props);
     this.emitter = { emit: this.runCallbacks.bind(this) };
@@ -103,4 +97,10 @@ export class CopyToClipboard extends React.Component {
       onClick: this.handleCopy.bind(this)
     });
   }
+}
+
+CopyToClipboard.propTypes =  {
+  text: React.PropTypes.string.isRequired,
+  children: React.PropTypes.element.isRequired,
+  onCopy: React.PropTypes.func
 }
