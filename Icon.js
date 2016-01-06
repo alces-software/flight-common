@@ -5,11 +5,15 @@ import classNames from 'classnames';
 const iconNameToFontAwesomeProps = {
   /* Invitation icons */
   "invitation":           {name: "envelope"},
+  /* Actions we can take on invitations and their feedback */
   "invitation-accept":    {name: "check"},
   "invitation-accepting": {name: "spinner", spin: true},
   "invitation-decline":   {name: "times"},
   "invitation-declining": {name: "spinner", spin: true},
-  "invitation-pending":   {name: "hourglass-o", className: "animation-spinStopSpin"},
+  /* States that an invitation can be in */
+  "invitation-pending":   {name: "chain-broken"},
+  "invitation-accepted":   {name: "chain"},
+  "invitation-declined":   {name: "ban"},
 
   /* Cluster icons */
   "clusters":           {name: "server"},
