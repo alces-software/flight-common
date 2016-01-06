@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 const iconNameToFontAwesomeProps = {
   /* Invitation icons */
-  "invitation":           {name: "envelope"},
   /* Actions we can take on invitations and their feedback */
   "invitation-accept":    {name: "check"},
   "invitation-accepting": {name: "spinner", spin: true},
