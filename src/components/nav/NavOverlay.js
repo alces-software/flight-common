@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import { Overlay, Popover } from 'react-bootstrap';
 import classNames from 'classnames';
+import { Link } from 'react-router'
 
 import Icon from 'components/Icon';
 
@@ -8,6 +9,10 @@ export default class NavOverlay extends React.Component {
   render() {
     const title = <div className="flight-navOverlay-title">
       {this.props.title}
+      <Link 
+        to={this.props.linkTo}
+        className="flight-navOverlay-link"
+      >See all</Link>
       <Icon
         className="flight-navOverlay-action flight-navOverlay-action-close"
         name="close"
