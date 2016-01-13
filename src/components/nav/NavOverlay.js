@@ -12,7 +12,7 @@ export default class NavOverlay extends React.Component {
       <Link 
         to={this.props.linkTo}
         className="flight-navOverlay-link"
-      >See all <i className="fa fa-caret-right"></i></Link>
+        >See all <Icon name="arrow-go"/></Link>
       <Icon
         className="flight-navOverlay-action flight-navOverlay-action-close"
         name="close"
