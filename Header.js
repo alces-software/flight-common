@@ -9,17 +9,28 @@ import { ButtonLink, NavItemLink } from './Links';
 import InvitationsNavCounter from './nav/InvitationsNavCounter';
 import ClustersNavCounter from './nav/ClustersNavCounter';
 
+// Make Babel optimizations happy.  One of the optimization plugins we use for
+// production builds doesn't like the use of `Navbar.Brand` in JSX elements.
+// So we rename them here to `NavbarBrand` for instance.
+const {
+  Brand:    NavbarBrand,
+  Collapse: NavbarCollapse,
+  Form:     NavbarForm,
+  Header:   NavbarHeader,
+  Toggle:   NavbarToggle
+} = Navbar;
+
 class Header extends React.Component {
   render() {
     return (
       <Navbar className="flight-Navbar" fluid fixedTop>
-        <Navbar.Header>
-          <Navbar.Brand className="flight-Navbar-brand"><Link to="/">Alces Flight</Link></Navbar.Brand>
-          <Navbar.Toggle/>
-        </Navbar.Header>
-        <Navbar.Collapse eventKey={0}>
+        <NavbarHeader>
+          <NavbarBrand className="flight-Navbar-brand"><Link to="/">Alces Flight</Link></NavbarBrand>
+          <NavbarToggle/>
+        </NavbarHeader>
+        <NavbarCollapse eventKey={0}>
           {this.navbar()}
-        </Navbar.Collapse>
+        </NavbarCollapse>
       </Navbar>
     )
   }
@@ -109,12 +120,12 @@ class Header extends React.Component {
 
   anonymousRightNav() {
     return (
-      <Navbar.Form pullRight>
+      <NavbarForm pullRight>
         <ButtonToolbar>
           <ButtonLink to="/sign-up" bsStyle="success" type="submit">Sign up</ButtonLink>
           <ButtonLink to="/sign-in" bsStyle="success" type="submit">Sign in</ButtonLink>
         </ButtonToolbar>
-      </Navbar.Form>
+      </NavbarForm>
     )
   }
 }
