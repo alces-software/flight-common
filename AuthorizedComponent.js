@@ -39,7 +39,8 @@ export function authorize(authorizationFunction, authorizationFailedHandler) {
   }
 
   const mapStateToProps = (state) => ({
-    auth: state.auth
+    auth: state.auth,
+    environments: state.environments
   });
 
   return connect(mapStateToProps)(AuthorizedComponent);
