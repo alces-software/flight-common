@@ -24,6 +24,7 @@ const iconNameToFontAwesomeProps = {
   "cluster-ssh-access":  {name: "terminal"},
   "cluster-reference":   {name: "sun-o"},
   "cluster-launch":      {name: "rocket"},
+  "cluster-terminate":   {name: "stop"},
 
   /* Environment icons */
   "environments":       {name: "bank"},
