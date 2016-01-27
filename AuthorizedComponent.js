@@ -18,7 +18,10 @@ export function authorize(authorizationFunction, authorizationFailedHandler) {
     }
 
     componentWillReceiveProps(nextProps) {
-      if (this.props.auth !== nextProps.auth) {
+      const authChanged = this.props.auth !== nextProps.auth;
+      const envsChanged = this.props.environments !== nextProps.environments;
+
+      if (authChanged || envsChanged) {
         this.handleIfUnauthorized();
       }
     }
