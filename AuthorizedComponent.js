@@ -18,7 +18,10 @@ export function authorize(authorizationFunction, authorizationFailedHandler) {
     }
 
     componentWillReceiveProps(nextProps) {
-      if (this.props.auth !== nextProps.auth) {
+      const authChanged = this.props.auth !== nextProps.auth;
+      const envsChanged = this.props.environments !== nextProps.environments;
+
+      if (authChanged || envsChanged) {
         this.handleIfUnauthorized();
       }
     }
@@ -39,7 +42,8 @@ export function authorize(authorizationFunction, authorizationFailedHandler) {
   }
 
   const mapStateToProps = (state) => ({
-    auth: state.auth
+    auth: state.auth,
+    environments: state.environments
   });
 
   return connect(mapStateToProps)(AuthorizedComponent);
