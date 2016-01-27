@@ -33,9 +33,9 @@ export default class NavOverlayEntry extends React.Component {
             <div className="flight-navOverlay-entry-timestamp">
               <TimeAgo date={timestamp} tooltipFormat="calendar"/>
             </div>
-            {actions ? actions.map((action, idx) => this.renderControl(action, idx)) : null}
           </div>
         </Link>
+        {actions ? actions.map((action, idx) => this.renderControl(action, idx)) : null}
       </div>
     );
   }
