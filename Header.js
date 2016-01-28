@@ -57,22 +57,8 @@ class Header extends React.Component {
     if (hasEnvironments) {
       return (
         <Nav>
-          <NavItemLink to="/start"><Icon name="home"/> Start</NavItemLink>
-          <NavDropdown
-            title={<span><Icon name="clusters"/> Clusters</span>}
-            >
-            <NavItemLink to="/clusters/launch"><Icon name="cluster-launch"/> Launch a cluster</NavItemLink>
-            <NavItemLink to="/clusters"><Icon name="clusters"/> Access your clusters</NavItemLink>
-          </NavDropdown>
-          <NavDropdown
-            title={<span><Icon name="environments"/> Environments</span>}
-            >
-            <NavItemLink to="/environments/new"><Icon name="environment-create"/> Define an environment</NavItemLink>
-            <NavItemLink to="/environments/share"><Icon name="environment-share"/> Share an environment</NavItemLink>
-            <NavItemLink to="/components/new"><Icon name="component-create"/> Define a component</NavItemLink>
-            <NavItemLink to="/invitations"><Icon name="environment-join"/> View invitations</NavItemLink>
-            <NavItemLink to="/environments"><Icon name="environments"/> Manage your environments</NavItemLink>
-          </NavDropdown>
+          <NavItemLink to="/start"><Icon name="clusters"/> Clusters</NavItemLink>
+          <NavItemLink to="/admin"><Icon name="environments"/> Environments</NavItemLink>
         </Nav>
       );
     } else {
