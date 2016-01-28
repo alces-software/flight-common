@@ -1,3 +1,10 @@
+/*=============================================================================
+ * Copyright (C) 2015-2016 Stephen F. Norledge and Alces Software Ltd.
+ *
+ * This file is part of Alces Flight.
+ *
+ * All rights reserved, see LICENSE.txt.
+ *===========================================================================*/
 import React, {PropTypes} from 'react';
 import { Overlay, Popover } from 'react-bootstrap';
 import classNames from 'classnames';
