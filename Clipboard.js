@@ -1,3 +1,10 @@
+/*=============================================================================
+ * Copyright (C) 2015-2016 Stephen F. Norledge and Alces Software Ltd.
+ *
+ * This file is part of Alces Flight.
+ *
+ * All rights reserved, see LICENSE.txt.
+ *===========================================================================*/
 import React from 'react';
 import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import ClipboardAction from 'clipboard/lib/clipboard-action';
