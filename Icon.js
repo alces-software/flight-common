@@ -24,9 +24,10 @@ const iconNameToFontAwesomeProps = {
   /* Cluster icons */
   "clusters":            {name: "server"},
   "cluster":             {name: "server"},
-  "cluster-pending":     {name: "hourglass-o", className: "animation-spinStopSpin"},
+  "cluster-queueing":    {name: "hourglass-o", className: "animation-spinStopSpin"},
+  "cluster-launching":   {name: "hourglass-o", className: "animation-spinStopSpin"},
   "cluster-terminating": {name: "hourglass-o", className: "animation-spinStopSpin"},
-  "cluster-running":     {name: "cog", className: "animation-slowSpin"},
+  "cluster-available":   {name: "cog", className: "animation-slowSpin"},
   "cluster-failed":      {name: "exclamation-circle"},
   "cluster-ssh-access":  {name: "terminal"},
   "cluster-reference":   {name: "sun-o"},
