@@ -8,7 +8,6 @@
 import React from 'react';
 
 import * as authActionTypes from 'auth/actionTypes';
-import * as clusterActionTypes from 'cluster/actionTypes';
 import * as clusterComponentActionTypes from 'clusterComponent/actionTypes';
 import * as environmentActionTypes from 'environment/actionTypes';
 import * as registrationActionTypes from 'registration/actionTypes';
@@ -72,12 +71,6 @@ export function setupDefaultErrorMessageGenerators(generatorsMap) {
 //
 export function addActionTypeCustomizations(generatorsMap) {
   generatorsMap.
-    customizeMessage(
-      "unexpected",
-      clusterActionTypes.START_FROM_TEMPLATE,
-      {title: "Unable to launch cluster"}
-    ).
-
     customizeMessage(
       "unexpected",
       authActionTypes.RETRIEVE_SESSION,
