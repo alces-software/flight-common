@@ -34,6 +34,7 @@ const iconNameToFontAwesomeProps = {
   "cluster-launch":      {name: "rocket"},
   "cluster-terminate":   {name: "stop"},
   "cluster-composition": {name: "list-alt"},
+  "cluster-runtime":     {name: "hourglass-o"},
 
   /* Environment icons */
   "environments":       {name: "bank"},
