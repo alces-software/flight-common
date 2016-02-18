@@ -51,7 +51,8 @@ const iconNameToFontAwesomeProps = {
   "arrow-go":     {name: "arrow-right"},
   "arrow-return": {name: "arrow-left"},
   "connect":      {name: "bolt"},
-  "summary":      {name: "info-circle"}
+  "summary":      {name: "info-circle"},
+  "quotas":       {name: "tachometer"}
 }
 
 const faPropsForIconName = (iconName) => {
