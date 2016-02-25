@@ -10,6 +10,8 @@ import {default as ReactTimeAgo} from 'react-timeago';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import moment from 'moment';
 
+import {timestamp, upperCaseCalendar} from 'utils/momentConfiguration';
+
 export default class TimeAgo extends React.Component {
   render() {
     const {date} = this.props;
@@ -38,12 +40,11 @@ export default class TimeAgo extends React.Component {
 
   formatTooltip() {
     const {date, tooltipFormat} = this.props;
-    const defaultTooltipFormat = "YYYY-MM-DD HH:mm:ss Z";
 
     if (tooltipFormat === "calendar") {
-      return moment(date).calendar();
+      return upperCaseCalendar(date);
     } else {
-      return moment(date).format(tooltipFormat || defaultTooltipFormat);
+      return timestamp(date);
     }
   }
 }
