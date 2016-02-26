@@ -34,6 +34,7 @@ const iconNameToFontAwesomeProps = {
   "cluster-launch":      {name: "rocket"},
   "cluster-terminate":   {name: "stop"},
   "cluster-composition": {name: "list-alt"},
+  "cluster-runtime":     {name: "hourglass-half"},
 
   /* Environment icons */
   "environments":       {name: "bank"},
@@ -51,7 +52,8 @@ const iconNameToFontAwesomeProps = {
   "arrow-go":     {name: "arrow-right"},
   "arrow-return": {name: "arrow-left"},
   "connect":      {name: "bolt"},
-  "summary":      {name: "info-circle"}
+  "summary":      {name: "info-circle"},
+  "quotas":       {name: "tachometer"}
 }
 
 const faPropsForIconName = (iconName) => {
