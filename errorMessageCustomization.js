@@ -7,6 +7,8 @@
  *===========================================================================*/
 import React from 'react';
 
+import { Link } from 'react-router';
+
 import * as authActionTypes from 'auth/actionTypes';
 import * as clusterComponentActionTypes from 'clusterComponent/actionTypes';
 import * as environmentActionTypes from 'environment/actionTypes';
@@ -122,6 +124,19 @@ export function addActionTypeCustomizations(generatorsMap) {
         title: 'Environment creation failed',
         content: <div>
           It was not possible to create your environment. {correctErrorsText()}
+        </div>
+      }
+    ).
+
+    customizeMessage(
+      422,
+      authActionTypes.RESET_PASSWORD,
+      {
+        title: 'Password reset failed',
+        content: <div>
+          Could not reset your password. Check that you have followed the 
+          correct link from the email you were sent. You can also <Link 
+          to="/password-reset">request a new password reset token</Link>.
         </div>
       }
     );
