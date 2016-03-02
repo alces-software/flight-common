@@ -33,6 +33,10 @@ export default class FlightPanel extends React.Component {
   renderHeader() {
     const {header, headerButton} = this.props;
 
+    if (header == null) {
+      return null
+    }
+
     return (
       <Grid fluid>
         <Row>
@@ -62,7 +66,7 @@ export default class FlightPanel extends React.Component {
 FlightPanel.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  header: PropTypes.node.isRequired,
+  header: PropTypes.node,
   headerButton: PropTypes.node,
   headerSize: PropTypes.oneOf(["small"]),
   width: PropTypes.oneOf(["medium", "wide"])

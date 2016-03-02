@@ -45,6 +45,10 @@
         background-color: whitesmoke;
     }
 
+    &.no-background-color .panel-body {
+        background-color: initial;
+    }
+
     &.flightPanel-width--medium {
         @extend .col-sm-offset-1;
         @extend .col-sm-10;
@@ -61,5 +65,10 @@
         @extend .col-md-10;
         padding-left: 0;
         padding-right: 0;
+    }
+
+    &.no-border, &.no-border .panel {
+        border: none;
+        box-shadow: none;
     }
 }
