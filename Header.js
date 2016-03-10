@@ -60,7 +60,7 @@ class Header extends React.Component {
   }
 
   accountLeftNav() {
-    const {hasEnvironments} = this.props;
+    const {clusters, hasEnvironments} = this.props;
     if (hasEnvironments) {
       return (
         <Nav>
@@ -68,7 +68,16 @@ class Header extends React.Component {
           <NavItemLink to="/admin"><Icon name="environments"/> Environments</NavItemLink>
         </Nav>
       );
-    } else {
+    }
+    else if (clusters.length > 0) { // Let users access running clusters after environment access revoked
+      return (
+        <Nav>
+          <NavItemLink to="/clusters"><Icon name="clusters"/> Clusters</NavItemLink>
+          <NavItemLink to="/connect"><Icon name="connect"/> Connect</NavItemLink>
+        </Nav>
+      );
+    }
+    else {
       return (
         <Nav>
           <NavItemLink to="/connect">
