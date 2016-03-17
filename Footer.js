@@ -8,11 +8,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import moment from 'moment';
+
 class Footer extends React.Component {
   render() {
+    const currentYear = moment().format("YYYY");
     return (
       <footer>
-        Alces Flight <span className="flightFooter-copyright">&copy;</span> 2015&nbsp;
+        Alces Flight <span className="flightFooter-copyright">&copy;</span> {currentYear}&nbsp;
         <a className="flightFooter-us" href="http://www.alces-software.com">
           Alces&nbsp;Software&nbsp;Ltd
         </a>
