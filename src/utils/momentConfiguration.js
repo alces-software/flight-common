@@ -7,7 +7,7 @@
  *===========================================================================*/
 import moment from 'moment';
 
-moment.locale('en', {
+moment.updateLocale('en', {
   longDateFormat: {
     LT: 'HH:mm',
     L: 'ddd Do MMM YYYY',
