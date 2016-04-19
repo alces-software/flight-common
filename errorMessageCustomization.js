@@ -10,7 +10,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import * as authActionTypes from 'auth/actionTypes';
-import * as clusterComponentActionTypes from 'clusterComponent/actionTypes';
+import * as clusterComponentActionTypes from 'novaComponent/actionTypes';
 import * as environmentActionTypes from 'environment/actionTypes';
 import * as registrationActionTypes from 'registration/actionTypes';
 import {ContactCustomerSupport} from 'components/CustomerSupport';
