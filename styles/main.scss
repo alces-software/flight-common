@@ -63,6 +63,7 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 @import "./flightToast";
 @import "./form";
 @import "./inbox";
+@import './switchButton';
 
 /* XXX Consider whether these should be required by their components. They
  * need access to the SASS context (helpers, basic settings, bootstrap
@@ -80,6 +81,7 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 
 
 /* Styles for our various modules */
+@import "~modules/cloudformationComponent/components/styles";
 @import "~modules/cluster/components/styles";
 @import "~modules/clusterComponent/components/styles";
 @import "~modules/invitation/components/styles";
