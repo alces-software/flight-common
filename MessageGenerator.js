@@ -41,11 +41,11 @@ export default class MessageGenerator {
   generateMessage(message, overrideCode) {
     let title = this.titles[overrideCode] || this.defaultTitle;
     if (_.isFunction(title)) {
-      title = title(message);
+      title = title(message) || this.defaultTitle;
     }
     let content = this.contents[overrideCode] || this.defaultContent;
     if (_.isFunction(content)) {
-      content = content(message);
+      content = content(message) || this.defaultContent;
     }
     let actions = this.actions[overrideCode];
     if (_.isFunction(actions)) {
