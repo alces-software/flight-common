@@ -53,11 +53,13 @@ const iconNameToFontAwesomeProps = {
   "componentTemplate-create": {name: "plus-square"},
 
   /* Miscellaneous icons */
-  "arrow-go":     {name: "arrow-right"},
-  "arrow-return": {name: "arrow-left"},
-  "connect":      {name: "bolt"},
-  "summary":      {name: "info-circle"},
-  "quotas":       {name: "tachometer"}
+  "arrow-go":        {name: "arrow-right"},
+  "arrow-return":    {name: "arrow-left"},
+  "connect":         {name: "bolt"},
+  "summary":         {name: "info-circle"},
+  "quotas":          {name: "tachometer"},
+  "share-resource":  {name: "share-alt"},
+  "shared-resource": {name: "share-alt"}
 }
 
 const faPropsForIconName = (iconName) => {
