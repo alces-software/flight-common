@@ -65,6 +65,7 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 @import "./flightToast";
 @import "./form";
 @import "./inbox";
+@import './searchInput';
 @import './switchButton';
 
 /* XXX Consider whether these should be required by their components. They
