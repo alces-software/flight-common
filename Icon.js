@@ -42,11 +42,15 @@ const iconNameToFontAwesomeProps = {
   "environment-target": {name: "bullseye"},
   "environment-join":   {name: "share-square"},
   "environment-create": {name: "plus-square"},
-  "environment-share":  {name: "share-alt-square"},
+  "environment-share":  {name: "send"},
 
   /* Component icons */
   "component": {name: "puzzle-piece"},
   "component-create": {name: "plus-square"},
+
+  /* Component icons */
+  "componentTemplate": {name: "file-code-o"},
+  "componentTemplate-create": {name: "plus-square"},
 
   /* Miscellaneous icons */
   "arrow-go":     {name: "arrow-right"},
