@@ -32,3 +32,18 @@
     background-color: $c-primary-color;
     color: white;
 }
+
+.btn-group .dropdown-menu {
+    background-color: $base-background;
+
+    & > li > a {
+        color: $base-color;
+    }
+    & > li > a:hover {
+        color: $c-primary-color--lightest;
+    }
+}
+
+.btn-group .dropdown-toggle {
+    height: 33px;
+}
