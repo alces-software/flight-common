@@ -32,3 +32,7 @@
     background-color: $c-primary-color;
     color: white;
 }
+
+.input-group-btn button {
+    padding-bottom: $padding-base-vertical + 1;
+}
