@@ -48,9 +48,13 @@ const iconNameToFontAwesomeProps = {
   "component": {name: "puzzle-piece"},
   "component-create": {name: "plus-square"},
 
-  /* Component icons */
+  /* Component template icons */
   "componentTemplate": {name: "file-code-o"},
   "componentTemplate-create": {name: "plus-square"},
+
+  /* Cluster template icons */
+  "clusterTemplate": {name: "object-ungroup"},
+  "clusterTemplate-create": {name: "plus-square"},
 
   /* Miscellaneous icons */
   "arrow-go":        {name: "arrow-right"},
