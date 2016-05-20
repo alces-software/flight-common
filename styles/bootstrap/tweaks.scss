@@ -47,3 +47,7 @@
 .btn-group .dropdown-toggle {
     height: 33px;
 }
+
+.input-group-btn button {
+    padding-bottom: $padding-base-vertical + 1;
+}
