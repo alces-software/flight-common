@@ -90,8 +90,6 @@ class Header extends React.Component {
         />
         <InvitationsNavCounter
           invitations={pendingInvitations}
-          onAcceptInvitation={this.props.onAcceptInvitation}
-          onDeclineInvitation={this.props.onDeclineInvitation}
           overlayContainer={this}
         />
         <NavDropdown
