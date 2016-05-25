@@ -1,13 +1,15 @@
 /*=============================================================================
- * Copyright (C) 2015 Stephen F. Norledge and Alces Software Ltd.
+ * Copyright (C) 2015-2016 Stephen F. Norledge and Alces Software Ltd.
  *
  * This file is part of Alces Flight.
  *
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
 import React, {PropTypes} from 'react';
+import { connect } from 'react-redux';
 
 import Modal from './NotificationModal';
+import {closeModal} from '../actions';
 
 //
 // Wrapper around NotificationModal to enable smooth transitions when we are
@@ -17,7 +19,16 @@ import Modal from './NotificationModal';
 // currently being shown and the other representing the modal that is being
 // closed.
 //
-export default class NotificationModals extends React.Component {
+class NotificationModals extends React.Component {
+  constructor(props, context) {
+    super(props, context)
+    this.handleCloseNotification = this.handleCloseNotification.bind(this);
+  }
+
+  handleCloseNotification() {
+    return this.props.dispatch(closeModal());
+  }
+
   render() {
     const currentModalId = this.props.currentModal ?
       this.props.currentModal.messageId :
@@ -32,7 +43,7 @@ export default class NotificationModals extends React.Component {
         {/* The current modal to display. */}
         <Modal
           show={this.props.showingModal}
-          onHide={this.props.onCloseNotification}
+          onHide={this.handleCloseNotification}
           message={this.props.currentModal}
           key={currentModalId}
         />
@@ -61,7 +72,7 @@ NotificationModals.propTypes = {
   // The modal that is currently being displayed / is animating in.
   currentModal: PropTypes.shape(modalShape),
   // The modal that is currently being hidden / is animating out.
-  exitingModal: PropTypes.shape(modalShape),
-  // Callback to run when the modal is closed.
-  onCloseNotification: PropTypes.func.isRequired
+  exitingModal: PropTypes.shape(modalShape)
 }
+
+export default connect()(NotificationModals);
