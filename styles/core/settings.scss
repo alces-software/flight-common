@@ -137,6 +137,8 @@ $l-zIndex--top: 5000;
 $l-nav-height: 50px;
 $l-nav-zIndex: 1000;
 
+// $l-footer-height needs to be kept in-sync with the `footerHeight` variable
+// in forms/components/FlightSelect
 $l-footer-height: 40px;
 $l-footer-zIndex: 1000;
 
