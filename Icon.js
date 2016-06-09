@@ -10,19 +10,19 @@ import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
 
 const iconNameToFontAwesomeProps = {
-  /* Invitation icons */
-  /* Actions we can take on invitations and their feedback */
+  // Invitation icons
+  // Actions we can take on invitations and their feedback
   "invitation":           {name: "chain"},
   "invitation-accept":    {name: "check"},
   "invitation-accepting": {name: "spinner", spin: true},
   "invitation-decline":   {name: "times"},
   "invitation-declining": {name: "spinner", spin: true},
-  /* States that an invitation can be in */
+  // States that an invitation can be in
   "invitation-pending":   {name: "chain-broken"},
   "invitation-accepted":   {name: "chain"},
   "invitation-declined":   {name: "ban"},
 
-  /* Cluster icons */
+  // Cluster icons
   "clusters":            {name: "server"},
   "cluster":             {name: "server"},
   "cluster-queueing":    {name: "hourglass-o", className: "animation-spinStopSpin"},
@@ -37,7 +37,7 @@ const iconNameToFontAwesomeProps = {
   "cluster-composition": {name: "list-alt"},
   "cluster-runtime":     {name: "hourglass-half"},
 
-  /* Environment icons */
+  // Environment icons
   "environments":       {name: "bank"},
   "environment":        {name: "bank"},
   "environment-target": {name: "bullseye"},
@@ -45,19 +45,19 @@ const iconNameToFontAwesomeProps = {
   "environment-create": {name: "plus-square"},
   "environment-share":  {name: "send"},
 
-  /* Component icons */
+  // Component icons
   "component": {name: "puzzle-piece"},
   "component-create": {name: "plus-square"},
 
-  /* Component template icons */
+  // Component template icons
   "componentTemplate": {name: "file-code-o"},
   "componentTemplate-create": {name: "plus-square"},
 
-  /* Cluster template icons */
+  // Cluster template icons
   "clusterTemplate": {name: "object-ungroup"},
   "clusterTemplate-create": {name: "plus-square"},
 
-  /* Miscellaneous icons */
+  // Miscellaneous icons
   "arrow-go":        {name: "arrow-right"},
   "arrow-return":    {name: "arrow-left"},
   "connect":         {name: "bolt"},
