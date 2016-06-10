@@ -28,3 +28,7 @@ a[href^="mailto:"]:after {
     display: inline-block;
     text-indent: 0;
 }
+
+.ellipsis {
+    @extend %ellipsis;
+}
