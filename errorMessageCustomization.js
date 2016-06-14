@@ -10,7 +10,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import * as authActionTypes from 'auth/actionTypes';
-import * as clusterComponentActionTypes from 'novaComponent/actionTypes';
 import * as environmentActionTypes from 'environment/actionTypes';
 import * as registrationActionTypes from 'registration/actionTypes';
 import {ContactCustomerSupport} from 'components/CustomerSupport';
@@ -101,18 +100,6 @@ export function addActionTypeCustomizations(generatorsMap) {
         title: 'Registration failure',
         content: <div>
           It was not possible to create your account. {correctErrorsText()}
-        </div>
-      }
-    ).
-
-    customizeMessage(
-      422,
-      clusterComponentActionTypes.CREATE,
-      {
-        title: 'Cluster component creation failed',
-        content: <div>
-          It was not possible to create your cluster component.
-          {correctErrorsText()}
         </div>
       }
     ).
