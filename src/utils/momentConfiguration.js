@@ -1,7 +1,7 @@
 /*=============================================================================
  * Copyright (C) 2016 Stephen F. Norledge and Alces Software Ltd.
  *
- * This file is part of Alces Flight.
+ * This file is part of Alces FlightDeck.
  *
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
