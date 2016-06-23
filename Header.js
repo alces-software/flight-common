@@ -64,8 +64,8 @@ class Header extends React.Component {
     if (hasEnvironments) {
       return (
         <Nav>
-          <NavItemLink to="/start"><Icon name="clusters"/> Clusters</NavItemLink>
-          <NavItemLink to="/admin"><Icon name="environments"/> Environments</NavItemLink>
+          <NavItemLink to="/clusters"><Icon name="clusters"/> Clusters</NavItemLink>
+          <NavItemLink to="/environments"><Icon name="environments"/> Environments</NavItemLink>
         </Nav>
       );
     } else {
