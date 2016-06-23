@@ -1,7 +1,7 @@
 /*=============================================================================
  * Copyright (C) 2015-2016 Stephen F. Norledge and Alces Software Ltd.
  *
- * This file is part of Alces Flight.
+ * This file is part of Alces FlightDeck.
  *
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
@@ -32,7 +32,7 @@ class Header extends React.Component {
     return (
       <Navbar className="flight-Navbar" fluid fixedTop>
         <NavbarHeader>
-          <NavbarBrand className="flight-Navbar-brand"><Link to="/">Alces Flight</Link></NavbarBrand>
+          <NavbarBrand className="flight-Navbar-brand"><Link to="/">Alces FlightDeck</Link></NavbarBrand>
           <NavbarToggle/>
         </NavbarHeader>
         <NavbarCollapse eventKey={0}>

@@ -1,7 +1,7 @@
 /*=============================================================================
  * Copyright (C) 2015 Stephen F. Norledge and Alces Software Ltd.
  *
- * This file is part of Alces Flight.
+ * This file is part of Alces FlightDeck.
  *
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
@@ -15,7 +15,7 @@ class Footer extends React.Component {
     const currentYear = moment().format("YYYY");
     return (
       <footer>
-        Alces Flight <span className="flightFooter-copyright">&copy;</span>
+        Alces FlightDeck <span className="flightFooter-copyright">&copy;</span>
         &nbsp;2015&ndash;{currentYear}&nbsp;
         <a className="flightFooter-us" href="http://www.alces-software.com">
           Alces&nbsp;Software&nbsp;Ltd
