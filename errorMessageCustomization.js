@@ -1,7 +1,7 @@
 /*=============================================================================
  * Copyright (C) 2015 Stephen F. Norledge and Alces Software Ltd.
  *
- * This file is part of Alces Flight.
+ * This file is part of Alces FlightDeck.
  *
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
@@ -31,8 +31,8 @@ export function setupDefaultErrorMessageGenerators(generatorsMap) {
   const serverUnavailableErrorMessageGenerator = new MessageGenerator(
     'Unable to communicate with server',
     <div>
-      Flight was unable to complete your action as it was unable to
-      communicate with the Flight web server; please check your
+      FlightDeck was unable to complete your action as it was unable to
+      communicate with the FlightDeck web server; please check your
       internet connection and try again. <ContactCustomerSupport/>
     </div>
   );
@@ -50,7 +50,7 @@ export function setupDefaultErrorMessageGenerators(generatorsMap) {
   const serverErrorMessageGenerator = new MessageGenerator(
     'Unexpected error',
     <div>
-      The Flight web server errored while attempting to complete your
+      The FlightDeck web server errored while attempting to complete your
       request. <ContactCustomerSupport/>
     </div>
   );
