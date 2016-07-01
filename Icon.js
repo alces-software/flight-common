@@ -62,6 +62,7 @@ const iconNameToFontAwesomeProps = {
   "arrow-go":        {name: "arrow-right"},
   "arrow-return":    {name: "arrow-left"},
   "connect":         {name: "bolt"},
+  "delete-resource": {name: "times"},
   "summary":         {name: "info-circle"},
   "quotas":          {name: "tachometer"},
   "share-resource":  {name: "share-alt"},
