@@ -22,7 +22,7 @@ class StatefulButton extends React.Component {
         bsStyle="success"
         {...this.props}
         disabled={disabled || submitting}
-        >
+      >
         {this.renderContent(submitting)}
       </Button>
     )
@@ -32,12 +32,16 @@ class StatefulButton extends React.Component {
     let content;
     if (submitting) {
       const text = this.props.submittingText || "Submitting...";
-      content = <span>{text}&nbsp;<Icon name='spinner' spin/></span>
+      content = <span>{text}{' '}<Icon name='spinner' spin/></span>
     } else {
       content = this.props.children;
     }
-    let icon = this.props.icon ? <Icon name={this.props.icon}/> : '';
-    return <span>{icon}&nbsp;{content}</span>;
+    let icon = this.props.icon ? <Icon name={this.props.icon}/> : null;
+    if (icon) {
+      return <span>{icon}{' '}{content}</span>;
+    } else {
+      return content;
+    }
   }
 }
 
