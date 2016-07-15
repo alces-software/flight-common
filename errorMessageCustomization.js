@@ -121,8 +121,8 @@ export function addActionTypeCustomizations(generatorsMap) {
       {
         title: 'Password reset failed',
         content: <div>
-          Could not reset your password. Check that you have followed the 
-          correct link from the email you were sent. You can also <Link 
+          Could not reset your password. Check that you have followed the
+          correct link from the email you were sent. You can also <Link
           to="/password-reset">request a new password reset token</Link>.
         </div>
       }
