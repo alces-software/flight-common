@@ -98,7 +98,7 @@ export default class NavCounterBadge extends React.Component {
       "flight-NavCounterBadge",
       {
         [`badge-${style}`]: style !== undefined,
-        "badge-primary": style === undefined, 
+        "badge-primary": style === undefined,
         "flight-NavCounterBadge--zero": count < 1
       }
     );

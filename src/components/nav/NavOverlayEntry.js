@@ -17,7 +17,7 @@ import TimeAgo from 'components/TimeAgo';
 export default class NavOverlayEntry extends React.Component {
   render() {
     const {
-      actions, children, className, iconName, linkTarget, timestamp, title 
+      actions, children, className, iconName, linkTarget, timestamp, title
     } = this.props;
     const classes = classNames(
       "flight-navOverlay-entry",
