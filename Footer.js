@@ -18,7 +18,7 @@ class Footer extends React.Component {
         Alces FlightDeck <span className="flightFooter-copyright">&copy;</span>
         &nbsp;2015&ndash;{currentYear}&nbsp;
         <a className="flightFooter-us" href="http://www.alces-software.com">
-          Alces&nbsp;Software&nbsp;Ltd
+          Alces&nbsp;Flight&nbsp;Ltd
         </a>
         {this.separatorBar()}
         <Link to="/privacy" className="flightFooter-link">Privacy Policy</Link>
