@@ -10,7 +10,7 @@ import React from 'react';
 export class CustomerSupportLink extends React.Component {
   render() {
     return (
-      <a href='mailto: support@alces-software.com'>Alces Customer Support</a>
+      <a href='mailto: support@alces-flight.com'>Alces Customer Support</a>
     );
   }
 }
