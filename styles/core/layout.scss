@@ -76,6 +76,10 @@
     margin-bottom: rem($base-whitespace * 2);
 }
 
+.nowrap {
+    white-space: nowrap;
+}
+
 /* Button icons */
 
 BUTTON.btn, A.btn {
