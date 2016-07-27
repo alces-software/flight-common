@@ -38,7 +38,7 @@
   opacity: 0;
 }
 
-@keyframes spinStopSpin {
+@keyframes halfSpinStopSpin {
     0% { transform: rotate(0deg); }
     20% { transform: rotate(0deg); }
     40% { transform: rotate(180deg); }
@@ -47,8 +47,22 @@
     100% { transform: rotate(360deg); }
 }
 
-.animation-spinStopSpin {
-    animation-name: spinStopSpin;
+.animation-halfSpinStopSpin {
+    animation-name: halfSpinStopSpin;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+@keyframes fullSpinStopSpin {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(0deg); }
+    80% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.animation-fullSpinStopSpin {
+    animation-name: fullSpinStopSpin;
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-out;
