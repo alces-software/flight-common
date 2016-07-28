@@ -32,3 +32,18 @@ a[href^="mailto:"]:after {
 .ellipsis {
     @extend %ellipsis;
 }
+
+.flight-disabledOnHoverWrapper {
+    cursor: not-allowed;
+    display: inline-block;
+}
+
+.btn-toolbar > .flight-disabledOnHoverWrapper {
+    // Mimic `.btn-toolbar > .btn` and `.btn-toolbar .btn` rules when we have
+    // a disbaled hover workaround element in place.
+
+    float: left;
+    & > .btn {
+        margin-left: 5px;
+    }
+}
