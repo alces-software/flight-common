@@ -45,7 +45,6 @@ const iconNameToFontAwesomeProps = {
   "environment-join":   {name: "share-square"},
   "environment-create": {name: "plus-square"},
   "environment-share":  {name: "send"},
-  "environment-error":  {name: "exclamation-triangle"},
 
   // Component icons
   "component": {name: "puzzle-piece"},
@@ -65,6 +64,7 @@ const iconNameToFontAwesomeProps = {
   "credit":          {name: "ticket"},
   "connect":         {name: "bolt"},
   "delete-resource": {name: "times"},
+  "error":           {name: "exclamation-triangle"},
   "summary":         {name: "info-circle"},
   "quotas":          {name: "tachometer"},
   "share-resource":  {name: "share-alt"},
