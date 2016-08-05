@@ -61,6 +61,7 @@ const iconNameToFontAwesomeProps = {
   // Miscellaneous icons
   "arrow-go":        {name: "arrow-right"},
   "arrow-return":    {name: "arrow-left"},
+  "compute":         {name: "puzzle-piece"},
   "credit":          {name: "ticket"},
   "connect":         {name: "bolt"},
   "delete-resource": {name: "times"},
