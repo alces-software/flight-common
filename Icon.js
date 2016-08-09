@@ -45,6 +45,7 @@ const iconNameToFontAwesomeProps = {
   "environment-join":   {name: "share-square"},
   "environment-create": {name: "plus-square"},
   "environment-share":  {name: "send"},
+  "environment-owner":  {name: "heart"},
 
   // Component icons
   "component": {name: "puzzle-piece"},
