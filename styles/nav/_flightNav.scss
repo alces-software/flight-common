@@ -23,6 +23,10 @@
 
 .flight-Navbar-account-menu {
     margin-left: rem(5px);
+    .dropdown-menu .divider {
+        background-color: $c-primary-color--dark;
+        margin: 9px;
+    }
 }
 
 .flight-NavCounter {
