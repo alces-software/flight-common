@@ -85,9 +85,9 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 
 
 /* Styles for our various modules */
-@import "~modules/clusterComponent/components/styles";
 @import "~modules/cluster/components/styles";
 @import "~modules/clusterComponent/components/styles";
+@import "~modules/componentTemplate/components/styles";
 @import "~modules/invitation/components/styles";
 @import "~modules/queuedClusterTemplate/components/styles";
 @import "~modules/savedClusterTemplate/components/styles";
