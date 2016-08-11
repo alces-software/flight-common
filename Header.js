@@ -99,6 +99,7 @@ class Header extends React.Component {
           title={account.name}
           >
           <NavItemLink to="/account/edit"><Icon name="user"/> Edit account</NavItemLink>
+          <MenuItem divider />
           <MenuItem eventKey='1' onSelect={doSignOut}><Icon name="sign-out"/> Sign out</MenuItem>
         </NavDropdown>
       </Nav>
