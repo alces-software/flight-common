@@ -1,7 +1,7 @@
 
 export AuthorizedComponent from './AuthorizedComponent';
 export Clipboard from './Clipboard';
-export CustomerSupport from './CustomerSupport';
+export {CustomerSupportLink, ContactCustomerSupport} from './CustomerSupport';
 export Footer from './Footer';
 // export Header from './Header'; // TODO: doesn't compile yet.
 export Icon from './Icon'
