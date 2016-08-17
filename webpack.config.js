@@ -12,13 +12,14 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var env = process.env.NODE_ENV;
 
-var appName = "alces-flight";
+var appName = "flight-common";
 var entries, devServer, devtool, outputFile, pathinfo, plugins, publicPath,
     loaders;
 
+outputFile = appName + '.js'
+
 if (env === "production") {
   devtool = "source-map";
-  outputFile = appName + ".[hash].min.js";
   pathinfo = false;
   // XXX This needs to match the server address from which the built bundles
   // will be downloaded. If it doesn't, then the browser will attempt to
@@ -73,7 +74,6 @@ if (env === "production") {
 
 } else {
   devtool = "cheap-module-inline-source-map";
-  outputFile = appName + ".js";
   pathinfo = true;
   publicPath = "http://localhost:3001/";
 
@@ -135,7 +135,9 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     publicPath: publicPath,
     pathinfo: pathinfo,
-    filename: outputFile
+    filename: outputFile,
+    libraryTarget: 'umd',
+    library: appName
   },
   plugins: plugins,
   module: {

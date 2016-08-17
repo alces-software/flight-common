@@ -1,12 +1,13 @@
 {
-  "name": "alces-flight",
+  "name": "flight-common",
   "version": "0.0.0",
-  "description": "Alces FlightDeck",
+  "description": "Shared utilities for Alces Flight web apps",
   "engines": {
     "node": "4.1.2"
   },
-  "main": "index.js",
+  "main": "dist/flight-common.js",
   "scripts": {
+    "start": "webpack --progress --colors --watch",
     "build": "NODE_ENV=production webpack --colors --progress",
     "build-dev": "NODE_ENV=development webpack --colors --progress",
     "clean": "rm -rf ./dist",
