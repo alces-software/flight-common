@@ -1,2 +1,2 @@
 
-export const foo = 'hello world'
+export * from 'components';

@@ -11,8 +11,8 @@
 
   // We also use the "object rest spread operator":
   //   {...state, myKey: newValue}
-  // Which isn't part of es2015.
-  "plugins": ["transform-object-rest-spread"],
+  // and export extensions, both of which aren't part of es2015.
+  "plugins": ["transform-object-rest-spread", "transform-export-extensions"],
 
   // Plugins to use depending on the environment.
   "env": {
