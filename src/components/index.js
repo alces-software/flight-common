@@ -1,5 +1,5 @@
 
-export AuthorizedComponent from './AuthorizedComponent';
+export {createAuthorize} from './AuthorizedComponent';
 export Clipboard from './Clipboard';
 export {CustomerSupportLink, ContactCustomerSupport} from './CustomerSupport';
 export Footer from './Footer';
