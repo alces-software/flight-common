@@ -1,6 +1,6 @@
 
 export {createAuthorize} from './AuthorizedComponent';
-export Clipboard from './Clipboard';
+export {CopyToClipboardButton, CopyToClipboard} from './Clipboard';
 export {CustomerSupportLink, ContactCustomerSupport} from './CustomerSupport';
 export Footer from './Footer';
 export Header from './Header';

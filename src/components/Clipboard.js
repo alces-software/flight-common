@@ -43,13 +43,16 @@ export class CopyToClipboardButton extends React.Component {
   }
 
   render() {
+    const tooltip = (
+      <Tooltip id={`copy-to-clipboard-button-${this.props.text}`}>
+        {this.tooltipText()}
+      </Tooltip>
+    );
+
     return (
       <OverlayTrigger
         onExited={() => this.setState({copyState: "notCopied"})}
-        overlay={<Tooltip id="copy-to-clipboard-button-tooltip">
-          {this.tooltipText()}
-        </Tooltip>
-        }
+        overlay={tooltip}
         placement="bottom"
         shouldUpdatePosition
         trigger={["hover"]}
