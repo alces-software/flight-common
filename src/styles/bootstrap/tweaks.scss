@@ -1,0 +1,53 @@
+/*=============================================================================
+ * Copyright (C) 2013,2015 Stephen F. Norledge and Alces Software Ltd.
+ *
+ * This file is part of Alces FlightDeck.
+ *
+ * All rights reserved, see LICENSE.txt.
+ *===========================================================================*/
+/* *************************************
+ *
+ *   Bootstrap
+ *   -> Styles tweaking/overriding default bootstrap styles
+ *
+ * *************************************/
+
+.badge-danger {
+    background-color: $brand-danger;
+}
+
+.badge-success {
+    background-color: $brand-success;
+}
+
+.badge-info {
+    background-color: $brand-info;
+}
+
+.badge-warning {
+    background-color: $brand-warning;
+}
+
+.badge-primary {
+    background-color: $c-primary-color;
+    color: white;
+}
+
+.btn-group .dropdown-menu {
+    background-color: $base-background;
+
+    & > li > a {
+        color: $base-color;
+    }
+    & > li > a:hover {
+        color: $c-primary-color--lightest;
+    }
+}
+
+.btn-group .dropdown-toggle {
+    height: 33px;
+}
+
+.input-group-btn button {
+    padding-bottom: $padding-base-vertical + 1;
+}
