@@ -36,7 +36,8 @@
   "private": true,
   "peerDependencies": {
     "react": ">=0.14.0",
-    "react-dom": ">=0.14.0"
+    "react-dom": ">=0.14.0",
+    "react-router": ">=2.0.0"
   },
   "dependencies": {
     "bootstrap-sass": "^3.2.0",
@@ -57,7 +58,6 @@
     "react-fontawesome": "^0.3.3",
     "react-prop-types": "^0.3.0",
     "react-redux": "^4.0.0",
-    "react-router": "^2.0.1",
     "react-router-bootstrap": "^0.20.1",
     "react-select": "^0.6.12",
     "react-timeago": "^2.2.1",
@@ -100,6 +100,7 @@
     "react": "^0.14.8",
     "react-addons-test-utils": "^0.14.3",
     "react-dom": "^0.14.8",
+    "react-router": "^2.7.0",
     "react-transform-catch-errors": "^1.0.1",
     "react-transform-hmr": "^1.0.1",
     "sass-loader": "^3.1.1",

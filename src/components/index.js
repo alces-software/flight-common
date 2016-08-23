@@ -5,7 +5,7 @@ export {CustomerSupportLink, ContactCustomerSupport} from './CustomerSupport';
 export Footer from './Footer';
 export Header from './Header';
 export Icon from './Icon'
-export Links from './Links';
+export {ButtonLink, NavItemLink} from './Links';
 export LoadingPage from './LoadingPage';
 export StandardModal from './StandardModal';
 
