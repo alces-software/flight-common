@@ -122,6 +122,14 @@ module.exports = {
   entry: entries.concat([
     './index'
   ]),
+  externals: {
+    react: {
+      root: 'React',
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react'
+    }
+  },
   resolve: {
     root: [
       path.resolve('src'),

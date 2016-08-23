@@ -70,7 +70,30 @@ const iconNameToFontAwesomeProps = {
   "summary":         {name: "info-circle"},
   "quotas":          {name: "tachometer"},
   "share-resource":  {name: "share-alt"},
-  "shared-resource": {name: "share-alt"}
+  "shared-resource": {name: "share-alt"},
+
+  // Access Manager icons - for now these are prefixed to avoid collisions, at
+  // some point we might want to unify them with above.
+  "aam-cluster": {name: "rocket"},
+  "aam-cluster-authenticating": {name: "spinner", spin: true},
+  "aam-cluster-logout": {name: "sign-out"},
+  "aam-cluster-pinging": {name: "spinner", spin: true},
+
+  "aam-session-connect": {name: "link"},
+  "aam-session-external-access": {name: "external-link-square"},
+  "aam-session-external-access-back": {name: "arrow-circle-left"},
+  "aam-session-external-access-info": {name: "info-circle"},
+  "aam-session-launch": {name: "desktop"},
+  "aam-session-launching": {name: "spinner", spin: true},
+  "aam-session-password-hide": {name: "eye-slash"},
+  "aam-session-password-reveal": {name: "eye"},
+
+  "aam-vnc-volume-on": {name: "volume-up"},
+  "aam-vnc-volume-off": {name: "volume-off"},
+  "aam-vnc-copy": {name: "files-o"},
+  "aam-vnc-paste": {name: "clipboard"},
+  "aam-vnc-interactive": {name: "mouse-pointer"},
+  "aam-vnc-drag-viewport": {name: "arrows"}
 }
 
 const faPropsForIconName = (iconName) => {
