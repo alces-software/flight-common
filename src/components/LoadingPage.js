@@ -5,15 +5,19 @@
  *
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {ProgressBar} from 'react-bootstrap';
 
-export default class LoadingPage extends React.Component {
+class LoadingPage extends React.Component {
   render() {
+    const {productName} = this.props;
+
     return (
       <div className="loading-indicator">
         <p>
-          One moment please &mdash; <em>Alces&nbsp;FlightDeck</em>&nbsp;is&nbsp;starting&nbsp;up.
+          One moment please &mdash;
+          {' '}<em className="nowrap">{productName}</em>{' '}
+          is&nbsp;starting&nbsp;up.
         </p>
         <ProgressBar
           active
@@ -26,3 +30,9 @@ export default class LoadingPage extends React.Component {
     )
   }
 }
+
+LoadingPage.propTypes = {
+  productName: PropTypes.string.isRequired
+}
+
+export default LoadingPage;
