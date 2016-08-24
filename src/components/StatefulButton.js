@@ -48,6 +48,7 @@ class StatefulButton extends React.Component {
 StatefulButton.propTypes = {
   block: Button.propTypes.block,
   bsSize: Button.propTypes.bsSize,
+  bsStyle: Button.propTypes.bsStyle,
   onClick: React.PropTypes.func.isRequired,
   submitting: React.PropTypes.bool,
   submittingText: React.PropTypes.string
