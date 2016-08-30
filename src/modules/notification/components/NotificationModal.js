@@ -10,7 +10,7 @@ import React, {PropTypes} from 'react';
 import StandardModal from 'components/StandardModal';
 import {
   generateErrorMessage, generateInformationMessage
-} from 'notification/messageGeneration';
+} from '../messageGeneration';
 
 export default class NotificationModal extends React.Component {
   render() {
