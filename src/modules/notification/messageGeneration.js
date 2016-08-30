@@ -9,15 +9,12 @@ import Console from "utils/console";
 
 import MessageGeneratorsMap from "./MessageGeneratorsMap";
 import {
-  setupDefaultErrorMessageGenerators, addActionTypeCustomizations,
   unexpectedErrorMessageGenerator
 } from "./errorMessageCustomization";
 
 
-export const errorGeneratorsMap = new MessageGeneratorsMap();
 
-setupDefaultErrorMessageGenerators(errorGeneratorsMap);
-addActionTypeCustomizations(errorGeneratorsMap);
+export const errorGeneratorsMap = new MessageGeneratorsMap();
 
 // Generates an error message object from a raw error as created in the payload
 // of the addError action.
