@@ -5,7 +5,7 @@
  *
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
-import Console from "utils/console";
+import Console from "flight-common/utils/console";
 
 import MessageGeneratorsMap from "./MessageGeneratorsMap";
 import {
