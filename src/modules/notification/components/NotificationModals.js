@@ -30,6 +30,11 @@ class NotificationModals extends React.Component {
   }
 
   render() {
+    const {
+      errorGeneratorsMap,
+      infoGeneratorsMap
+    } = this.props;
+
     const currentModalId = this.props.currentModal ?
       this.props.currentModal.messageId :
       "undefinedCurrentModal";
@@ -46,6 +51,8 @@ class NotificationModals extends React.Component {
           onHide={this.handleCloseNotification}
           message={this.props.currentModal}
           key={currentModalId}
+          errorGeneratorsMap={errorGeneratorsMap}
+          infoGeneratorsMap={infoGeneratorsMap}
         />
         {/* The modal that has just been closed. */}
         <Modal
@@ -53,6 +60,8 @@ class NotificationModals extends React.Component {
           onHide={() => {}}
           message={this.props.exitingModal}
           key={exitingModalId}
+          errorGeneratorsMap={errorGeneratorsMap}
+          infoGeneratorsMap={infoGeneratorsMap}
         />
       </div>
     )
@@ -75,4 +84,14 @@ NotificationModals.propTypes = {
   exitingModal: PropTypes.shape(modalShape)
 }
 
-export default connect()(NotificationModals);
+const mapStateToProps = (state) => {
+  const {notifications: {errorGeneratorsMap, infoGeneratorsMap}} = state;
+  return {
+    errorGeneratorsMap,
+    infoGeneratorsMap
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(NotificationModals);

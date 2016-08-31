@@ -6,6 +6,7 @@
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
 import * as types from './actionTypes';
+import MessageGeneratorsMap from './MessageGeneratorsMap';
 
 let messageId = 0;
 function nextMessageId() {
@@ -20,7 +21,24 @@ const initialState = {
   currentModal: undefined,
   // The modal that is being animated out.
   exitingModal: undefined,
-  showingCurrentModal: false
+  showingCurrentModal: false,
+
+  // The notification generator maps are now stored in the Redux store; this
+  // prevents an issue with how they were accessed previously where depending
+  // on which module they were imported from (such as the enclosing app or
+  // flight-common internally) different instances of each would be
+  // initialized, which then means the notifications would not be set up when
+  // we attempt to display them.
+  //
+  // This is an improvement to the above issue (and moves this aspect of the
+  // state into the store), but is not really in the spirit of Redux as we
+  // still modify these directly rather than via reducers, so time travel etc.
+  // won't work for these I think.
+  //
+  // TODO: maybe use reducers and immutable objects for modifying/storing the
+  // message generators state instead?
+  errorGeneratorsMap: new MessageGeneratorsMap(),
+  infoGeneratorsMap: new MessageGeneratorsMap()
 }
 
 function addModalMessage(messageType) {

@@ -7,14 +7,9 @@
  *===========================================================================*/
 import Console from "flight-common/utils/console";
 
-import MessageGeneratorsMap from "./MessageGeneratorsMap";
 import {
   unexpectedErrorMessageGenerator
 } from "./errorMessageCustomization";
-
-
-
-export const errorGeneratorsMap = new MessageGeneratorsMap();
 
 // Generates an error message object from a raw error as created in the payload
 // of the addError action.
@@ -28,7 +23,7 @@ export const errorGeneratorsMap = new MessageGeneratorsMap();
 // error message object for the given action to the appropriate function in
 // this module (which may be a new function, if it is a message for a new
 // status code).
-export function generateErrorMessage(rawError) {
+export function generateErrorMessage(generatorsMap, rawError) {
   if (!rawError) {
     return undefined;
   }
@@ -36,7 +31,7 @@ export function generateErrorMessage(rawError) {
   const {status, actionType, payload} = parseError(rawError);
 
   let message;
-  let messageGenerator = errorGeneratorsMap.getGeneratorForCode(status);
+  let messageGenerator = generatorsMap.getGeneratorForCode(status);
   if (messageGenerator !== undefined) {
     message = messageGenerator.generateMessage(payload, actionType);
   }
@@ -61,13 +56,10 @@ function parseError(rawError) {
   }
 }
 
-
-export const infoGeneratorsMap = new MessageGeneratorsMap();
-
-export function generateInformationMessage(message) {
+export function generateInformationMessage(generatorsMap, message) {
   const messageCode = message.messagePayload;
   let generatedMessage;
-  let messageGenerator = infoGeneratorsMap.getGeneratorForCode(messageCode);
+  let messageGenerator = generatorsMap.getGeneratorForCode(messageCode);
   if (messageGenerator !== undefined) {
     generatedMessage = messageGenerator.generateMessage();
   }
