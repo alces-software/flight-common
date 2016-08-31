@@ -7,11 +7,6 @@
  *===========================================================================*/
 import React from 'react';
 
-import { Link } from 'react-router';
-
-import * as authActionTypes from 'auth/actionTypes';
-import * as environmentActionTypes from 'environment/actionTypes';
-import * as registrationActionTypes from 'registration/actionTypes';
 import {ContactCustomerSupport} from 'components/CustomerSupport';
 
 import MessageGenerator from "./MessageGenerator";
@@ -27,13 +22,13 @@ export const unexpectedErrorMessageGenerator = new MessageGenerator(
 //
 // Add default error message generators to the generators map.
 //
-export function setupDefaultErrorMessageGenerators(generatorsMap) {
+export function setupDefaultErrorMessageGenerators(generatorsMap, productName) {
   const serverUnavailableErrorMessageGenerator = new MessageGenerator(
     'Unable to communicate with server',
     <div>
-      FlightDeck was unable to complete your action as it was unable to
-      communicate with the FlightDeck web server; please check your
-      internet connection and try again. <ContactCustomerSupport/>
+      {productName} was unable to complete your action as it was unable to
+      communicate with the web server; please check your internet connection
+      and try again. <ContactCustomerSupport/>
     </div>
   );
 
@@ -50,86 +45,29 @@ export function setupDefaultErrorMessageGenerators(generatorsMap) {
   const serverErrorMessageGenerator = new MessageGenerator(
     'Unexpected error',
     <div>
-      The FlightDeck web server errored while attempting to complete your
+      The {productName} web server errored while attempting to complete your
       request. <ContactCustomerSupport/>
     </div>
   );
+
+  // Any bad gateway response that we have not planned for is an unexpected
+  // error, so display the standard message.
+  // TODO: this is needed in order to override the message for this status code
+  // for particular actions in AAM (and potentially other apps)- maybe it would
+  // be better if we were able to customize error messages without needing to
+  // specify a default, and have the unexpected error message as the default
+  // default?
+  const badGatewayErrorMessageGenerator = unexpectedErrorMessageGenerator;
 
   generatorsMap.
     addGeneratorForCode(0,   serverUnavailableErrorMessageGenerator).
     addGeneratorForCode(401, unauthorizedErrorMessageGenerator).
     addGeneratorForCode(422, unprocessableEntityErrorMessageGenerator).
     addGeneratorForCode(500, serverErrorMessageGenerator).
+    addGeneratorForCode(502, badGatewayErrorMessageGenerator).
     addUnexpectedGenerator(unexpectedErrorMessageGenerator);
 }
 
-
-//
-// Customize the error generators for certain action types.
-//
-// XXX Perhaps this should be moved from here and we allow other modules to
-// customize as they see fit.
-//
-export function addActionTypeCustomizations(generatorsMap) {
-  generatorsMap.
-    customizeMessage(
-      "unexpected",
-      authActionTypes.RETRIEVE_SESSION,
-      {
-        title: "Unable to retrieve your session",
-        content: <div>
-          An unexpected error occurred while attempting to retrieve your
-          session. <ContactCustomerSupport/>
-        </div>
-      }
-    ).
-
-    customizeMessage(
-      401,
-      authActionTypes.SIGN_IN,
-      {
-        title: 'Authentication failure',
-        content: "The provided username and/or password were incorrect. Please correct and try again."
-      }
-    ).
-
-    customizeMessage(
-      422,
-      registrationActionTypes.REGISTER,
-      {
-        title: 'Registration failure',
-        content: <div>
-          It was not possible to create your account. {correctErrorsText()}
-        </div>
-      }
-    ).
-
-    customizeMessage(
-      422,
-      environmentActionTypes.CREATE,
-      {
-        title: 'Environment creation failed',
-        content: <div>
-          It was not possible to create your environment. {correctErrorsText()}
-        </div>
-      }
-    ).
-
-    customizeMessage(
-      422,
-      authActionTypes.RESET_PASSWORD,
-      {
-        title: 'Password reset failed',
-        content: <div>
-          Could not reset your password. Check that you have followed the
-          correct link from the email you were sent. You can also <Link
-          to="/password-reset">request a new password reset token</Link>.
-        </div>
-      }
-    );
-}
-
-
-function correctErrorsText() {
+export function correctErrorsText() {
   return 'Please correct the errors and try again.';
 }

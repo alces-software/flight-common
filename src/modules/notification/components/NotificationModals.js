@@ -30,29 +30,41 @@ class NotificationModals extends React.Component {
   }
 
   render() {
-    const currentModalId = this.props.currentModal ?
-      this.props.currentModal.messageId :
+    const {
+      currentModal,
+      exitingModal,
+      showingModal,
+      errorGeneratorsMap,
+      infoGeneratorsMap
+    } = this.props;
+
+    const currentModalId = currentModal ?
+      currentModal.messageId :
       "undefinedCurrentModal";
 
-    const exitingModalId = this.props.exitingModal ?
-      this.props.exitingModal.messageId :
+    const exitingModalId = exitingModal ?
+      exitingModal.messageId :
       "undefinedExitingModal";
 
     return (
       <div>
         {/* The current modal to display. */}
         <Modal
-          show={this.props.showingModal}
+          show={showingModal}
           onHide={this.handleCloseNotification}
-          message={this.props.currentModal}
+          message={currentModal}
           key={currentModalId}
+          errorGeneratorsMap={errorGeneratorsMap}
+          infoGeneratorsMap={infoGeneratorsMap}
         />
         {/* The modal that has just been closed. */}
         <Modal
           show={false}
           onHide={() => {}}
-          message={this.props.exitingModal}
+          message={exitingModal}
           key={exitingModalId}
+          errorGeneratorsMap={errorGeneratorsMap}
+          infoGeneratorsMap={infoGeneratorsMap}
         />
       </div>
     )
@@ -75,4 +87,14 @@ NotificationModals.propTypes = {
   exitingModal: PropTypes.shape(modalShape)
 }
 
-export default connect()(NotificationModals);
+const mapStateToProps = (state) => {
+  const {notifications: {errorGeneratorsMap, infoGeneratorsMap}} = state;
+  return {
+    errorGeneratorsMap,
+    infoGeneratorsMap
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(NotificationModals);

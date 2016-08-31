@@ -10,18 +10,20 @@ import React, {PropTypes} from 'react';
 import StandardModal from 'components/StandardModal';
 import {
   generateErrorMessage, generateInformationMessage
-} from 'notification/messageGeneration';
+} from '../messageGeneration';
+import MessageGeneratorsMap from '../MessageGeneratorsMap';
 
 export default class NotificationModal extends React.Component {
   render() {
+    const {infoGeneratorsMap, errorGeneratorsMap} = this.props;
     let message = this.props.message;
 
     if (message === undefined) {
       message = {title: undefined, content: undefined, messageId: "undefined"};
     } else if (message.messageType === "error") {
-      message = generateErrorMessage(message);
+      message = generateErrorMessage(errorGeneratorsMap, message);
     } else {
-      message = generateInformationMessage(message);
+      message = generateInformationMessage(infoGeneratorsMap, message);
     }
 
     return (
@@ -43,5 +45,7 @@ const messageShape = {
 };
 
 NotificationModal.propTypes = {
-  message: PropTypes.shape(messageShape)
+  message: PropTypes.shape(messageShape),
+  infoGeneratorsMap: PropTypes.instanceOf(MessageGeneratorsMap).isRequired,
+  errorGeneratorsMap: PropTypes.instanceOf(MessageGeneratorsMap).isRequired
 }
