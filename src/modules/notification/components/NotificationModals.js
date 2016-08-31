@@ -31,25 +31,28 @@ class NotificationModals extends React.Component {
 
   render() {
     const {
+      currentModal,
+      exitingModal,
+      showingModal,
       errorGeneratorsMap,
       infoGeneratorsMap
     } = this.props;
 
-    const currentModalId = this.props.currentModal ?
-      this.props.currentModal.messageId :
+    const currentModalId = currentModal ?
+      currentModal.messageId :
       "undefinedCurrentModal";
 
-    const exitingModalId = this.props.exitingModal ?
-      this.props.exitingModal.messageId :
+    const exitingModalId = exitingModal ?
+      exitingModal.messageId :
       "undefinedExitingModal";
 
     return (
       <div>
         {/* The current modal to display. */}
         <Modal
-          show={this.props.showingModal}
+          show={showingModal}
           onHide={this.handleCloseNotification}
-          message={this.props.currentModal}
+          message={currentModal}
           key={currentModalId}
           errorGeneratorsMap={errorGeneratorsMap}
           infoGeneratorsMap={infoGeneratorsMap}
@@ -58,7 +61,7 @@ class NotificationModals extends React.Component {
         <Modal
           show={false}
           onHide={() => {}}
-          message={this.props.exitingModal}
+          message={exitingModal}
           key={exitingModalId}
           errorGeneratorsMap={errorGeneratorsMap}
           infoGeneratorsMap={infoGeneratorsMap}
