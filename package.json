@@ -21,7 +21,7 @@
     "docker-test:watch": "npm run docker-run 4001 npm run test:watch",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix",
-    "preinstall": "npm run clean && npm install && npm run build",
+    "preinstall": "npm run clean && npm run build",
     "shrinkpack": "shrinkpack",
     "test": "env NODE_PATH=$NODE_PATH:$PWD/src:$PWD/src/modules NODE_ENV=test mocha --compilers js:babel-register --recursive 'src/**/__tests__/*'  --require src/__tests__/setup.js",
     "test:watch": "npm run test -- --watch",
