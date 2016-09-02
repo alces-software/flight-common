@@ -5,12 +5,19 @@
   "engines": {
     "node": "4.1.2"
   },
-  "main": "dist/flight-common.js",
+  "files": [
+    "src",
+    "dist",
+    "lib"
+  ],
+  "main": "lib/index.js",
   "scripts": {
     "start": "webpack --progress --colors --watch",
-    "build": "NODE_ENV=production webpack --colors --progress",
-    "build-dev": "NODE_ENV=development webpack --colors --progress",
-    "clean": "rm -rf ./dist",
+    "build:lib": "babel src --out-dir lib",
+    "build:umd:dev": "NODE_ENV=development webpack --colors --progress src/index.js dist/flight-common.dev.js",
+    "build:umd:prod": "NODE_ENV=production webpack --colors --progress src/index.js dist/flight-common.min.js",
+    "build": "npm run build:lib && npm run build:umd:dev && npm run build:umd:prod",
+    "clean": "rm -rf ./dist ./lib",
     "compress-bundles": "scripts/compress-bundles.sh everything",
     "dev-server": "NODE_ENV=development node server.js",
     "docker-bootstrap": "npm run docker-build && npm run docker-run npm run uninstall-dependencies && npm run docker-run npm install && npm run docker-dev-server",
@@ -69,6 +76,7 @@
     "zxcvbn": "^4.1.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.14.0",
     "babel-core": "^6.3.26",
     "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.0",

@@ -16,7 +16,7 @@ var appName = "flight-common";
 var entries, devServer, devtool, outputFile, pathinfo, plugins, publicPath,
     loaders;
 
-outputFile = appName + '.js'
+// outputFile = appName + '.js'
 
 if (env === "production") {
   devtool = "source-map";
@@ -119,9 +119,9 @@ module.exports = {
   context: __dirname + '/src',
   devServer: devServer,
   devtool: devtool,
-  entry: entries.concat([
-    './index'
-  ]),
+  // entry: entries.concat([
+  //   './index'
+  // ]),
   externals: {
     react: {
       root: 'React',
@@ -143,7 +143,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     publicPath: publicPath,
     pathinfo: pathinfo,
-    filename: outputFile,
+    // filename: outputFile,
     libraryTarget: 'umd',
     library: appName
   },
