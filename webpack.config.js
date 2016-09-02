@@ -38,15 +38,6 @@ if (env === "production") {
       __UNIVERSAL__: false
     }),
     new ExtractTextPlugin(appName + ".[hash].css"),
-    new webpack.optimize.UglifyJsPlugin({
-      compress : {
-        screw_ie8 : true,   // eslint-disable-line camelcase
-        warnings: false
-      },
-      mangle : {
-        screw_ie8 : true   // eslint-disable-line camelcase
-      }
-    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin()
   ];
