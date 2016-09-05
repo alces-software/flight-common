@@ -13,20 +13,11 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var env = process.env.NODE_ENV;
 
 var appName = "flight-common";
-var entries, devServer, devtool, outputFile, pathinfo, plugins, publicPath,
-    loaders;
-
-// outputFile = appName + '.js'
+var devtool, pathinfo, plugins, loaders;
 
 if (env === "production") {
   devtool = "source-map";
   pathinfo = false;
-  // XXX This needs to match the server address from which the built bundles
-  // will be downloaded. If it doesn't, then the browser will attempt to
-  // download the zxcvbn chunk from the wrong location.
-  publicPath = "https://alces-portal.storage.googleapis.com/alces-flight/"
-
-  entries = [];
 
   plugins = [
     new webpack.NoErrorsPlugin(),
@@ -75,14 +66,8 @@ if (env === "production") {
 } else {
   devtool = "cheap-module-inline-source-map";
   pathinfo = true;
-  publicPath = "http://localhost:3001/";
-
-  entries = [
-    "webpack-hot-middleware/client?path=http://localhost:3001/__webpack_hmr"
-  ];
 
   plugins = [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       __PRODUCTION__: false,
@@ -117,11 +102,7 @@ if (env === "production") {
 
 module.exports = {
   context: __dirname + '/src',
-  devServer: devServer,
   devtool: devtool,
-  // entry: entries.concat([
-  //   './index'
-  // ]),
   externals: {
     react: {
       root: 'React',
@@ -140,10 +121,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: publicPath,
     pathinfo: pathinfo,
-    // filename: outputFile,
     libraryTarget: 'umd',
     library: appName
   },
