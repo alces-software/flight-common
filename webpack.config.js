@@ -20,14 +20,6 @@ if (env === "production") {
   pathinfo = false;
 
   plugins = [
-    new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": '"production"',
-      __PRODUCTION__: true,
-      __DEVELOPMENT__: false,
-      __TEST__: false,
-      __UNIVERSAL__: false
-    }),
     new ExtractTextPlugin(appName + ".[hash].css"),
     new webpack.optimize.UglifyJsPlugin({
       compress : {
@@ -44,22 +36,12 @@ if (env === "production") {
 
   loaders = [
     {
-      test: /\.js$/,
-      loaders: ['babel'],
-      exclude: /node_modules/,
-      include: __dirname
-    },
-    {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract("style-loader", "css-loader")
     },
     {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract("css!sass")
-    },
-    {
-      test: /\.json$/,
-      loader: 'json'
     }
   ]
 
@@ -67,23 +49,9 @@ if (env === "production") {
   devtool = "cheap-module-inline-source-map";
   pathinfo = true;
 
-  plugins = [
-    new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      __PRODUCTION__: false,
-      __DEVELOPMENT__: true,
-      __TEST__: false,
-      __UNIVERSAL__: false
-    })
-  ];
+  plugins = [];
 
   loaders = [
-    {
-      test: /\.js$/,
-      loaders: ['babel'],
-      exclude: /node_modules/,
-      include: __dirname
-    },
     {
       test: /\.css$/,
       loader: "style!css?sourceMap"
@@ -91,10 +59,6 @@ if (env === "production") {
     {
       test: /\.scss$/,
       loader: "style!css?sourceMap!sass?sourceMap"
-    },
-    {
-      test: /\.json$/,
-      loader: 'json'
     }
   ]
 
@@ -125,19 +89,58 @@ module.exports = {
     libraryTarget: 'umd',
     library: appName
   },
-  plugins: plugins,
+  plugins: [
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      __PRODUCTION__: false,
+      __DEVELOPMENT__: true,
+      __TEST__: false,
+      __UNIVERSAL__: false
+    })
+  ].concat(plugins),
   module: {
     preLoaders: [
       {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/}
     ],
     loaders: loaders.concat([
-      { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/,   loader: "url-loader?limit=10000&mimetype=application/font-woff" },
-      { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/,  loader: "url-loader?limit=10000&mimetype=application/font-woff" },
-      { test: /\.ttf(\?v=[0-9]\.[0-9]\.[0-9])?$/,    loader: "file-loader" },
-      { test: /\.eot(\?v=[0-9]\.[0-9]\.[0-9])?$/,    loader: "file-loader" },
-      { test: /\.svg(\?v=[0-9]\.[0-9]\.[0-9])?$/,    loader: "file-loader" },
-      { test: /\.png(\?v=[0-9]\.[0-9]\.[0-9])?$/,    loader: "url-loader?limit=100000" },
-      { test: /\.md$/,     loaders: ["html", "markdown"]}
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/,
+        include: __dirname
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
+        test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      },
+      {
+        test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      },
+      {
+        test: /\.ttf(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.eot(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.svg(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.png(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=100000"
+      },
+      {
+        test: /\.md$/,
+        loaders: ["html", "markdown"]
+      }
     ])
   }
 };
