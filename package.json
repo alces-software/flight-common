@@ -14,7 +14,7 @@
   "main-es6": "src/index.js",
   "scripts": {
     "start": "webpack --progress --colors --watch",
-    "build:lib": "babel src --out-dir lib",
+    "build:lib": "NODE_ENV=production babel src --out-dir lib",
     "build:umd:dev": "NODE_ENV=development webpack --colors --progress src/index.js dist/flight-common.dev.js",
     "build:umd:prod": "NODE_ENV=production webpack --colors --progress src/index.js dist/flight-common.min.js",
     "build": "npm run build:lib && npm run build:umd:dev && npm run build:umd:prod",
