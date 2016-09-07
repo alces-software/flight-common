@@ -50,21 +50,23 @@ export function setupDefaultErrorMessageGenerators(generatorsMap, productName) {
     </div>
   );
 
-  // Any bad gateway response that we have not planned for is an unexpected
-  // error, so display the standard message.
-  // TODO: this is needed in order to override the message for this status code
-  // for particular actions in AAM (and potentially other apps)- maybe it would
-  // be better if we were able to customize error messages without needing to
-  // specify a default, and have the unexpected error message as the default
-  // default?
-  const badGatewayErrorMessageGenerator = unexpectedErrorMessageGenerator;
-
   generatorsMap.
     addGeneratorForCode(0,   serverUnavailableErrorMessageGenerator).
     addGeneratorForCode(401, unauthorizedErrorMessageGenerator).
     addGeneratorForCode(422, unprocessableEntityErrorMessageGenerator).
     addGeneratorForCode(500, serverErrorMessageGenerator).
-    addGeneratorForCode(502, badGatewayErrorMessageGenerator).
+
+    // If these status codes (bad gateway and gateway timeout) occur and we
+    // have not planned for them, they are unexpected errors, so display the
+    // standard message.
+    // TODO: this is needed in order to override the message for these status
+    // codes for particular actions in AAM (and potentially other apps) - maybe
+    // it would be better if we were able to customize error messages without
+    // needing to specify a default, and have the unexpected error message as
+    // the default default?
+    addGeneratorForCode(502, unexpectedErrorMessageGenerator).
+    addGeneratorForCode(504, unexpectedErrorMessageGenerator).
+
     addUnexpectedGenerator(unexpectedErrorMessageGenerator);
 }
 
