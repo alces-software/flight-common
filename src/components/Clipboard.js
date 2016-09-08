@@ -9,7 +9,7 @@ import React from 'react';
 import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import ClipboardAction from 'clipboard/lib/clipboard-action';
 
-import Icon from 'components/Icon';
+import Icon from './Icon';
 
 export class CopyToClipboardButton extends React.Component {
   constructor(props) {

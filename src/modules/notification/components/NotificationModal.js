@@ -7,7 +7,7 @@
  *===========================================================================*/
 import React, {PropTypes} from 'react';
 
-import StandardModal from 'components/StandardModal';
+import StandardModal from '../../../components/StandardModal';
 import {
   generateErrorMessage, generateInformationMessage
 } from '../messageGeneration';
