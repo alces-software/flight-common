@@ -182,7 +182,7 @@ $arrow-size: 11px;
 
 .flight-navOverlay .flight-notYet {
     P {
-        @extend %portal-notYet--secondary;
+        @extend %flight-notYet--secondary;
     }
     background-color: transparent;
     margin: rem(10px);
