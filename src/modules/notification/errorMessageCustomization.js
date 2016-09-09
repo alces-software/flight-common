@@ -7,7 +7,7 @@
  *===========================================================================*/
 import React from 'react';
 
-import {ContactCustomerSupport} from '../../../components/CustomerSupport';
+import {ContactCustomerSupport} from '../../components/CustomerSupport';
 
 import MessageGenerator from "./MessageGenerator";
 
