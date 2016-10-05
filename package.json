@@ -16,22 +16,13 @@
     "build:lib": "NODE_ENV=production babel src --out-dir lib",
     "build": "npm run build:lib",
     "clean": "rm -rf ./dist ./lib",
-    "compress-bundles": "scripts/compress-bundles.sh everything",
-    "dev-server": "NODE_ENV=development node server.js",
-    "docker-bootstrap": "npm run docker-build && npm run docker-run npm run uninstall-dependencies && npm run docker-run npm install && npm run docker-dev-server",
-    "docker-build": "docker build -t aviator --build-arg USER_ID=\"$(id -u)\" .",
-    "docker-dev-server": "npm run docker-run npm run dev-server",
-    "docker-run": "scripts/docker-run",
-    "docker-test": "npm run docker-run 4001 npm test",
-    "docker-test:watch": "npm run docker-run 4001 npm run test:watch",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix",
     "preinstall": "npm run clean && npm run build",
     "shrinkpack": "shrinkpack",
     "test": "env NODE_PATH=$NODE_PATH:$PWD/src:$PWD/src/modules NODE_ENV=test mocha --compilers js:babel-register --recursive 'src/**/__tests__/*'  --require src/__tests__/setup.js",
     "test:watch": "npm run test -- --watch",
-    "uninstall-dependencies": "for package in $( ls node_modules ) ; do npm uninstall $package ; done",
-    "upload-assets": "scripts/upload-to-cloud-storage.sh"
+    "uninstall-dependencies": "for package in $( ls node_modules ) ; do npm uninstall $package ; done"
   },
   "keywords": [
     "redux",
