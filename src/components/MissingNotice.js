@@ -8,7 +8,7 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 
-import WrappedWithPara from 'components/WrappedWithPara';
+import WrappedWithPara from './WrappedWithPara';
 
 export default class MissingNotice extends React.Component {
   render() {
