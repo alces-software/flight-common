@@ -29,7 +29,7 @@ class Header extends React.Component {
           </NavbarBrand>
           <NavbarToggle/>
         </NavbarHeader>
-        <NavbarCollapse eventKey={0}>
+        <NavbarCollapse>
           {children}
         </NavbarCollapse>
       </Navbar>
