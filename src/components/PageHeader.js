@@ -10,7 +10,7 @@ import { Jumbotron } from 'react-bootstrap';
 import { Grid, Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
 
-import WrappedWithPara from 'components/WrappedWithPara';
+import WrappedWithPara from './WrappedWithPara';
 
 class PageHeader extends React.Component {
   render() {
