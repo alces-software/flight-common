@@ -80,6 +80,7 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
  * need access to the SASS context (helpers, basic settings, bootstrap
  * settings, others?) to be compiled.
  */
+@import "./pageHeader";
 @import "./footer";
 @import "./loadingPage";
 
