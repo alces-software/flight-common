@@ -10,7 +10,7 @@ import {ProgressBar} from 'react-bootstrap';
 
 class LoadingPage extends React.Component {
   render() {
-    const {productName} = this.props;
+    const {bsStyle, productName} = this.props;
 
     return (
       <div className="loading-indicator">
@@ -21,7 +21,7 @@ class LoadingPage extends React.Component {
         </p>
         <ProgressBar
           active
-          bsStyle="info"
+          bsStyle={bsStyle}
           className="loading-indicator-progress-bar"
           now={100}
           striped
@@ -32,7 +32,8 @@ class LoadingPage extends React.Component {
 }
 
 LoadingPage.propTypes = {
-  productName: PropTypes.string.isRequired
+  productName: PropTypes.string.isRequired,
+  bsStyle: ProgressBar.propTypes.bsStyle
 }
 
 export default LoadingPage;
