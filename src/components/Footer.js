@@ -7,10 +7,19 @@
  *===========================================================================*/
 import React, {PropTypes} from 'react';
 import moment from 'moment';
+import { Link } from 'react-router';
+
+const FooterLink = ({ to, text }) => (
+  <Link to={to} className="flightFooter-link">{text}</Link>
+);
+
+const SeparatorBar = () => (
+  <span className="flightFooter-bar" />
+);
 
 class Footer extends React.Component {
   render() {
-    const {productName, content, firstCopyrightYear} = this.props;
+    const {productName, firstCopyrightYear, links} = this.props;
     const currentYear = moment().format("YYYY");
 
     let copyrightYears;
@@ -27,31 +36,31 @@ class Footer extends React.Component {
         <a className="flightFooter-us" href="http://www.alces-flight.com">
           Alces&nbsp;Flight&nbsp;Ltd
         </a>
-        {content}
+        {
+          links.map(link => <span>
+            <SeparatorBar /><FooterLink to={link.to} text={link.text} />
+          </span>)
+        }
       </footer>
     )
-  }
-
-  separatorBar() {
-    return (
-      <span className="flightFooter-bar" />
-    );
   }
 }
 
 Footer.propTypes = {
   productName: PropTypes.string.isRequired,
 
-  // TODO: May be nicer once this is used for FlightDeck to change this to an
-  // array of link objects with keys for link name and address, then we can
-  // generate the JSX including separators when we display these.
-  content: PropTypes.node,
-
   firstCopyrightYear: PropTypes.string,
+
+  // Additional links to add to the footer.
+  links: PropTypes.arrayOf(PropTypes.shape({
+    to: PropTypes.string.isRequired,
+    text: PropTypes.node.isRequired,
+  })),
 }
 
 Footer.defaultProps = {
   firstCopyrightYear: "2015",
+  links: [],
 };
 
 export default Footer;
