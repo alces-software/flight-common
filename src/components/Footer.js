@@ -37,7 +37,7 @@ class Footer extends React.Component {
           Alces&nbsp;Flight&nbsp;Ltd
         </a>
         {
-          links.map(link => <span>
+          links.map(link => <span key={link.to}>
             <SeparatorBar /><FooterLink to={link.to} text={link.text} />
           </span>)
         }
