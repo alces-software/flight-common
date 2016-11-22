@@ -10,5 +10,6 @@ export Icon from './Icon'
 export {ButtonLink, NavItemLink} from './Links';
 export LoadingPage from './LoadingPage';
 export StandardModal from './StandardModal';
+export StatefulButton from './StatefulButton';
 export MissingNotice from './MissingNotice';
 export PageHeader from './PageHeader';

@@ -6,21 +6,20 @@
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
 import React from 'react';
-import {Button} from 'react-bootstrap';
-import bootstrapUtils from 'react-bootstrap/lib/utils/bootstrapUtils';
+import {Button, utils} from 'react-bootstrap';
 
-import Icon from 'components/Icon';
+import Icon from './Icon';
 
-bootstrapUtils.addStyle(Button, ["sideEffect"]);
+utils.bootstrapUtils.addStyle(Button, "sideEffect");
 
 class StatefulButton extends React.Component {
   render() {
-    const { disabled, submitting } = this.props;
+    const { disabled, submitting, ...rest } = this.props;
 
     return (
       <Button
         bsStyle="success"
-        {...this.props}
+        {...rest}
         disabled={disabled || submitting}
       >
         {this.renderContent(submitting)}
@@ -49,7 +48,7 @@ StatefulButton.propTypes = {
   block: Button.propTypes.block,
   bsSize: Button.propTypes.bsSize,
   bsStyle: Button.propTypes.bsStyle,
-  onClick: React.PropTypes.func.isRequired,
+  onClick: React.PropTypes.func,
   submitting: React.PropTypes.bool,
   submittingText: React.PropTypes.string
 };
