@@ -16,10 +16,15 @@ export default class NavOverlay extends React.Component {
   render() {
     const title = <div className="flight-navOverlay-title">
       {this.props.title}
-      <Link
-        to={this.props.linkTo}
-        className="flight-navOverlay-link"
-        >See all <Icon name="arrow-go"/></Link>
+      {
+        linkTo ?
+          <Link
+            to={linkTo}
+            className="flight-navOverlay-link"
+          >See all <Icon name="arrow-go"/>
+          </Link>
+          : null
+      }
       <Icon
         className="flight-navOverlay-action flight-navOverlay-action-close"
         name="close"
@@ -52,6 +57,7 @@ export default class NavOverlay extends React.Component {
 }
 
 NavOverlay.propTypes = {
+  linkTo: PropTypes.string,
   title: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired
 }
