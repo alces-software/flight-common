@@ -14,8 +14,12 @@ import Icon from '../Icon';
 
 export default class NavOverlay extends React.Component {
   render() {
-    const title = <div className="flight-navOverlay-title">
-      {this.props.title}
+    const {
+      title, linkTo, linkText, onHide, container, show, target, ...popoverProps
+    } = this.props;
+
+    const popoverTitle = <div className="flight-navOverlay-title">
+      {title}
       {
         linkTo ?
           <Link
@@ -28,7 +32,7 @@ export default class NavOverlay extends React.Component {
       <Icon
         className="flight-navOverlay-action flight-navOverlay-action-close"
         name="close"
-        onClick={this.props.onHide}
+        onClick={onHide}
       />
     </div>
 
@@ -38,17 +42,19 @@ export default class NavOverlay extends React.Component {
     );
 
     return (
-      // We need to pass all of `this.props` to Overlay and Popover or it
-      // won't be positioned or styled correctly.
+      // We need to pass all of `this.props` to Overlay or it won't be
+      // positioned or styled correctly.
       <Overlay
         {...this.props}
+        container={container}
         placement="bottom"
         rootClose
+        show={show}
+        target={target}
         >
         <Popover
-          {...this.props}
-          id={this.props.id}
-          title={title}
+          {...popoverProps}
+          title={popoverTitle}
           className={classes}
         />
       </Overlay>
@@ -61,8 +67,11 @@ NavOverlay.defaultProps = {
 };
 
 NavOverlay.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.any,
+  id: PropTypes.string.isRequired,
   linkText: PropTypes.node,
   linkTo: PropTypes.string,
+  onHide: PropTypes.func,
   title: PropTypes.node.isRequired,
-  children: PropTypes.node.isRequired
 }
