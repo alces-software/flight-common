@@ -21,7 +21,7 @@ export default class NavOverlay extends React.Component {
           <Link
             to={linkTo}
             className="flight-navOverlay-link"
-          >See all <Icon name="arrow-go"/>
+          >{linkText} <Icon name="arrow-go"/>
           </Link>
           : null
       }
@@ -56,7 +56,12 @@ export default class NavOverlay extends React.Component {
   }
 }
 
+NavOverlay.defaultProps = {
+  linkText: 'See all',
+};
+
 NavOverlay.propTypes = {
+  linkText: PropTypes.node,
   linkTo: PropTypes.string,
   title: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired
