@@ -37,9 +37,13 @@ export default class NavOverlayEntry extends React.Component {
             <div className="flight-navOverlay-entry-body">
               {children}
             </div>
-            <div className="flight-navOverlay-entry-timestamp">
-              <TimeAgo date={timestamp} tooltipFormat="calendar"/>
-            </div>
+            {
+              timestamp ?
+                <div className="flight-navOverlay-entry-timestamp">
+                  <TimeAgo date={timestamp} tooltipFormat="calendar"/>
+                </div>
+                : null
+            }
           </div>
         </Link>
         {actions ? actions.map((action, idx) => this.renderControl(action, idx)) : null}
@@ -81,6 +85,6 @@ const actionShape = {
 NavOverlayEntry.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.shape(actionShape).isRequired),
   iconName: PropTypes.string.isRequired,
-  timestamp: PropTypes.string.isRequired,
+  timestamp: PropTypes.string,
   title: PropTypes.string.isRequired
 }
