@@ -52,7 +52,7 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 
 /* Core application styles */
 @import "./flight";
-// @import './flightHeaders';
+@import './flightHeaders';
 // @import './flightTasks';
 
 /* Navigation */
@@ -67,7 +67,7 @@ $popover-arrow-outer-color: fade_in($popover-border-color, 0.05);
 @import "./nav/overlay";
 // @import "./flightConfirmation";
 // @import "./flightHelpPopover";
-// @import "./flightPanel";
+@import "./flightPanel";
 // @import "./flightSelect";
 // @import "./flightTable";
 // @import "./flightToast";
