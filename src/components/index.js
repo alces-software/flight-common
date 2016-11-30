@@ -2,6 +2,7 @@
 export {createAuthorize} from './AuthorizedComponent';
 export {CopyToClipboardButton, CopyToClipboard} from './Clipboard';
 export {CustomerSupportLink, ContactCustomerSupport} from './CustomerSupport';
+export CookieBanner from './CookieBanner';
 export Footer from './Footer';
 export Header from './Header';
 export Icon from './Icon'
