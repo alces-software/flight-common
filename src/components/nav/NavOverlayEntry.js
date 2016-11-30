@@ -17,7 +17,7 @@ import TimeAgo from '../TimeAgo';
 export default class NavOverlayEntry extends React.Component {
   render() {
     const {
-      actions, children, className, iconName, linkTarget, timestamp, title
+      actions, children, className, icon, iconName, linkTarget, timestamp, title
     } = this.props;
     const classes = classNames(
       "flight-navOverlay-entry",
@@ -28,7 +28,7 @@ export default class NavOverlayEntry extends React.Component {
       <div className={classes}>
         <Link to={linkTarget}>
           <div className="flight-navOverlay-entry-icon">
-            <Icon name={iconName}/>
+            { icon ? icon : <Icon name={iconName}/> }
           </div>
           <div className="flight-navOverlay-entry-content">
             <div className="flight-navOverlay-entry-title">
@@ -84,7 +84,9 @@ const actionShape = {
 
 NavOverlayEntry.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.shape(actionShape).isRequired),
-  iconName: PropTypes.string.isRequired,
+  iconName: PropTypes.string,
+  icon: PropTypes.node,
   timestamp: PropTypes.string,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  overlayContainer: PropTypes.any.isRequired,
 }
