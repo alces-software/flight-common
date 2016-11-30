@@ -52,6 +52,7 @@ export default class NavCounterBadge extends React.Component {
 
   componentWillUpdate() {
     if (this.isChanging()) {
+      // eslint-disable-next-line react/no-find-dom-node
       const node = ReactDOM.findDOMNode(this);
       node.classList.add("flight-NavCounterBadge-animate-flash-enter");
     }
@@ -74,6 +75,7 @@ export default class NavCounterBadge extends React.Component {
   }
 
   addActiveClass() {
+    // eslint-disable-next-line react/no-find-dom-node
     const node = ReactDOM.findDOMNode(this);
     node.classList.add("flight-NavCounterBadge-animate-flash-enter-active");
     this.timeout = setTimeout(
@@ -83,6 +85,7 @@ export default class NavCounterBadge extends React.Component {
   }
 
   removeClasses() {
+    // eslint-disable-next-line react/no-find-dom-node
     const node = ReactDOM.findDOMNode(this);
     node.classList.remove(
       "flight-NavCounterBadge-animate-flash-enter",

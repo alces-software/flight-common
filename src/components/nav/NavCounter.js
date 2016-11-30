@@ -11,7 +11,7 @@ import { NavItem } from 'react-bootstrap';
 import classNames from 'classnames';
 import _ from 'lodash';
 
-import Icon from 'components/Icon';
+import Icon from '../Icon';
 import NavCounterBadge from './NavCounterBadge';
 
 export default class NavCounter extends React.Component {
@@ -36,7 +36,7 @@ export default class NavCounter extends React.Component {
     );
     const countersClassNames = classNames(
       "flight-NavCounter-control-counters",
-      {"flight-NavCounter-control-counters--inactive": _.all(
+      {"flight-NavCounter-control-counters--inactive": _.every(
         counters, c => c.count < 1
       )}
     );
@@ -45,6 +45,7 @@ export default class NavCounter extends React.Component {
       container: this.props.overlayContainer,
       onHide: this.handleHideOverlay.bind(this),
       show: this.state.show,
+      // eslint-disable-next-line react/no-find-dom-node
       target: () => ReactDOM.findDOMNode(this)
     });
 

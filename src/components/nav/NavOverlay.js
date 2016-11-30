@@ -10,7 +10,7 @@ import { Overlay, Popover } from 'react-bootstrap';
 import classNames from 'classnames';
 import { Link } from 'react-router'
 
-import Icon from 'components/Icon';
+import Icon from '../Icon';
 
 export default class NavOverlay extends React.Component {
   render() {

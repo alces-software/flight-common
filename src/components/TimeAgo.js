@@ -10,7 +10,7 @@ import {default as ReactTimeAgo} from 'react-timeago';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import moment from 'moment';
 
-import {timestamp, upperCaseCalendar} from 'utils/momentConfiguration';
+import {timestamp, upperCaseCalendar} from '../utils/momentConfiguration';
 
 export default class TimeAgo extends React.Component {
   render() {

@@ -13,3 +13,6 @@ export StandardModal from './StandardModal';
 export StatefulButton from './StatefulButton';
 export MissingNotice from './MissingNotice';
 export PageHeader from './PageHeader';
+export NavCounter from './nav/NavCounter';
+export NavOverlay from './nav/NavOverlay';
+export NavOverlayEntry from './nav/NavOverlayEntry';

@@ -11,8 +11,8 @@ import { OverlayTrigger } from 'react-bootstrap';
 import {Link} from 'react-router';
 import classNames from 'classnames';
 
-import Icon from 'components/Icon';
-import TimeAgo from 'components/TimeAgo';
+import Icon from '../Icon';
+import TimeAgo from '../TimeAgo';
 
 export default class NavOverlayEntry extends React.Component {
   render() {
