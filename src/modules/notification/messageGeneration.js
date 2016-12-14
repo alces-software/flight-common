@@ -49,9 +49,17 @@ export function generateErrorMessage(generatorsMap, rawError) {
 // Parses out an object with the parts we care about from a raw error, as
 // created in the payload of the addError action.
 function parseError(rawError) {
+  const status = rawError.messagePayload.response ?
+    rawError.messagePayload.response.status :
+    undefined
+  let actionType;
+  if (rawError.messagePayload.action != null) {
+    actionType = rawError.messagePayload.action.type;
+  }
+
   return {
-    status: rawError.messagePayload.response.status,
-    actionType: rawError.messagePayload.action.type,
+    status,
+    actionType,
     payload: rawError.messagePayload
   }
 }
