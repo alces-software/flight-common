@@ -14,7 +14,8 @@ import {timestamp, upperCaseCalendar} from '../utils/momentConfiguration';
 
 export default class TimeAgo extends React.Component {
   render() {
-    const {date} = this.props;
+    // eslint-disable-next-line no-unused-vars
+    const {date, tooltipFormat, ...rest} = this.props;
     const tooltip = <Tooltip
       className="flight-livestamp-tooltip"
       id="timestamp"
@@ -28,7 +29,7 @@ export default class TimeAgo extends React.Component {
           overlay={tooltip}
           placement={this.props.tooltipPlacement || "bottom"}
           >
-          <ReactTimeAgo {...this.props} date={date} formatter={this.formatTimestamp}/>
+          <ReactTimeAgo {...rest} date={date} formatter={this.formatTimestamp}/>
         </OverlayTrigger>
       </span>
     );
