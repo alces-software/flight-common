@@ -72,10 +72,13 @@
         box-shadow: none;
     }
 
+    // Dividers in same style as panel border, for creating divisions within
+    // panel.
     .flightPanel-divider-right {
-        // Divider in same style as panel border, for creating divisions
-        // within panel.
         border-right: 1px solid #e3e3e3;
+    }
+    .flightPanel-divider-top {
+        border-top: 1px solid #e3e3e3;
     }
 
     .search-input > input {
