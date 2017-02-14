@@ -14,7 +14,15 @@ utils.bootstrapUtils.addStyle(Button, "sideEffect");
 
 class StatefulButton extends React.Component {
   render() {
-    const { disabled, submitting, ...rest } = this.props;
+    const {
+      /* eslint-disable no-unused-vars */
+      submittingText,
+      /* eslint-enable no-unused-vars */
+
+      disabled,
+      submitting,
+        ...rest
+    } = this.props;
 
     return (
       <Button
