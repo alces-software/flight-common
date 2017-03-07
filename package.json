@@ -2,23 +2,19 @@
   "name": "flight-common",
   "version": "0.0.0",
   "description": "Shared utilities for Alces Flight web apps",
-  "engines": {
-    "node": "4.1.2"
-  },
   "files": [
     "src",
     "dist",
     "lib"
   ],
   "main": "lib/index.js",
-  "main-es6": "src/index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
-    "build:lib": "NODE_ENV=production babel src --out-dir lib",
-    "build": "npm run build:lib",
+    "build": "NODE_ENV=production babel src --out-dir lib",
     "clean": "rm -rf ./dist ./lib",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix",
-    "preinstall": "npm run clean && npm run build",
+    "postinstall": "(yarn run clean || npm run clean) && (yarn run build || npm run clean)",
     "test": "env NODE_PATH=$NODE_PATH:$PWD/src:$PWD/src/modules NODE_ENV=test mocha --compilers js:babel-register --recursive 'src/**/__tests__/*'  --require src/__tests__/setup.js",
     "test:watch": "npm run test -- --watch",
     "uninstall-dependencies": "for package in $( ls node_modules ) ; do npm uninstall $package ; done"
@@ -36,9 +32,11 @@
     "react-router": ">=2.0.0"
   },
   "dependencies": {
+    "babel-loader": "^6.2.10",
     "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
     "clipboard": "^1.5.15",
+    "eslint-loader": "^1.6.0",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.2",
     "moment": "^2.16.0",
