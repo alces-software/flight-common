@@ -101,9 +101,8 @@ export class CopyToClipboard extends React.Component {
   }
 
   render() {
-    /* eslint-disable no-redeclare */
+    // eslint-disable-next-line no-unused-vars
     const {text, onCopy, children, ...rest} = this.props;
-    /* eslint-enable no-redeclare */
     const elem = React.Children.only(children)
     return React.cloneElement(elem, {
       ...rest,
