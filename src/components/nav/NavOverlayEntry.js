@@ -8,7 +8,7 @@
 import React, {PropTypes} from 'react';
 import moment from 'moment';
 import { OverlayTrigger } from 'react-bootstrap';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 
 import Icon from '../Icon';

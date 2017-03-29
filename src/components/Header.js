@@ -6,7 +6,7 @@
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
 import React, {PropTypes} from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import {Navbar} from 'react-bootstrap';
 
 // Import these components directly to make Babel optimizations happy.  One of

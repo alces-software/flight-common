@@ -7,7 +7,7 @@
  *===========================================================================*/
 import React, {PropTypes} from 'react';
 import moment from 'moment';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const FooterLink = ({ to, text }) => (
   <Link to={to} className="flightFooter-link">{text}</Link>

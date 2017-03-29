@@ -8,7 +8,7 @@
 import React, {PropTypes} from 'react';
 import { Overlay, Popover } from 'react-bootstrap';
 import classNames from 'classnames';
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import Icon from '../Icon';
 
