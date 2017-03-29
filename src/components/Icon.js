@@ -9,6 +9,37 @@ import React, {PropTypes} from 'react';
 import FontAwesome from 'react-fontawesome';
 import classNames from 'classnames';
 
+const sizeToPixels = (size) => {
+  switch (size) {
+    case '1x':
+      return '16px';
+    case '2x':
+      return '32px';
+    case '3x':
+      return '48px';
+    case '4x':
+      return '64px';
+    default:
+      return '16px';
+  }
+};
+
+const ImageIcon = ({ iconSrc, size }) => (
+  <span className="flight-icon">
+    <img
+      src={iconSrc}
+      role="presentation"
+      height={sizeToPixels(size)}
+    />
+  </span>
+);
+
+ImageIcon.propTypes = {
+  iconSrc: PropTypes.string.isRequired,
+  size: PropTypes.string,
+};
+
+
 const iconNameToFontAwesomeProps = {
   // Invitation icons
   // Actions we can take on invitations and their feedback
@@ -101,7 +132,7 @@ const faPropsForIconName = (iconName) => {
   return props ? props : {};
 }
 
-export default class Icon extends React.Component {
+class Icon extends React.Component {
   render() {
     const faProps = faPropsForIconName(this.props.name);
     const classes = classNames(
@@ -125,3 +156,20 @@ Icon.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string
 };
+
+
+const IconWrapper = ({ iconSrc, iconName, size, ...rest }) => {
+  if (iconSrc == null) {
+    return <Icon name={iconName} size={size} {...rest} />;
+  }
+
+  return <ImageIcon iconSrc={iconSrc} size={size} {...rest} />;
+};
+
+IconWrapper.propTypes = {
+  iconSrc: PropTypes.string,
+  iconName: PropTypes.string,
+  size: Icon.propTypes.size,
+};
+
+export default IconWrapper;
