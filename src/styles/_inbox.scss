@@ -51,3 +51,18 @@ a[href^="mailto:"]:after {
 .nowrap {
     white-space: nowrap;
 }
+
+
+
+/* Centre the pagination buttons used in the LicensableTable
+ * I think this is generic enough not to be constrained to just that
+ * component.
+ */
+.table TFOOT > TR > TD.paginator {
+    text-align: center;
+
+    .pagination {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
