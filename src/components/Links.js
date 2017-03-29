@@ -7,7 +7,8 @@
  *===========================================================================*/
 import React from 'react';
 import { Button, NavItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+
+import LinkContainer from './LinkContainer';
 
 export class ButtonLink extends React.Component {
 
