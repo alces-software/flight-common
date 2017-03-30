@@ -5,14 +5,26 @@
  *
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import { Grid, Row, Col, Well } from 'react-bootstrap';
 
-import PrivacyPolicy from '../PrivacyPolicy';
+import PrivacyPolicy, { cookieShape } from '../PrivacyPolicy';
 import PageHeader from '../PageHeader';
 
-const PrivacyPolicyPage = ({ lastUpdated }) => (
+const propTypes = {
+  cookies: PropTypes.arrayOf(PropTypes.shape(cookieShape)),
+  lastUpdated: PropTypes.string.isRequired,
+  preCookieTableCopy: PropTypes.string.isRequired,
+  postCookieTableCopy: PropTypes.string.isRequired,
+};
+
+const PrivacyPolicyPage = ({
+  cookies,
+  lastUpdated,
+  postCookieTableCopy,
+  preCookieTableCopy,
+}) => (
   <div>
     <Helmet title="Privacy Policy" />
     <PageHeader header="Privacy Policy">
@@ -44,11 +56,17 @@ const PrivacyPolicyPage = ({ lastUpdated }) => (
       </Grid>
       <Row>
         <Col md={10} mdOffset={1}>
-          <PrivacyPolicy />
+          <PrivacyPolicy
+            cookies={cookies}
+            preCookieTableCopy={preCookieTableCopy}
+            postCookieTableCopy={postCookieTableCopy}
+          />
         </Col>
       </Row>
     </div>
   </div>
 );
+
+PrivacyPolicyPage.propTypes = propTypes;
 
 export default PrivacyPolicyPage;

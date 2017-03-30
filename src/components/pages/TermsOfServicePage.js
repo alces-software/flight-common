@@ -10,15 +10,15 @@ import Helmet from 'react-helmet';
 import { Grid, Row, Col, Well } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import termsCopy from '../../copy/terms.md';
 import PageHeader from '../PageHeader';
 
 const propTypes = {
+  copy: PropTypes.string.isRequired,
   lastUpdated: PropTypes.string.isRequired,
   productName: PropTypes.string.isRequired,
 };
 
-const TermsOfServicePage = ({ lastUpdated, productName }) => (
+const TermsOfServicePage = ({ copy, lastUpdated, productName }) => (
   <div>
     <Helmet title="Terms of Service" />
     <PageHeader header="Terms of Service">
@@ -48,7 +48,7 @@ const TermsOfServicePage = ({ lastUpdated, productName }) => (
           <Col md={10} mdOffset={1}>
             <h2>Terms and conditions of use</h2>
             { /* eslint-disable react/no-danger */ }
-            <div dangerouslySetInnerHTML={{ __html: termsCopy }} />
+            <div dangerouslySetInnerHTML={{ __html: copy }} />
             { /* eslint-enable react/no-danger */ }
           </Col>
         </Row>

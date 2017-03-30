@@ -8,9 +8,6 @@
 import React, { PropTypes } from 'react';
 import { Table } from 'react-bootstrap';
 
-import policyPreCopy from '../copy/privacyPolicyPreCookieTable.md';
-import policyPostCopy from '../copy/privacyPolicyPostCookieTable.md';
-
 const cookies = [
   {
     name: 'accepts-cookies',
@@ -43,7 +40,7 @@ const CookieRow = ({ description, expiration, name, purpose }) => (
   </tr>
 );
 
-const cookieShape = {
+export const cookieShape = {
   description: PropTypes.string.isRequired,
   expiration: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -86,16 +83,22 @@ CookieTable.defaultProps = {
   cookies: cookies,
 };
 
-const PrivacyPolicy = () => (
+const PrivacyPolicy = ({ cookies, preCookieTableCopy, postCookieTableCopy }) => (
   <div>
     { /* eslint-disable react/no-danger */ }
-    <div dangerouslySetInnerHTML={{ __html: policyPreCopy }} />
+    <div dangerouslySetInnerHTML={{ __html: preCookieTableCopy }} />
     { /* eslint-enable react/no-danger */ }
-    <CookieTable />
+    <CookieTable cookies={cookies} />
     { /* eslint-disable react/no-danger */ }
-    <div dangerouslySetInnerHTML={{ __html: policyPostCopy }} />
+    <div dangerouslySetInnerHTML={{ __html: postCookieTableCopy }} />
     { /* eslint-enable react/no-danger */ }
   </div>
 );
+
+PrivacyPolicy.propTypes = {
+  cookies: PropTypes.arrayOf(PropTypes.shape(cookieShape)),
+  preCookieTableCopy: PropTypes.string.isRequired,
+  postCookieTableCopy: PropTypes.string.isRequired,
+};
 
 export default PrivacyPolicy;

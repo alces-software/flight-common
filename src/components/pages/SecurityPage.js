@@ -5,14 +5,17 @@
  *
  * All rights reserved, see LICENSE.txt.
  *===========================================================================*/
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import { Grid, Row, Col, Well } from 'react-bootstrap';
 
 import PageHeader from '../PageHeader';
-import securityPolicyCopy from '../../copy/securityPolicy.md';
 
-const SecurityPage = () => (
+const propTypes = {
+  copy: PropTypes.string.isRequired,
+};
+
+const SecurityPage = ({ copy }) => (
   <div>
     <Helmet title="Security" />
     <PageHeader header="Security Response">
@@ -40,7 +43,7 @@ const SecurityPage = () => (
         <Row>
           <Col md={10} mdOffset={1}>
             { /* eslint-disable react/no-danger */ }
-            <div dangerouslySetInnerHTML={{ __html: securityPolicyCopy }} />
+            <div dangerouslySetInnerHTML={{ __html: copy }} />
             { /* eslint-enable react/no-danger */ }
           </Col>
         </Row>
@@ -48,5 +51,7 @@ const SecurityPage = () => (
     </div>
   </div>
 );
+
+SecurityPage.propTypes = propTypes;
 
 export default SecurityPage;
