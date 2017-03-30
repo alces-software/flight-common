@@ -9,9 +9,11 @@ import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import { Grid, Row, Col, Well } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { CustomerSupportLink, Icon, PageHeader } from 'flight-common';
 
+import Icon from '../Icon';
 import LicensableTable from '../LicensableTable';
+import PageHeader from '../PageHeader';
+import { CustomerSupportLink } from '../CustomerSupport';
 
 const propTypes = {
   licensables: PropTypes.arrayOf(PropTypes.object).isRequired,
