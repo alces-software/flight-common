@@ -9,51 +9,7 @@ import React, { PropTypes } from 'react';
 import { Pagination, Table } from 'react-bootstrap';
 
 import Icon from './Icon';
-
-const LicenseLink = ({ name, href }) => {
-  if (href == null) {
-    return <span>{name}</span>;
-  }
-  return (
-    <a
-      href={href}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      {name}
-    </a>
-  );
-};
-
-LicenseLink.propTypes = {
-  name: PropTypes.string.isRequired,
-  href: PropTypes.string,
-};
-
-const LicensesLinks = ({ licenses }) => (
-  <span>
-    {
-      licenses.map((license, i) => {
-        if (i > 0) {
-          return (
-            <span>
-              ,
-              <LicenseLink key={i} name={license.name} href={license.href} />
-            </span>
-          );
-        }
-        return <LicenseLink key={i} name={license.name} href={license.href} />;
-      })
-    }
-  </span>
-);
-
-LicensesLinks.propTypes = {
-  licenses: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    href: PropTypes.string,
-  })).isRequired,
-};
+import LicensesLinks from './LicensesLinks';
 
 const LicensableTable = ({ licensables, footer }) => (
   <Table striped bordered >
