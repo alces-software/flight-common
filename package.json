@@ -14,7 +14,6 @@
     "clean": "rm -rf ./dist ./lib",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix",
-    "postinstall": "(yarn run clean || npm run clean) && (yarn run build || npm run build)",
     "test": "env NODE_PATH=$NODE_PATH:$PWD/src:$PWD/src/modules NODE_ENV=test mocha --compilers js:babel-register --recursive 'src/**/__tests__/*'  --require src/__tests__/setup.js",
     "test:watch": "npm run test -- --watch",
     "uninstall-dependencies": "for package in $( ls node_modules ) ; do npm uninstall $package ; done"
