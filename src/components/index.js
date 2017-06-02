@@ -6,6 +6,7 @@ export CookieBanner from './CookieBanner';
 export FlightPanel from './FlightPanel';
 export Footer from './Footer';
 export Header from './Header';
+export HelpPopover from './HelpPopover';
 export Icon from './Icon'
 export {ButtonLink, NavItemLink} from './Links';
 export LoadingPage from './LoadingPage';
